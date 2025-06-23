@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Engineering & Analytics - MerlinsGroup</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #000;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(147, 51, 234, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #9333ea, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+            letter-spacing: -1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(45deg, #9333ea, #c084fc);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #c084fc;
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #000 0%, #1a0033 50%, #000 100%);
+            color: white;
+            padding: 8rem 2rem 6rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(147, 51, 234, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 50%, rgba(192, 132, 252, 0.1) 0%, transparent 50%);
+            opacity: 0.7;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #fff;
+            text-transform: none;
+            letter-spacing: -0.02em;
+        }
+
+        @keyframes shimmer {
+            to { background-position: 200% center; }
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: #c084fc;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            color: #e9d5ff;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            line-height: 1.8;
+        }
+
+        .breadcrumb {
+            background: rgba(147, 51, 234, 0.1);
+            padding: 1rem 2rem;
+            margin-top: 80px;
+            border-bottom: 1px solid rgba(147, 51, 234, 0.2);
+        }
+
+        .breadcrumb-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: #c084fc;
+        }
+
+        .breadcrumb a {
+            color: #9333ea;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            color: #c084fc;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: #0a0a0a;
+            padding: 4rem 2rem;
+            border-bottom: 1px solid rgba(147, 51, 234, 0.2);
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-box {
+            padding: 2.5rem;
+            background: rgba(147, 51, 234, 0.05);
+            border-radius: 20px;
+            border: 1px solid rgba(147, 51, 234, 0.3);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-box:hover {
+            transform: translateY(-10px);
+            background: rgba(147, 51, 234, 0.1);
+            border-color: rgba(147, 51, 234, 0.6);
+            box-shadow: 0 20px 40px rgba(147, 51, 234, 0.2);
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #9333ea, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #a78bfa;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        /* Case Studies Section */
+        .case-studies {
+            background: #000;
+            padding: 6rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            padding: 0 2rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: #a78bfa;
+            line-height: 1.8;
+        }
+
+        .case-study {
+            max-width: 1200px;
+            margin: 0 auto 6rem;
+            padding: 0 2rem;
+        }
+
+        .case-study-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(147, 51, 234, 0.2);
+            border-radius: 25px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .case-study-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 60px rgba(147, 51, 234, 0.3);
+            border-color: rgba(147, 51, 234, 0.5);
+        }
+
+        .case-study-header {
+            background: linear-gradient(135deg, #1a0033, #000);
+            padding: 3rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .case-study-header:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+            filter: grayscale(100%);
+        }
+
+        .case-study-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .client-logo {
+            width: 80px;
+            height: 80px;
+            background: rgba(147, 51, 234, 0.1);
+            border: 1px solid rgba(147, 51, 234, 0.3);
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #c084fc;
+            font-weight: 600;
+        }
+
+        .case-study h3 {
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .case-study-tagline {
+            font-size: 1.3rem;
+            color: #c084fc;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .challenge-solution {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            padding: 3rem;
+        }
+
+        .challenge, .solution {
+            background: rgba(147, 51, 234, 0.05);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(147, 51, 234, 0.2);
+        }
+
+        .challenge h4, .solution h4 {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .challenge-icon, .solution-icon {
+            font-size: 2rem;
+        }
+
+        .challenge p, .solution p {
+            color: #a78bfa;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .tech-stack {
+            padding: 2rem 3rem;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .tech-stack h4 {
+            color: #c084fc;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .tech-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .tech-badge {
+            background: rgba(147, 51, 234, 0.2);
+            color: #e9d5ff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            border: 1px solid rgba(147, 51, 234, 0.3);
+            transition: all 0.3s;
+        }
+
+        .tech-badge:hover {
+            background: rgba(147, 51, 234, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .results {
+            padding: 3rem;
+            background: linear-gradient(135deg, rgba(147, 51, 234, 0.1), rgba(192, 132, 252, 0.05));
+        }
+
+        .results h4 {
+            color: #fff;
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+
+        .result-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .metric {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(147, 51, 234, 0.1);
+            border-radius: 15px;
+            border: 1px solid rgba(147, 51, 234, 0.2);
+        }
+
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #9333ea, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-label {
+            color: #a78bfa;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .quote {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid #9333ea;
+            margin-top: 2rem;
+        }
+
+        .quote-text {
+            font-size: 1.2rem;
+            color: #e9d5ff;
+            font-style: italic;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .quote-author {
+            color: #c084fc;
+            font-weight: bold;
+        }
+
+        /* Services Overview */
+        .services-overview {
+            background: #0a0a0a;
+            padding: 6rem 0;
+            border-top: 1px solid rgba(147, 51, 234, 0.2);
+        }
+
+        .services-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+
+        .service-card {
+            background: rgba(147, 51, 234, 0.05);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(147, 51, 234, 0.2);
+            transition: all 0.3s;
+        }
+
+        .service-card h3 {
+            color: #fff;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            color: #a78bfa;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .service-features {
+            list-style: none;
+        }
+
+        .service-features li {
+            color: #c084fc;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .service-features li:before {
+            content: '✓';
+            background: linear-gradient(45deg, #9333ea, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(45deg, #9333ea, #c084fc);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section:before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            text-transform: none;
+        }
+
+        .cta-section p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            color: #f3e8ff;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #000;
+            color: #c084fc;
+            padding: 1.2rem 3rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            background: #fff;
+            color: #9333ea;
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            border: 2px solid #fff;
+            color: #fff;
+        }
+
+        .cta-button.secondary:hover {
+            background: #fff;
+            color: #9333ea;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background: rgba(0, 0, 0, 0.98);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                border-bottom: 1px solid rgba(147, 51, 234, 0.2);
+            }
+
+            .nav-links.active {
+                transform: translateX(0);
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+            }
+
+            .challenge-solution {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 2rem;
+            }
+
+            .case-study h3 {
+                font-size: 2rem;
+            }
+
+            .section-header h2 {
+                font-size: 2.5rem;
+            }
+
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-button {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">MerlinsGroup</a>
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="packages.html">Packages</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="calendar.html">Book Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb">
+        <div class="breadcrumb-container">
+            <a href="index.html">Home</a> > 
+            <a href="portfolio.html">Portfolio</a> > 
+            <span>Data Engineering & Analytics</span>
+        </div>
+    </section>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Data Engineering & Analytics</h1>
+            <p class="hero-subtitle">Transforming Raw Data Into Strategic Advantage</p>
+            <p class="hero-description">
+                We don't just handle data – we architect intelligent systems that turn information chaos into competitive advantage. 
+                From real-time analytics platforms to AI-powered monitoring systems, we've helped organizations across sectors 
+                unlock the true potential of their data ecosystem.
+            </p>
+        </div>
+    </section>
+
+
+    <!-- Case Studies Section -->
+    <section class="case-studies">
+        <div class="section-header">
+            <h2>Success Stories</h2>
+            <p>Real challenges, innovative solutions, measurable results. Discover how we've transformed data operations for leading organizations.</p>
+        </div>
+
+        <!-- Ice Bank Jewellers Case Study -->
+        <div class="case-study" id="ice-bank-case-study">
+            <div class="case-study-card">
+                <div class="case-study-header">
+                    <div class="case-study-content">
+                        <div class="client-logo">IB</div>
+                        <h3>Ice Bank Jewellers</h3>
+                        <p class="case-study-tagline">"From Luxury Retail to Data-Driven Excellence"</p>
+                    </div>
+                </div>
+                
+                <div class="challenge-solution">
+                    <div class="challenge">
+                        <h4><span class="challenge-icon"></span>The Challenge</h4>
+                        <p>Ice Bank Jewellers, a premium jewelry retailer, was struggling with fragmented customer data across multiple platforms. Their inventory management was manual, customer insights were limited, and they couldn't track the customer journey effectively across their online and offline channels. With high-value transactions and discerning customers, they needed enterprise-level data intelligence.</p>
+                    </div>
+                    
+                    <div class="solution">
+                        <h4><span class="solution-icon"></span>Our Solution</h4>
+                        <p>We architected a comprehensive data ecosystem integrating their Shopify Plus platform, CRM, inventory systems, and customer touchpoints. Our solution included real-time analytics dashboards, automated inventory tracking, customer lifetime value modeling, and predictive analytics for demand forecasting.</p>
+                    </div>
+                </div>
+
+                <div class="tech-stack">
+                    <h4>Technology Stack</h4>
+                    <div class="tech-badges">
+                        <span class="tech-badge">Shopify Plus API</span>
+                        <span class="tech-badge">Azure Data Factory</span>
+                        <span class="tech-badge">Power BI</span>
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">MongoDB</span>
+                        <span class="tech-badge">Machine Learning</span>
+                    </div>
+                </div>
+
+                <div class="results">
+                    <h4>Transformational Results</h4>
+                    <div class="result-metrics">
+                        <div class="metric">
+                            <div class="metric-value">70%</div>
+                            <div class="metric-label">Revenue Increase</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">85%</div>
+                            <div class="metric-label">Inventory Accuracy</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">40%</div>
+                            <div class="metric-label">Customer Retention</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">60%</div>
+                            <div class="metric-label">Faster Insights</div>
+                        </div>
+                    </div>
+                    
+                    <div class="quote">
+                        <p class="quote-text">"MerlinsGroup transformed our understanding of our business. We now have real-time visibility into every aspect of our operations, from customer behavior to inventory optimization. Their data solutions have directly contributed to our 40% growth this year."</p>
+                        <p class="quote-author">— Sarah Mitchell, Operations Director, Ice Bank Jewellers</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bordo Design Case Study -->
+        <div class="case-study" id="bordo-design-case-study">
+            <div class="case-study-card">
+                <div class="case-study-header">
+                    <div class="case-study-content">
+                        <div class="client-logo">BD</div>
+                        <h3>Bordo Design</h3>
+                        <p class="case-study-tagline">"AI-Powered Productivity Monitoring for Creative Excellence"</p>
+                    </div>
+                </div>
+                
+                <div class="challenge-solution">
+                    <div class="challenge">
+                        <h4><span class="challenge-icon"></span>The Challenge</h4>
+                        <p>Bordo Design, a high-end interior design firm, needed to optimize team productivity while maintaining creative freedom. They required insights into project timelines, resource allocation, and team performance without being intrusive. Traditional time-tracking methods were incompatible with their creative workflow.</p>
+                    </div>
+                    
+                    <div class="solution">
+                        <h4><span class="solution-icon"></span>Our Solution</h4>
+                        <p>We developed an AI-powered productivity monitoring system using computer vision and behavioral analytics. The system provides real-time insights into work patterns, project progress, and team collaboration while respecting privacy and creative processes. Advanced algorithms analyze productivity patterns and provide actionable recommendations.</p>
+                    </div>
+                </div>
+
+                <div class="tech-stack">
+                    <h4>Technology Stack</h4>
+                    <div class="tech-badges">
+                        <span class="tech-badge">Azure AI Services</span>
+                        <span class="tech-badge">Computer Vision</span>
+                        <span class="tech-badge">TensorFlow</span>
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">Real-time Analytics</span>
+                        <span class="tech-badge">Power BI</span>
+                    </div>
+                </div>
+
+                <div class="results">
+                    <h4>Performance Optimization Results</h4>
+                    <div class="result-metrics">
+                        <div class="metric">
+                            <div class="metric-value">85%</div>
+                            <div class="metric-label">Productivity Increase</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">60%</div>
+                            <div class="metric-label">Faster Project Delivery</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">90%</div>
+                            <div class="metric-label">Employee Satisfaction</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">50%</div>
+                            <div class="metric-label">Cost Reduction</div>
+                        </div>
+                    </div>
+                    
+                    <div class="quote">
+                        <p class="quote-text">"The AI monitoring system has revolutionized how we understand our creative process. It's non-intrusive yet incredibly insightful, helping us optimize our workflow while maintaining the creative environment our team thrives in."</p>
+                        <p class="quote-author">— Alex Rodriguez, Creative Director, Bordo Design</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Birmingham City Council Case Study -->
+        <div class="case-study" id="birmingham-council-case-study">
+            <div class="case-study-card">
+                <div class="case-study-header">
+                    <div class="case-study-content">
+                        <div class="client-logo">BC</div>
+                        <h3>Birmingham City Council</h3>
+                        <p class="case-study-tagline">"Smart City Analytics for 1.1 Million Citizens"</p>
+                    </div>
+                </div>
+                
+                <div class="challenge-solution">
+                    <div class="challenge">
+                        <h4><span class="challenge-icon"></span>The Challenge</h4>
+                        <p>Birmingham City Council needed to modernize their data infrastructure to better serve 1.1 million citizens. They required real-time analytics for city services, predictive modeling for resource allocation, and integration of multiple departmental systems. The goal was to create a unified data platform for evidence-based decision making.</p>
+                    </div>
+                    
+                    <div class="solution">
+                        <h4><span class="solution-icon"></span>Our Solution</h4>
+                        <p>We designed and implemented a comprehensive smart city data platform integrating traffic management, public services, environmental monitoring, and citizen feedback systems. Our solution includes predictive analytics for service demand, real-time dashboards for city operations, and automated reporting systems for stakeholders.</p>
+                    </div>
+                </div>
+
+                <div class="tech-stack">
+                    <h4>Technology Stack</h4>
+                    <div class="tech-badges">
+                        <span class="tech-badge">Azure Cloud Platform</span>
+                        <span class="tech-badge">IoT Analytics</span>
+                        <span class="tech-badge">Predictive Modeling</span>
+                        <span class="tech-badge">Power BI</span>
+                        <span class="tech-badge">SQL Server</span>
+                        <span class="tech-badge">API Integration</span>
+                    </div>
+                </div>
+
+                <div class="results">
+                    <h4>Smart City Impact</h4>
+                    <div class="result-metrics">
+                        <div class="metric">
+                            <div class="metric-value">45%</div>
+                            <div class="metric-label">Faster Response Times</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">£3.2M</div>
+                            <div class="metric-label">Annual Savings</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">78%</div>
+                            <div class="metric-label">Citizen Satisfaction</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">100+</div>
+                            <div class="metric-label">Integrated Systems</div>
+                        </div>
+                    </div>
+                    
+                    <div class="quote">
+                        <p class="quote-text">"MerlinsGroup's data platform has transformed how we deliver services to Birmingham's citizens. We now have unprecedented visibility into city operations and can make data-driven decisions that directly improve quality of life for our residents."</p>
+                        <p class="quote-author">— David Thompson, Chief Technology Officer, Birmingham City Council</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="services-overview" id="services-overview">
+        <div class="section-header">
+            <h2>Our Data Engineering Capabilities</h2>
+            <p>Comprehensive data solutions tailored to your industry and organizational needs</p>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Data Architecture & Engineering</h3>
+                <p>We design and build scalable data infrastructures that grow with your business, ensuring optimal performance and reliability.</p>
+                <ul class="service-features">
+                    <li>Cloud-native data pipelines</li>
+                    <li>Real-time data processing</li>
+                    <li>Data warehouse optimization</li>
+                    <li>ETL/ELT automation</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <h3>AI & Machine Learning</h3>
+                <p>Advanced analytics and machine learning models that uncover hidden insights and predict future trends.</p>
+                <ul class="service-features">
+                    <li>Predictive analytics</li>
+                    <li>Computer vision solutions</li>
+                    <li>Natural language processing</li>
+                    <li>Automated decision systems</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <h3>Business Intelligence</h3>
+                <p>Interactive dashboards and reporting solutions that transform data into actionable business insights.</p>
+                <ul class="service-features">
+                    <li>Custom dashboard development</li>
+                    <li>Automated reporting</li>
+                    <li>KPI monitoring</li>
+                    <li>Self-service analytics</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <h3>Data Security & Governance</h3>
+                <p>Comprehensive data protection strategies ensuring compliance and security across all data operations.</p>
+                <ul class="service-features">
+                    <li>Data encryption & security</li>
+                    <li>Compliance management</li>
+                    <li>Access control systems</li>
+                    <li>Data quality assurance</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <h3>Cloud Migration & Optimization</h3>
+                <p>Seamless migration to cloud platforms with ongoing optimization for cost and performance.</p>
+                <ul class="service-features">
+                    <li>Azure & AWS expertise</li>
+                    <li>Cost optimization</li>
+                    <li>Performance tuning</li>
+                    <li>Hybrid cloud solutions</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <h3>System Integration</h3>
+                <p>Connect disparate systems and create unified data ecosystems for comprehensive business visibility.</p>
+                <ul class="service-features">
+                    <li>API development & integration</li>
+                    <li>Legacy system modernization</li>
+                    <li>Real-time data synchronization</li>
+                    <li>Cross-platform connectivity</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready to Transform Your Data Operations?</h2>
+            <p>Join the ranks of industry leaders who trust MerlinsGroup with their most critical data challenges. Let's architect your data-driven future together.</p>
+            <div class="cta-buttons">
+                <a href="calendar.html" class="cta-button">Book Free Consultation</a>
+                <a href="portfolio.html" class="cta-button secondary">View More Work</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('nav');
+            const navLinks = document.getElementById('navLinks');
+            
+            if (!nav.contains(event.target) && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+            }
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.background = 'rgba(0, 0, 0, 0.98)';
+                nav.style.boxShadow = '0 5px 20px rgba(147, 51, 234, 0.3)';
+            } else {
+                nav.style.background = 'rgba(0, 0, 0, 0.95)';
+                nav.style.boxShadow = 'none';
+            }
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 1s ease-out';
+                    entry.target.style.opacity = '1';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.case-study-card, .service-card, .stat-box').forEach(el => {
+            el.style.opacity = '0';
+            observer.observe(el);
+        });
+
+        // Add animation styles
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

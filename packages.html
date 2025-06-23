@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Packages & Pricing - MerlinsGroup</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #000;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(147, 51, 234, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #9333ea, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+            letter-spacing: -1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(45deg, #9333ea, #c084fc);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #c084fc;
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #000 0%, #1a0033 100%);
+            color: white;
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: black;
+             background-size: cover;
+            background-position: center;
+            opacity: 0.2;
+            filter: grayscale(50%);
+        }
+
+        .page-header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .page-header h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #9333ea, #c084fc, #e9d5ff);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 3s linear infinite;
+            text-transform: uppercase;
+        }
+
+        @keyframes shimmer {
+            to { background-position: 200% center; }
+        }
+
+        .page-header p {
+            font-size: 1.4rem;
+            color: #e9d5ff;
+        }
+
+        /* Package Sections */
+        .package-section {
+            padding: 6rem 2rem;
+            position: relative;
+        }
+
+        .package-section:nth-child(odd) {
+            background: #0a0a0a;
+        }
+
+        .package-section:nth-child(even) {
+            background: #000;
+        }
+
+        .package-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: 900;
+        }
+
+        .section-header h2 span {
+            background: linear-gradient(45deg, #9333ea, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: #a78bfa;
+        }
+
+        /* Service Image Banner */
+        .service-banner {
+            width: 100%;
+            height: 300px;
+            margin-bottom: 4rem;
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(147, 51, 234, 0.3);
+        }
+
+        .service-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.6);
+        }
+
+        .service-banner-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+        }
+
+        .service-banner-content h3 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        /* Pricing Cards */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(147, 51, 234, 0.2);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(147, 51, 234, 0.3);
+            border-color: rgba(147, 51, 234, 0.5);
+        }
+
+        .pricing-card.featured {
+            border: 2px solid #c084fc;
+            transform: scale(1.05);
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: linear-gradient(45deg, #9333ea, #c084fc);
+            color: white;
+            padding: 0.5rem 3rem;
+            transform: rotate(45deg);
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .pricing-header {
+            background: linear-gradient(135deg, #1a0033 0%, #2d0050 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(147, 51, 234, 0.3);
+        }
+
+        .package-name {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .package-tagline {
+            font-size: 1rem;
+            opacity: 0.9;
+            color: #e9d5ff;
+        }
+
+        .pricing-body {
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .price {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .price-amount {
+            font-size: 3rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #9333ea, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .price-period {
+            font-size: 1.1rem;
+            color: #a78bfa;
+        }
+
+        .setup-fee {
+            text-align: center;
+            color: #e9d5ff;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .features-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(147, 51, 234, 0.1);
+            position: relative;
+            padding-left: 2rem;
+            color: #e9d5ff;
+        }
+
+        .features-list li:last-child {
+            border-bottom: none;
+        }
+
+        .features-list li:before {
+            content: "✓";
+            color: #c084fc;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+        }
+
+        .select-button {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(45deg, #9333ea, #c084fc);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .select-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(147, 51, 234, 0.4);
+        }
+
+        .featured .select-button {
+            background: linear-gradient(45deg, #c084fc, #e9d5ff);
+            color: #000;
+        }
+
+        /* Custom Solutions */
+        .custom-section {
+            background: linear-gradient(135deg, #9333ea, #c084fc);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .custom-section:before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .custom-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .custom-section h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .custom-section p {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            color: #f3e8ff;
+        }
+
+        .custom-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .custom-feature {
+            text-align: center;
+        }
+
+        .custom-feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .custom-feature h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #000;
+            color: #c084fc;
+            padding: 1.2rem 3rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            background: #fff;
+            color: #9333ea;
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            color: white;
+            padding: 4rem 2rem 2rem;
+            border-top: 1px solid rgba(147, 51, 234, 0.2);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 2rem;
+            background: linear-gradient(45deg, #9333ea, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            color: #a78bfa;
+            line-height: 1.8;
+        }
+
+        .footer-links h4 {
+            color: #c084fc;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: #a78bfa;
+            text-decoration: none;
+            padding: 0.5rem 0;
+            display: block;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #e9d5ff;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(147, 51, 234, 0.1);
+            color: #7c3aed;
+        }
+
+        /* Mobile Navigation */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background: rgba(0, 0, 0, 0.98);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                border-bottom: 1px solid rgba(147, 51, 234, 0.2);
+                z-index: 999;
+            }
+
+            .nav-links.active {
+                transform: translateX(0);
+            }
+
+            .nav-links a {
+                font-size: 1.1rem;
+                padding: 0.5rem 0;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .page-header p {
+                font-size: 1.1rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .package-section {
+                padding: 4rem 1rem;
+            }
+
+            .service-banner {
+                height: 200px;
+                margin-bottom: 2rem;
+            }
+
+            .service-banner-content h3 {
+                font-size: 1.8rem;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+                margin: 0;
+            }
+
+            .pricing-card {
+                max-width: 100%;
+            }
+
+            .package-name {
+                font-size: 1.5rem;
+            }
+
+            .price-amount {
+                font-size: 2.5rem;
+            }
+
+            .features-list {
+                font-size: 0.9rem;
+            }
+
+            .features-list li {
+                padding: 0.5rem 0;
+            }
+
+            .custom-features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .custom-section h2 {
+                font-size: 2rem;
+            }
+
+            .custom-section p {
+                font-size: 1.1rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-header {
+                padding: 6rem 1rem 3rem;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .package-section {
+                padding: 3rem 1rem;
+            }
+
+            .section-header {
+                margin-bottom: 2rem;
+            }
+
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .section-header p {
+                font-size: 1rem;
+            }
+
+            .pricing-body {
+                padding: 1.5rem;
+            }
+
+            .price-amount {
+                font-size: 2rem;
+            }
+
+            .features-list {
+                font-size: 0.85rem;
+            }
+
+            .select-button {
+                padding: 0.8rem;
+                font-size: 0.9rem;
+            }
+
+            .custom-features {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .custom-feature-icon {
+                font-size: 2rem;
+            }
+
+            .cta-button {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+
+            .featured-badge {
+                font-size: 0.7rem;
+                padding: 0.4rem 2rem;
+            }
+        }
+
+        /* Touch-friendly adjustments */
+        @media (hover: none) and (pointer: coarse) {
+            .pricing-card:active {
+                transform: scale(0.98);
+            }
+
+            .select-button:active,
+            .cta-button:active {
+                transform: scale(0.95);
+            }
+
+            /* Remove hover effects on touch devices */
+            .pricing-card:hover {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">MerlinsGroup</a>
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="packages.html">Packages</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="calendar.html">Book Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="page-header-content">
+            <h1>Our Packages</h1>
+            <p>Flexible pricing plans designed to scale with your business growth</p>
+        </div>
+    </section>
+
+    <!-- Marketing Packages -->
+    <section class="package-section">
+        <div class="package-container">
+            <div class="section-header">
+                <h2><span>Marketing</span> Packages</h2>
+                <p>Choose the perfect marketing solution for your business size and goals</p>
+            </div>
+            
+            <div class="service-banner">
+                <img src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Marketing Strategy">
+                <div class="service-banner-content">
+                    <h3>Accelerate Your Growth</h3>
+                </div>
+            </div>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="package-name">Startup Marketing</h3>
+                        <p class="package-tagline">Perfect for small businesses</p>
+                    </div>
+                    <div class="pricing-body">
+                        <div class="price">
+                            <div class="price-amount">£2,500</div>
+                            <div class="price-period">per month</div>
+                        </div>
+                        <ul class="features-list">
+                            <li>Social media management (3 platforms)</li>
+                            <li>Monthly content calendar</li>
+                            <li>SEO optimization</li>
+                            <li>Google Ads management</li>
+                            <li>Facebook & Instagram ads</li>
+                            <li>Monthly performance reports</li>
+                            <li>Email marketing campaigns (2/month)</li>
+                            <li>Basic analytics dashboard</li>
+                        </ul>
+                        <a href="calendar.html" class="select-button">Get Started</a>
+                    </div>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div class="featured-badge">POPULAR</div>
+                    <div class="pricing-header">
+                        <h3 class="package-name">Growth Marketing</h3>
+                        <p class="package-tagline">Ideal for growing companies</p>
+                    </div>
+                    <div class="pricing-body">
+                        <div class="price">
+                            <div class="price-amount">£5,500</div>
+                            <div class="price-period">per month</div>
+                        </div>
+                        <ul class="features-list">
+                            <li>Everything in Startup, plus:</li>
+                            <li>Social media management (5 platforms)</li>
+                            <li>Advanced SEO with link building</li>
+                            <li>Google Ads management (unlimited spend)</li>
+                            <li>Facebook, Instagram & LinkedIn ads</li>
+                            <li>TikTok advertising campaigns</li>
+                            <li>Content creation (8 pieces/month)</li>
+                            <li>Marketing automation setup</li>
+                            <li>A/B testing and optimization</li>
+                            <li>Dedicated account manager</li>
+                            <li>Weekly performance calls</li>
+                        </ul>
+                        <a href="calendar.html" class="select-button">Get Started</a>
+                    </div>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="package-name">Enterprise Marketing</h3>
+                        <p class="package-tagline">Complete marketing solution</p>
+                    </div>
+                    <div class="pricing-body">
+                        <div class="price">
+                            <div class="price-amount">£12,000</div>
+                            <div class="price-period">per month</div>
+                        </div>
+                        <ul class="features-list">
+                            <li>Everything in Growth, plus:</li>
+                            <li>Full omnichannel marketing</li>
+                            <li>Custom marketing strategy</li>
+                            <li>Video content production</li>
+                            <li>YouTube & video advertising</li>
+                            <li>Programmatic display advertising</li>
+                            <li>Advanced retargeting campaigns</li>
+                            <li>Influencer partnership management</li>
+                            <li>Advanced analytics & attribution</li>
+                            <li>24/7 priority support</li>
+                            <li>Quarterly strategy sessions</li>
+                            <li>Custom integrations</li>
+                        </ul>
+                        <a href="calendar.html" class="select-button">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Web Development Packages -->
+    <section class="package-section">
+        <div class="package-container">
+            <div class="section-header">
+                <h2><span>Web Development</span> Packages</h2>
+                <p>Professional websites that drive conversions and grow your business</p>
+            </div>
+            
+            <div class="service-banner">
+                <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Web Development">
+                <div class="service-banner-content">
+                    <h3>Stunning Digital Experiences</h3>
+                </div>
+            </div>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="package-name">Starter Website</h3>
+                        <p class="package-tagline">Perfect for small businesses</p>
+                    </div>
+                    <div class="pricing-body">
+                        <div class="price">
+                            <div class="price-amount">£3,500</div>
+                            <div class="price-period">one-time</div>
+                            <div class="setup-fee">+ £99/month hosting</div>
+                        </div>
+                        <ul class="features-list">
+                            <li>5-7 page responsive website</li>
+                            <li>Mobile-optimized design</li>
+                            <li>SEO setup</li>
+                            <li>Contact forms integration</li>
+                            <li>Social media integration</li>
+                            <li>Google Analytics setup</li>
+                            <li>2 rounds of revisions</li>
+                            <li>30-day support</li>
+                        </ul>
+                        <a href="calendar.html" class="select-button">Get Started</a>
+                    </div>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div class="featured-badge">BEST VALUE</div>
+                    <div class="pricing-header">
+                        <h3 class="package-name">Professional Website</h3>
+                        <p class="package-tagline">For growing businesses</p>
+                    </div>
+                    <div class="pricing-body">
+                        <div class="price">
+                            <div class="price-amount">£7,500</div>
+                            <div class="price-period">one-time</div>
+                            <div class="setup-fee">+ £199/month hosting & maintenance</div>
+                        </div>
+                        <ul class="features-list">
+                            <li>10-15 page custom website</li>
+                            <li>Custom animations & interactions</li>
+                            <li>Advanced SEO optimization</li>
+                            <li>CMS integration (WordPress/Webflow)</li>
+                            <li>Blog functionality</li>
+                            <li>Newsletter integration</li>
+                            <li>Speed optimization</li>
+                            <li>3 rounds of revisions</li>
+                            <li>90-day support</li>
+                        </ul>
+                        <a href="calendar.html" class="select-button">Get Started</a>
+                    </div>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="package-name">E-Commerce Website</h3>
+                        <p class="package-tagline">Full online store solution</p>
+                    </div>
+                    <div class="pricing-body">
+                        <div class="price">
+                            <div class="price-amount">£15,000</div>
+                            <div class="price-period">one-time</div>
+                            <div class="setup-fee">+ £299/month full management</div>
+                        </div>
+                        <ul class="features-list">
+                            <li>Complete e-commerce platform</li>
+                            <li>Unlimited products</li>
+                            <li>Payment gateway integration</li>
+                            <li>Inventory management</li>
+                            <li>Customer accounts & wishlists</li>
+                            <li>Email automation</li>
+                            <li>Advanced analytics</li>
+                            <li>Unlimited revisions</li>
+                            <li>Ongoing support & updates</li>
+                        </ul>
+                        <a href="calendar.html" class="select-button">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Database Packages -->
+    <section class="package-section">
+        <div class="package-container">
+            <div class="section-header">
+                <h2><span>Database</span> Packages</h2>
+                <p>Scalable database solutions that grow with your data needs</p>
+            </div>
+            
+            <div class="service-banner">
+                <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Database Infrastructure">
+                <div class="service-banner-content">
+                    <h3>Powerful Infrastructure</h3>
+                </div>
+            </div>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="package-name">Essential Database</h3>
+                        <p class="package-tagline">For basic data management</p>
+                    </div>
+                    <div class="pricing-body">
+                        <div class="price">
+                            <div class="price-amount">£3,500</div>
+                            <div class="price-period">one-time setup</div>
+                            <div class="setup-fee">+ £500/month maintenance</div>
+                        </div>
+                        <ul class="features-list">
+                            <li>Database design & setup</li>
+                            <li>Up to 5GB storage</li>
+                            <li>Basic security implementation</li>
+                            <li>Daily automated backups</li>
+                            <li>Performance monitoring</li>
+                            <li>Email support</li>
+                            <li>Monthly maintenance</li>
+                        </ul>
+                        <a href="calendar.html" class="select-button">Get Started</a>
+                    </div>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div class="featured-badge">RECOMMENDED</div>
+                    <div class="pricing-header">
+                        <h3 class="package-name">Professional Database</h3>
+                        <p class="package-tagline">Advanced data solutions</p>
+                    </div>
+                    <div class="pricing-body">
+                        <div class="price">
+                            <div class="price-amount">£8,500</div>
+                            <div class="price-period">one-time setup</div>
+                            <div class="setup-fee">+ £1,200/month maintenance</div>
+                        </div>
+                        <ul class="features-list">
+                            <li>Everything in Essential, plus:</li>
+                            <li>Up to 50GB storage</li>
+                            <li>Cloud database deployment</li>
+                            <li>Advanced security & encryption</li>
+                            <li>Real-time replication</li>
+                            <li>API development included</li>
+                            <li>24/7 monitoring & alerts</li>
+                            <li>Priority phone support</li>
+                            <li>Quarterly optimization</li>
+                        </ul>
+                        <a href="calendar.html" class="select-button">Get Started</a>
+                    </div>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="package-name">Enterprise Database</h3>
+                        <p class="package-tagline">Unlimited scalability</p>
+                    </div>
+                    <div class="pricing-body">
+                        <div class="price">
+                            <div class="price-amount">Custom</div>
+                            <div class="price-period">pricing</div>
+                        </div>
+                        <ul class="features-list">
+                            <li>Everything in Professional, plus:</li>
+                            <li>Unlimited storage</li>
+                            <li>Multi-region deployment</li>
+                            <li>Custom architecture design</li>
+                            <li>Data warehouse integration</li>
+                            <li>Advanced analytics tools</li>
+                            <li>Dedicated DBA team</li>
+                            <li>SLA guarantee</li>
+                            <li>Custom compliance solutions</li>
+                        </ul>
+                        <a href="calendar.html" class="select-button">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Packages -->
+    <section class="package-section">
+        <div class="package-container">
+            <div class="section-header">
+                <h2><span>AI Solutions</span> Packages</h2>
+                <p>Transform your business with cutting-edge artificial intelligence</p>
+            </div>
+            
+            <div class="service-banner">
+                <img src="https://images.unsplash.com/photo-1655720828018-edd2daec9349?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="AI Technology">
+                <div class="service-banner-content">
+                    <h3>Intelligent Automation</h3>
+                </div>
+            </div>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="package-name">AI Starter</h3>
+                        <p class="package-tagline">Entry-level automation</p>
+                    </div>
+                    <div class="pricing-body">
+                        <div class="price">
+                            <div class="price-amount">£4,500</div>
+                            <div class="price-period">initial setup</div>
+                            <div class="setup-fee">+ £800/month</div>
+                        </div>
+                        <ul class="features-list">
+                            <li>Basic chatbot implementation</li>
+                            <li>Simple process automation</li>
+                            <li>Pre-built AI models</li>
+                            <li>Basic data analysis tools</li>
+                            <li>Monthly model updates</li>
+                            <li>Email support</li>
+                            <li>Training documentation</li>
+                        </ul>
+                        <a href="calendar.html" class="select-button">Get Started</a>
+                    </div>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="package-name">AI Professional</h3>
+                        <p class="package-tagline">Custom AI solutions</p>
+                    </div>
+                    <div class="pricing-body">
+                        <div class="price">
+                            <div class="price-amount">£12,500</div>
+                            <div class="price-period">initial setup</div>
+                            <div class="setup-fee">+ £1,500/month</div>
+                        </div>
+                        <ul class="features-list">
+                            <li>Custom AI model development</li>
+                            <li>Advanced automation workflows</li>
+                            <li>Natural language processing</li>
+                            <li>Computer vision capabilities</li>
+                            <li>Real-time analytics dashboard</li>
+                            <li>API integration</li>
+                            <li>Dedicated AI specialist</li>
+                            <li>Weekly optimization</li>
+                        </ul>
+                        <a href="calendar.html" class="select-button">Get Started</a>
+                    </div>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div class="featured-badge">ENTERPRISE</div>
+                    <div class="pricing-header">
+                        <h3 class="package-name">AI Enterprise</h3>
+                        <p class="package-tagline">Complete AI transformation</p>
+                    </div>
+                    <div class="pricing-body">
+                        <div class="price">
+                            <div class="price-amount">Custom</div>
+                            <div class="price-period">pricing</div>
+                        </div>
+                        <ul class="features-list">
+                            <li>Everything in Professional, plus:</li>
+                            <li>Multiple custom AI solutions</li>
+                            <li>End-to-end automation</li>
+                            <li>Advanced ML pipelines</li>
+                            <li>Edge computing deployment</li>
+                            <li>AI strategy consulting</li>
+                            <li>Dedicated AI team</li>
+                            <li>24/7 priority support</li>
+                            <li>Continuous innovation</li>
+                        </ul>
+                        <a href="calendar.html" class="select-button">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Solutions -->
+    <section class="custom-section">
+        <div class="custom-content">
+            <h2>Need a Custom Solution?</h2>
+            <p>We create tailored packages that combine our services to meet your unique business needs</p>
+            <div class="custom-features">
+                <div class="custom-feature">
+                    <div class="custom-feature-icon">🎯</div>
+                    <h4>Tailored Strategy</h4>
+                </div>
+                <div class="custom-feature">
+                    <div class="custom-feature-icon">💡</div>
+                    <h4>Flexible Pricing</h4>
+                </div>
+                <div class="custom-feature">
+                    <div class="custom-feature-icon">🚀</div>
+                    <h4>Scalable Solutions</h4>
+                </div>
+                <div class="custom-feature">
+                    <div class="custom-feature-icon">🤝</div>
+                    <h4>Dedicated Support</h4>
+                </div>
+            </div>
+            <a href="calendar.html" class="cta-button">Discuss Your Custom Package</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>MerlinsGroup</h3>
+                <p>Transforming businesses with cutting-edge marketing, robust database solutions, and innovative AI technologies. Your success is our mission.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="packages.html">Packages</a></li>
+                    <li><a href="calendar.html">Book Consultation</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Get in Touch</h4>
+                <ul>
+                    <li><a href="mailto:contact@merlinsgroup.com">contact@merlinsgroup.com</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">Twitter</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 MerlinsGroup. All rights reserved. | Elevating businesses to new heights.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('nav');
+            const navLinks = document.getElementById('navLinks');
+            
+            if (!nav.contains(event.target) && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+            }
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.background = 'rgba(0, 0, 0, 0.98)';
+                nav.style.boxShadow = '0 5px 20px rgba(147, 51, 234, 0.3)';
+            } else {
+                nav.style.background = 'rgba(0, 0, 0, 0.95)';
+                nav.style.boxShadow = 'none';
+            }
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 1s ease-out';
+                    entry.target.style.opacity = '1';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.pricing-card').forEach(el => {
+            el.style.opacity = '0';
+            observer.observe(el);
+        });
+
+        // Add animation styles
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Consultation - MerlinsGroup</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #000;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(147, 51, 234, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #9333ea, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+            letter-spacing: -1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(45deg, #9333ea, #c084fc);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #c084fc;
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #000 0%, #1a0033 100%);
+            color: white;
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.2;
+            filter: grayscale(50%);
+        }
+
+        .page-header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .page-header h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #9333ea, #c084fc, #e9d5ff);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 3s linear infinite;
+            text-transform: uppercase;
+        }
+
+        @keyframes shimmer {
+            to { background-position: 200% center; }
+        }
+
+        .page-header p {
+            font-size: 1.4rem;
+            color: #e9d5ff;
+        }
+
+        /* Main Content */
+        .booking-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 2rem;
+        }
+
+        /* Two Column Layout */
+        .booking-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        /* Left Column - Benefits */
+        .booking-benefits {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(147, 51, 234, 0.2);
+            padding: 2.5rem;
+            border-radius: 20px;
+            height: fit-content;
+        }
+
+        .booking-benefits h2 {
+            font-size: 2rem;
+            background: linear-gradient(45deg, #9333ea, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: start;
+            margin-bottom: 2rem;
+        }
+
+        .benefit-icon {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            color: #c084fc;
+            min-width: 30px;
+        }
+
+        .benefit-text h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .benefit-text p {
+            color: #a78bfa;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Right Column - Calendar */
+        .calendar-section {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(147, 51, 234, 0.2);
+            padding: 2.5rem;
+            border-radius: 20px;
+        }
+
+        .calendar-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .calendar-header h2 {
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .calendar-header p {
+            color: #a78bfa;
+        }
+
+        .calendar-placeholder {
+            background: rgba(147, 51, 234, 0.05);
+            border: 2px dashed rgba(147, 51, 234, 0.3);
+            border-radius: 15px;
+            padding: 4rem 2rem;
+            text-align: center;
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .calendar-placeholder h3 {
+            font-size: 1.5rem;
+            color: #c084fc;
+            margin-bottom: 1rem;
+        }
+
+        .calendar-placeholder p {
+            color: #a78bfa;
+            margin-bottom: 1rem;
+        }
+
+        .placeholder-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: #9333ea;
+            opacity: 0.5;
+        }
+
+        /* Process Steps */
+        .process-section {
+            background: #0a0a0a;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .process-header {
+            margin-bottom: 4rem;
+        }
+
+        .process-header h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: 900;
+        }
+
+        .process-header h2 span {
+            background: linear-gradient(45deg, #9333ea, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .process-header p {
+            font-size: 1.2rem;
+            color: #a78bfa;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .process-step {
+            position: relative;
+            padding: 2rem;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #9333ea, #c084fc);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            margin: 0 auto 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .process-step:not(:last-child):after {
+            content: '';
+            position: absolute;
+            top: 50px;
+            left: 60%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, #9333ea, transparent);
+            z-index: 1;
+        }
+
+        .process-step h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .process-step p {
+            color: #a78bfa;
+            line-height: 1.6;
+        }
+
+        /* Testimonial Section */
+        .testimonial-section {
+            background: #000;
+            padding: 5rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+            filter: grayscale(100%);
+        }
+
+        .testimonial-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-container h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #fff;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(147, 51, 234, 0.2);
+            padding: 3rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .testimonial-card:before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 30px;
+            font-size: 80px;
+            color: #9333ea;
+            opacity: 0.3;
+            font-family: Georgia, serif;
+        }
+
+        .testimonial-content {
+            font-size: 1.2rem;
+            color: #e9d5ff;
+            margin-bottom: 2rem;
+            font-style: italic;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .author-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #c084fc;
+        }
+
+        .author-info h4 {
+            color: #c084fc;
+            margin-bottom: 0.25rem;
+        }
+
+        .author-info p {
+            color: #a78bfa;
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section */
+        .final-cta {
+            background: linear-gradient(45deg, #9333ea, #c084fc);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 900;
+        }
+
+        .final-cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #f3e8ff;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            color: white;
+            padding: 4rem 2rem 2rem;
+            border-top: 1px solid rgba(147, 51, 234, 0.2);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 2rem;
+            background: linear-gradient(45deg, #9333ea, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            color: #a78bfa;
+            line-height: 1.8;
+        }
+
+        .footer-links h4 {
+            color: #c084fc;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: #a78bfa;
+            text-decoration: none;
+            padding: 0.5rem 0;
+            display: block;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #e9d5ff;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(147, 51, 234, 0.1);
+            color: #7c3aed;
+        }
+
+        /* Mobile Navigation */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background: rgba(0, 0, 0, 0.98);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                border-bottom: 1px solid rgba(147, 51, 234, 0.2);
+                z-index: 999;
+            }
+
+            .nav-links.active {
+                transform: translateX(0);
+            }
+
+            .nav-links a {
+                font-size: 1.1rem;
+                padding: 0.5rem 0;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .page-header p {
+                font-size: 1.1rem;
+            }
+
+            .booking-container {
+                margin: 30px auto;
+            }
+
+            .booking-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .booking-benefits {
+                order: 2;
+            }
+
+            .calendar-section {
+                order: 1;
+            }
+
+            .booking-benefits h2 {
+                font-size: 1.8rem;
+            }
+
+            .benefit-item {
+                margin-bottom: 1.5rem;
+            }
+
+            .benefit-text h3 {
+                font-size: 1.1rem;
+            }
+
+            .calendar-placeholder {
+                min-height: 400px;
+                padding: 3rem 1.5rem;
+            }
+
+            .process-header h2 {
+                font-size: 2rem;
+            }
+
+            .process-steps {
+                gap: 2rem;
+            }
+
+            .process-step:not(:last-child):after {
+                display: none;
+            }
+
+            .step-number {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+
+            .testimonial-container h2 {
+                font-size: 2rem;
+            }
+
+            .testimonial-content {
+                font-size: 1.1rem;
+            }
+
+            .final-cta h2 {
+                font-size: 2rem;
+            }
+
+            .final-cta p {
+                font-size: 1.1rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-header {
+                padding: 6rem 1rem 3rem;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .booking-container {
+                padding: 0 1rem;
+            }
+
+            .booking-benefits,
+            .calendar-section {
+                padding: 2rem 1.5rem;
+            }
+
+            .booking-benefits h2 {
+                font-size: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .benefit-icon {
+                font-size: 1.2rem;
+                min-width: 25px;
+            }
+
+            .benefit-text h3 {
+                font-size: 1rem;
+            }
+
+            .benefit-text p {
+                font-size: 0.85rem;
+            }
+
+            .calendar-header h2 {
+                font-size: 1.5rem;
+            }
+
+            .calendar-header p {
+                font-size: 0.9rem;
+            }
+
+            .calendar-placeholder {
+                min-height: 350px;
+                padding: 2rem 1rem;
+            }
+
+            .placeholder-icon {
+                font-size: 3rem;
+            }
+
+            .process-section {
+                padding: 3rem 1rem;
+            }
+
+            .process-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .process-header p {
+                font-size: 1rem;
+            }
+
+            .process-step {
+                padding: 1.5rem 1rem;
+            }
+
+            .process-step h3 {
+                font-size: 1.1rem;
+            }
+
+            .process-step p {
+                font-size: 0.9rem;
+            }
+
+            .testimonial-section {
+                padding: 3rem 1rem;
+            }
+
+            .testimonial-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .testimonial-content {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .author-image {
+                width: 50px;
+                height: 50px;
+            }
+
+            .final-cta {
+                padding: 3rem 1rem;
+            }
+        }
+
+        /* Touch-friendly adjustments */
+        @media (hover: none) and (pointer: coarse) {
+            .benefit-item:active {
+                transform: scale(0.98);
+            }
+
+            .process-step:active {
+                transform: scale(0.98);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">MerlinsGroup</a>
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="packages.html">Packages</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="calendar.html">Book Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="page-header-content">
+            <h1>Book Your Consultation</h1>
+            <p>Take the first step towards transforming your business</p>
+        </div>
+    </section>
+
+    <!-- Main Booking Section -->
+    <section class="booking-container">
+        <div class="booking-content">
+            <!-- Left Column - Benefits -->
+            <div class="booking-benefits">
+                <h2>What You'll Get</h2>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🎯</div>
+                    <div class="benefit-text">
+                        <h3>Custom Strategy Session</h3>
+                        <p>Get a personalized roadmap designed specifically for your business goals and challenges.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">💡</div>
+                    <div class="benefit-text">
+                        <h3>Expert Insights</h3>
+                        <p>Tap into our team's extensive experience across marketing, databases, and AI solutions.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">📊</div>
+                    <div class="benefit-text">
+                        <h3>ROI Analysis</h3>
+                        <p>Understand the potential return on investment for each recommended solution.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🚀</div>
+                    <div class="benefit-text">
+                        <h3>Action Plan</h3>
+                        <p>Leave with clear next steps and a timeline for implementation.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column - Calendar -->
+            <div class="calendar-section">
+                <div class="calendar-header">
+                    <h2>Schedule Your Free Consultation</h2>
+                    <p>Choose a time that works best for you</p>
+                </div>
+                <div class="calendar-placeholder">
+                    <div class="placeholder-icon">📅</div>
+                    <h3>Calendar Booking Widget</h3>
+                    <p>Your calendar embed will appear here</p>
+                    <p style="color: #7c3aed; font-style: italic;">Replace this with your Calendly, Cal.com, or other booking widget</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section">
+        <div class="process-header">
+            <h2>How Our <span>Consultation Process</span> Works</h2>
+            <p>Simple, efficient, and designed to deliver value from day one</p>
+        </div>
+        <div class="process-steps">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <h3>Book Your Call</h3>
+                <p>Choose a convenient time slot and tell us about your business needs</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <h3>Discovery Session</h3>
+                <p>We'll dive deep into your challenges and goals during a 45-minute strategy call</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <h3>Custom Proposal</h3>
+                <p>Receive a tailored solution package designed to accelerate your growth</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <h3>Start Growing</h3>
+                <p>Begin implementation with our expert team guiding you every step of the way</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="testimonial-section">
+        <div class="testimonial-bg"></div>
+        <div class="testimonial-container">
+            <h2>What Our Clients Say</h2>
+            <div class="testimonial-card">
+                <p class="testimonial-content">"The consultation with MerlinsGroup was a game-changer. They identified opportunities we hadn't even considered and provided a clear path to 3x our revenue within 12 months."</p>
+                <div class="testimonial-author">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="David Chen" class="author-image">
+                    <div class="author-info">
+                        <h4>David Chen</h4>
+                        <p>CEO, TechVentures Inc.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <h2>Ready to Transform Your Business?</h2>
+        <p>Don't wait - spots fill up quickly. Book your free consultation today!</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>MerlinsGroup</h3>
+                <p>Transforming businesses with cutting-edge marketing, robust database solutions, and innovative AI technologies. Your success is our mission.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="packages.html">Packages</a></li>
+                    <li><a href="calendar.html">Book Consultation</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Get in Touch</h4>
+                <ul>
+                    <li><a href="mailto:contact@merlinsgroup.com">contact@merlinsgroup.com</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">Twitter</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 MerlinsGroup. All rights reserved. | Elevating businesses to new heights.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('nav');
+            const navLinks = document.getElementById('navLinks');
+            
+            if (!nav.contains(event.target) && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+            }
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.background = 'rgba(0, 0, 0, 0.98)';
+                nav.style.boxShadow = '0 5px 20px rgba(147, 51, 234, 0.3)';
+            } else {
+                nav.style.background = 'rgba(0, 0, 0, 0.95)';
+                nav.style.boxShadow = 'none';
+            }
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 1s ease-out';
+                    entry.target.style.opacity = '1';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.benefit-item, .process-step').forEach(el => {
+            el.style.opacity = '0';
+            observer.observe(el);
+        });
+
+        // Add animation styles
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
