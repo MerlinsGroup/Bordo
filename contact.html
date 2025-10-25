@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DC2PGQXSTW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DC2PGQXSTW');
+</script>
+  <!-- Google Tag Manager -->
+<script>
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id=GTM-NSL3PX7V'+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NSL3PX7V');
+</script>
+
+  <!-- Google tag (gtag.js) -->
+
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <meta name="description" content="Bordo Design - Architecture and Interior Design">
+  <meta name="keywords" content="architecture, interior design, bordo design, birmingham">
+  <meta name="author" content="Bordo Design">
+  
+  <!-- Page Title -->
+  <title>BordoDesign - Contact</title>
+  
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=2">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png?v=2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png?v=2">
+  
+  <!-- Google Fonts - Load only what's needed -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Core CSS - Defer non-critical CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/all.min.css" rel="stylesheet">
+  
+  <!-- Consolidated Custom CSS -->
+  <style>
+    /* === Base Styles === */
+    body {
+      font-family: Helvetica, sans-serif;
+      margin-top: 10vh;
+      background-color: white;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 100;
+    }
+    
+    
+  :root{
+	--primary-color			: #a9b1b2;
+	--secondery-color		: #F8F8F8;
+	--text-color			: #283132;
+	--accent-color			: #671c19;
+	--white-color			: #FFFFFF;
+	--divider-color			: #EAF0EC;
+	--dark-divider-color	: #FFFFFF1A;
+	--error-color			: rgb(230, 87, 87);
+	--default-font			: "Hanken Grotesk", sans-serif;
+}
+
+    
+ .preloader{
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 1000;
+	background-color: var(--accent-color);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.loading-container,
+.loading{
+	height: 100px;
+	position: relative;
+	width: 100px;
+	border-radius: 100%;
+}
+
+.loading-container{
+	margin: 40px auto;
+}
+
+.loading{
+	border: 1px solid transparent;
+	border-color: transparent var(--white-color) transparent var(--white-color);
+	animation: rotate-loading 1.5s linear 0s infinite normal;
+	transform-origin: 50% 50%;
+}
+
+.loading-container:hover .loading,
+.loading-container .loading{
+	transition: all 0.5s ease-in-out;
+}
+
+#loading-icon{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	max-width: 66px;
+	transform: translate(-50%, -50%);
+}
+
+@keyframes rotate-loading{
+	0%{
+		transform: rotate(0deg);
+	}
+
+	100%{
+		transform: rotate(360deg);
+	}
+}
+#loading-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#loading-icon img {
+  max-width: 66px;
+  max-height: 50px;
+  width: auto;
+  height: auto;
+}
+    /* === Header & Navigation === */
+    .main-header {
+      position: fixed !important;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background-color: transparent;
+      transition: background-color 0.4s ease, box-shadow 0.4s ease;
+    }
+    
+    .main-header.scrolled {
+      background-color: #4c0d0a !important;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    .header-sticky {
+      background: transparent !important;
+      box-shadow: none !important;
+    }
+    
+    .navbar-nav .nav-link,
+    #mainNav a {
+      color: #621310 !important;
+      transition: color 0.3s ease, opacity 0.3s ease;
+    }
+    
+    .main-header.scrolled .navbar-nav .nav-link,
+    .main-header.scrolled #mainNav a {
+      color: white !important;
+    }
+    
+    #menuToggle {
+      background: transparent;
+      border: none;
+      color: #621310;
+      font-size: 24px;
+      cursor: pointer;
+      z-index: 1003;
+      display: none;
+    }
+    
+    .main-header.scrolled #menuToggle i.fas.fa-bars {
+      color: white !important;
+    }
+    
+    #mainNav {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      transition: all 0.3s ease;
+    }
+    
+    #mainNav li {
+      position: relative;
+      margin: 0 5px;
+    }
+    
+    #mainNav a {
+      text-decoration: none;
+      padding: 10px 15px;
+      display: block;
+      font-weight: 300;
+    }
+    
+    #mobileMenu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #4c0d0a;
+      z-index: 1001;
+      transform: translateY(-100%);
+      transition: transform 0.3s ease;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    #mobileMenu ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      text-align: center;
+    }
+    
+    #mobileMenu li {
+      position: relative;
+      margin: 5px;
+    }
+    
+    #mobileMenu a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 15px;
+      display: block;
+      font-weight: 300;
+    }
+    
+    #closeMenu {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    
+    .header-divider {
+      width: calc(100% - 40px);
+      height: 0.5px;
+      background-color: white;
+      margin: 0 20px;
+      position: absolute;
+      top: 80px;
+      left: 0;
+      z-index: 1001;
+      opacity: 0.8;
+    }
+    
+    /* === Contact Page === */
+    .page-contact-us {
+      padding: 80px 0 40px;
+    }
+    
+    .contact-us-image figure {
+      overflow: hidden;
+      margin: 0;
+      height: 100%;
+    }
+    
+    .contact-us-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s ease;
+    }
+    
+    .image-anime img:hover {
+      transform: scale(1.05);
+    }
+    
+    .contact-us-form {
+      padding: 30px 0;
+    }
+    
+    .section-title {
+      margin-bottom: 30px;
+    }
+    
+    .section-title h3 {
+      color: #621310;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      font-size: 18px;
+      letter-spacing: 2px;
+    }
+    
+    .section-title h2 {
+      font-size: 42px;
+      margin-bottom: 20px;
+      font-weight: 300;
+    }
+    
+    .section-title h2 span {
+      color: #621310;
+    }
+    
+    .section-title p {
+      font-size: 16px;
+      line-height: 1.7;
+    }
+    
+    .btn-default {
+      background-color: #621310;
+      color: white !important;
+      border: none;
+      padding: 14px 40px;
+      display: inline-block;
+      text-decoration: none;
+      font-weight: 400;
+      transition: background-color 0.3s ease;
+    }
+    
+    .btn-default:hover {
+      background-color: #8b1b17;
+    }
+    
+    /* === Calendly Integration Styles === */
+    .calendly-container {
+      width: 100%;
+      background-color: #f8f8f8;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      margin-top: 30px;
+    }
+    
+    .calendly-inline-widget {
+      min-width: 320px;
+      height: 650px;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    
+    /* Adjust Calendly styling */
+    .calendly-inline-widget iframe {
+      border-radius: 8px;
+    }
+    
+    /* === Map Section === */
+    .google-map {
+      padding: 40px 0 60px;
+    }
+    
+    .google-map iframe {
+      border: none;
+      margin-bottom: 40px;
+    }
+    
+    .contact-info-box {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+    
+    .contact-info-item {
+      flex: 0 0 calc(33.333% - 20px);
+      display: flex;
+      margin-bottom: 30px;
+    }
+    
+    .contact-info-item .icon-box {
+      width: 50px;
+      height: 50px;
+      background-color: #f5f5f5;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+      color: #621310;
+    }
+    
+    .contact-info-item h3 {
+      font-size: 16px;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+      font-weight: 400;
+    }
+    
+    .contact-info-item p, 
+    .contact-info-item a {
+      font-size: 15px;
+      margin: 0;
+      color: #333;
+      text-decoration: none;
+    }
+    
+    .contact-info-item a:hover {
+      color: #621310;
+    }
+    
+    /* === FAQ Section === */
+    .our-faqs {
+      padding: 60px 0;
+      background-color: white;
+    }
+    
+    .faq-accordion {
+      margin-top: 40px;
+    }
+    
+    .accordion-item {
+      margin-bottom: 15px;
+      border: none;
+    }
+    
+    .accordion-button {
+      padding: 15px;
+      font-size: 18px;
+      font-weight: 300;
+      background-color: #f5f5f5;
+      border: none;
+      border-radius: 0 !important;
+      position: relative;
+    }
+    
+    .accordion-button:not(.collapsed) {
+      color: #621310;
+      background-color: #f5f5f5;
+      box-shadow: none;
+    }
+    
+    .accordion-button span {
+      margin-right: 15px;
+      color: #621310;
+      font-weight: 500;
+    }
+    
+    .accordion-button:after {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23621310'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+    }
+    
+    .accordion-body {
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+    
+    .our-faqs-image img {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    /* === Footer === */
+    .site-footer {
+      background-color: #2f3236;
+      color: #ffffff;
+      font-size: 15px;
+      padding-top: 60px;
+      padding-bottom: 40px;
+    }
+    
+    .site-footer h4 {
+      color: #ffffff;
+      font-weight: 100;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+    
+    .site-footer ul {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .site-footer ul li {
+      margin-bottom: 12px;
+    }
+    
+    .site-footer a {
+      color: #ffffff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .site-footer a:hover, 
+    .site-footer a:focus, 
+    .site-footer a:active {
+      color: #4c0d0a !important;
+      text-decoration: none;
+    }
+    
+    .contact-list i {
+      margin-right: 8px;
+      min-width: 18px;
+      display: inline-block;
+    }
+    
+    .footer-logo {
+      max-width: 150px;
+      opacity: 0.9;
+    }
+    
+    /* === Responsive Styles === */
+    @media (max-width: 991px) {
+      #menuToggle {
+        display: block;
+      }
+      
+      #mainNav {
+        display: none;
+      }
+      
+      .contact-info-item {
+        flex: 0 0 100%;
+      }
+      
+      .contact-us-image {
+        margin-bottom: 40px;
+      }
+      
+      .calendly-inline-widget {
+        height: 580px;
+      }
+    }
+    
+    @media (max-width: 767px) {
+      .section-title h2 {
+        font-size: 32px;
+      }
+      
+      .page-contact-us {
+        padding: 60px 0 30px;
+      }
+      
+      .calendly-container {
+        padding: 15px;
+      }
+      
+      .calendly-inline-widget {
+        height: 550px;
+      }
+    }
+    
+    /* === Animation Classes === */
+    .reveal {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .reveal::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #621310;
+      transform: translateX(-100%);
+      animation: reveal 1.5s ease forwards;
+    }
+    
+    @keyframes reveal {
+      0% {
+        transform: translateX(-100%);
+      }
+      50% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(100%);
+      }
+    }
+    
+    .wow {
+      visibility: hidden;
+    }
+  .reveal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #621310;
+  transform: translateX(-100%);
+  animation: reveal 1.5s ease forwards;
+}
+
+/* Additional styles to ensure left alignment */
+.text-left {
+  text-align: left !important;
+}
+
+.contact-info-box {
+  display: block;
+}
+
+.contact-info-item {
+  margin-bottom: 20px;
+}
+
+.me-3 {
+  margin-right: 1rem !important;
+}
+
+  /* Default (Mobile First) */
+  #mobileMenu a {
+    font-size: 20px;
+  }
+
+  /* Tablets (>= 600px) */
+  @media (min-width: 600px) {
+    #mobileMenu a {
+      font-size: 20px;
+    }
+  }
+
+  /* Small laptops (>= 768px) */
+  @media (min-width: 768px) {
+    #mobileMenu a {
+      font-size: 25px;
+    }
+  }
+
+  /* Desktops (>= 1024px) */
+  @media (min-width: 1024px) {
+    #mobileMenu a {
+      font-size: 22px;
+    }
+  }
+  </style>
+</head>
+<body><!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NSL3PX7V"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+
+<!-- End Google Tag Manager (noscript) -->
+  <!-- Preloader - Reduced to just one -->
+  <!-- Preloader Start -->
+  <div class="preloader">
+    <div class="loading-container">
+      <div class="loading"></div>
+      <div id="loading-icon"><img src="images/logoiswhite.png" alt="max-height:50px;"></div>
+    </div>
+  </div>
+
+  <!-- Navigation Header -->
+  <header class="main-header" style="position:fixed !important; top:0; left:0; width:100%; z-index:1000; background-color:transparent; transition:background-color 0.4s ease, box-shadow 0.4s ease;">
+    <div class="header-sticky" style="background:transparent; box-shadow:none;">
+      <div class="container">
+        <nav style="display:flex; justify-content:space-between; align-items:center; padding:15px 0;">
+          <!-- Logo -->
+          <a href="./" style="display:block; z-index:1002;">
+            <img src="images/logoiswhite.png" alt="Bordo Logo" style="max-height:50px;">
+          </a>
+
+          <!-- Mobile Menu Toggle Button -->
+          <button id="menuToggle" style="background:transparent; border:none; color:white; font-size:24px; cursor:pointer; z-index:1002; display:none;">
+            <i class="fas fa-bars"></i>
+          </button>
+
+          <!-- Navigation Menu -->
+          <ul id="mainNav" style="display:flex; list-style:none; margin:0; padding:0; transition:all 0.3s ease;">
+            <li style="position:relative; margin:0 5px;"><a href="index.html" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:300;">Home</a></li>
+
+            <!-- What We Do Dropdown -->
+            <li class="dropdown" style="position:relative; margin:0 5px;">
+              <a href="#" class="dropdown-toggle" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:300; cursor:pointer;">What We Do ▾</a>
+              <ul class="dropdown-menu" style="display:none; position:absolute; top:100%; left:0; background-color:#4c0d0a; list-style:none; padding:10px 0; margin:0; min-width:200px; box-shadow:0 4px 6px rgba(0,0,0,0.1); z-index:1003;">
+                <li style="margin:0;"><a href="residential.html" style="color:white; text-decoration:none; padding:10px 20px; display:block; font-weight:300;">• Residential</a></li>
+                <li style="margin:0;"><a href="commercial.html" style="color:white; text-decoration:none; padding:10px 20px; display:block; font-weight:300;">• Commercial</a></li>
+                <li style="margin:0;"><a href="#office-fitouts" style="color:white; text-decoration:none; padding:10px 20px; display:block; font-weight:300;">• Office Fit-outs</a></li>
+                <li style="margin:0;"><a href="#shopfitting" style="color:white; text-decoration:none; padding:10px 20px; display:block; font-weight:300;">• Shopfitting</a></li>
+                <li style="margin:0;"><a href="#carpentry" style="color:white; text-decoration:none; padding:10px 20px; display:block; font-weight:300;">• Carpentry</a></li>
+                <li style="margin:0;"><a href="#visualisation" style="color:white; text-decoration:none; padding:10px 20px; display:block; font-weight:300;">• Visualisation</a></li>
+                <li style="margin:0;"><a href="#fabrication" style="color:white; text-decoration:none; padding:10px 20px; display:block; font-weight:300;">• Fabrication</a></li>
+                <li style="margin:0;"><a href="#bordo-glass" style="color:white; text-decoration:none; padding:10px 20px; display:block; font-weight:300;">• Bordo Glass</a></li>
+              </ul>
+            </li>
+
+            <li style="position:relative; margin:0 5px;"><a href="projects.html" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:300;">Projects</a></li>
+            <li style="position:relative; margin:0 5px;"><a href="#brand-marketing" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:300;">Brand & Marketing</a></li>
+
+            <!-- Feed Dropdown -->
+            <li class="dropdown" style="position:relative; margin:0 5px;">
+              <a href="#" class="dropdown-toggle" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:300; cursor:pointer;">Feed</a>
+              <ul class="dropdown-menu" style="display:none; position:absolute; top:100%; left:0; background-color:#4c0d0a; list-style:none; padding:10px 0; margin:0; min-width:150px; box-shadow:0 4px 6px rgba(0,0,0,0.1); z-index:1003;">
+                <li style="margin:0;"><a href="#updates" style="color:white; text-decoration:none; padding:10px 20px; display:block; font-weight:300;">• Updates</a></li>
+                <li style="margin:0;"><a href="#articles" style="color:white; text-decoration:none; padding:10px 20px; display:block; font-weight:300;">• Articles</a></li>
+              </ul>
+            </li>
+
+            <li style="position:relative; margin:0 5px;"><a href="about.html" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:300;">About Us</a></li>
+            <li style="position:relative; margin:0 5px;"><a href="contact.html" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:300; background-color:#8B4513; border-radius:4px;">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" style="position:fixed; top:0; left:0; width:100%; height:100%; background-color:#4c0d0a; z-index:1001; transform:translateY(-100%); transition:transform 0.3s ease; overflow-y:auto; display:flex; flex-direction:column; justify-content:center; align-items:center;">
+    <button id="closeMenu" style="position:absolute; top:20px; right:20px; background:none; border:none; color:white; font-size:24px; cursor:pointer;">
+      <i class="fas fa-times"></i>
+    </button>
+    <div class="header-divider" style="width:calc(100% - 40px); height:0.5px; background-color:white; margin:0 20px; position:absolute; top:80px; left:0; z-index:1001; opacity:0.8;"></div>
+    <ul style="list-style:none; padding:0; margin:0; width:100%; text-align:center;">
+      <li style="position:relative; margin:0 5px;"><a href="index.html" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:300;">Home</a></li>
+      <li style="position:relative; margin:0 5px;"><a href="#" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:500;">What We Do</a></li>
+      <li style="position:relative; margin:0 5px; padding-left:20px;"><a href="residential.html" style="color:white; text-decoration:none; padding:8px 15px; display:block; font-weight:300; font-size:14px;">• Residential</a></li>
+      <li style="position:relative; margin:0 5px; padding-left:20px;"><a href="commercial.html" style="color:white; text-decoration:none; padding:8px 15px; display:block; font-weight:300; font-size:14px;">• Commercial</a></li>
+      <li style="position:relative; margin:0 5px; padding-left:20px;"><a href="#office-fitouts" style="color:white; text-decoration:none; padding:8px 15px; display:block; font-weight:300; font-size:14px;">• Office Fit-outs</a></li>
+      <li style="position:relative; margin:0 5px; padding-left:20px;"><a href="#shopfitting" style="color:white; text-decoration:none; padding:8px 15px; display:block; font-weight:300; font-size:14px;">• Shopfitting</a></li>
+      <li style="position:relative; margin:0 5px; padding-left:20px;"><a href="#carpentry" style="color:white; text-decoration:none; padding:8px 15px; display:block; font-weight:300; font-size:14px;">• Carpentry</a></li>
+      <li style="position:relative; margin:0 5px; padding-left:20px;"><a href="#visualisation" style="color:white; text-decoration:none; padding:8px 15px; display:block; font-weight:300; font-size:14px;">• Visualisation</a></li>
+      <li style="position:relative; margin:0 5px; padding-left:20px;"><a href="#fabrication" style="color:white; text-decoration:none; padding:8px 15px; display:block; font-weight:300; font-size:14px;">• Fabrication</a></li>
+      <li style="position:relative; margin:0 5px; padding-left:20px;"><a href="#bordo-glass" style="color:white; text-decoration:none; padding:8px 15px; display:block; font-weight:300; font-size:14px;">• Bordo Glass</a></li>
+      <li style="position:relative; margin:0 5px;"><a href="projects.html" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:300;">Projects</a></li>
+      <li style="position:relative; margin:0 5px;"><a href="#brand-marketing" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:300;">Brand & Marketing</a></li>
+      <li style="position:relative; margin:0 5px;"><a href="#" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:500;">Feed</a></li>
+      <li style="position:relative; margin:0 5px; padding-left:20px;"><a href="#updates" style="color:white; text-decoration:none; padding:8px 15px; display:block; font-weight:300; font-size:14px;">• Updates</a></li>
+      <li style="position:relative; margin:0 5px; padding-left:20px;"><a href="#articles" style="color:white; text-decoration:none; padding:8px 15px; display:block; font-weight:300; font-size:14px;">• Articles</a></li>
+      <li style="position:relative; margin:0 5px;"><a href="about.html" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:300;">About Us</a></li>
+      <li style="position:relative; margin:0 5px;"><a href="contact.html" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:300; background-color:#8B4513; border-radius:4px;">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- Contact Us Section -->
+  <div class="page-contact-us">
+    <div class="container">
+      <div class="row align-items-stretch">
+        <div class="col-lg-6">
+          <!-- Contact Us Image -->
+          <div class="contact-us-image h-100">
+            <figure class="image-anime reveal h-100">
+              <img src="images/photo2.jpg" alt="Contact Image" loading="lazy">
+            </figure>
+          </div>
+        </div>
+        
+        <div class="col-lg-6">
+          <div class="contact-us-form">
+            <!-- Section Title -->
+            <div class="section-title">
+              <h3 class="wow fadeInUp">contact&nbsp;us</h3>
+              <h2 class="text-anime-style-2">
+                We would love to <span>hear from you</span>
+              </h2>
+              <p class="wow fadeInUp" data-wow-delay="0.2s">
+                Get in touch with us directly or schedule a consultation with one of our designers.
+              </p>
+            </div>
+            
+            <!-- Contact Details First -->
+            <div class="contact-info-box text-left" style="margin-bottom: 40px;">
+              <div class="row">
+                
+                <div class="col-lg-12">
+                  <!-- Phone -->
+                  <div class="contact-info-item wow fadeInUp d-flex align-items-start" style="margin-bottom: 20px;">
+                    <div class="icon-box me-3">
+                      <i class="fa-solid fa-phone"></i>
+                    </div>
+                    <div class="contact-info-content">
+                      <h3>phone</h3>
+                      <p><a href="tel:01217929167">0121 792 9167</a></p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="col-lg-12">
+                  <!-- Email -->
+                  <div class="contact-info-item wow fadeInUp d-flex align-items-start" data-wow-delay="0.1s" style="margin-bottom: 20px;">
+                    <div class="icon-box me-3">
+                      <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <div class="contact-info-content">
+                      <h3>email</h3>
+                      <p><a href="mailto:info@bordodesign.com">info@bordodesign.com</a></p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="col-lg-12">
+                  <!-- Address -->
+                  <div class="contact-info-item wow fadeInUp d-flex align-items-start" data-wow-delay="0.2s" style="margin-bottom: 20px;">
+                    <div class="icon-box me-3">
+                      <i class="fa-solid fa-house"></i>
+                    </div>
+                    <div class="contact-info-content">
+                      <h3>address</h3>
+                      <p>30-34&nbsp;Rookery&nbsp;Rd, Handsworth, Birmingham&nbsp;B21&nbsp;9NB</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Calendly Container Second -->
+            <div class="calendly-container">
+              <div class="calendly-inline-widget" data-url="https://calendly.com/bordo-design?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=621310"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Google Map Section -->
+  <div class="google-map">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <!-- Section Title -->
+          <div class="section-title text-left">
+            <h3 class="wow fadeInUp">Our contact</h3>
+            <h2 class="text-anime-style-2">Get in touch with us</h2>
+            <p class="wow fadeInUp" data-wow-delay="0.2s">
+              Ready to re-imagine your space? Call us, email us, or hit the contact button and one of our architects will arrange a free design consultation.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-12">
+          <!-- Google Map iframe with lazy loading -->
+          <iframe
+            width="100%"
+            height="450"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://maps.google.com/maps?q=30-34%20Rookery%20Rd%2C%20Handsworth%2C%20Birmingham%20B21%209NB&z=15&output=embed">
+          </iframe>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12">
+          <!-- Contact Info Box -->
+          <div class="contact-info-box text-left">
+            <div class="row">
+              
+              <div class="col-lg-12">
+                <!-- Phone -->
+                <div class="contact-info-item wow fadeInUp d-flex align-items-start">
+                  <div class="icon-box me-3">
+                    <i class="fa-solid fa-phone"></i>
+                  </div>
+                  <div class="contact-info-content">
+                    <h3>phone</h3>
+                    <p><a href="tel:01217929167">0121 792 9167</a></p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-lg-12">
+                <!-- Email -->
+                <div class="contact-info-item wow fadeInUp d-flex align-items-start" data-wow-delay="0.1s">
+                  <div class="icon-box me-3">
+                    <i class="fa-solid fa-envelope"></i>
+                  </div>
+                  <div class="contact-info-content">
+                    <h3>email</h3>
+                    <p><a href="mailto:info@bordodesign.com">info@bordodesign.com</a></p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-lg-12">
+                <!-- Schedule Appointment -->
+                <div class="contact-info-item wow fadeInUp d-flex align-items-start" data-wow-delay="0.2s">
+                  <div class="icon-box me-3">
+                    <i class="fa-regular fa-calendar"></i>
+                  </div>
+                  <div class="contact-info-content">
+                    <h3>schedule appointment</h3>
+                    <p><a href="https://calendly.com/bordo-design" target="_blank">Book a consultation</a></p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-lg-12">
+                <!-- Address -->
+                <div class="contact-info-item wow fadeInUp d-flex align-items-start" data-wow-delay="0.3s">
+                  <div class="icon-box me-3">
+                    <i class="fa-solid fa-house"></i>
+                  </div>
+                  <div class="contact-info-content">
+                    <h3>headquarter</h3>
+                    <p>30-34&nbsp;Rookery&nbsp;Rd, Handsworth, Birmingham&nbsp;B21&nbsp;9NB</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="our-faqs">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-7">
+          <!-- Our Faq Content -->
+          <div class="our-faqs-content">
+            <!-- Section Title -->
+            <div class="section-title">
+              <h3 class="wow fadeInUp">asked questions</h3>
+              <h2 class="text-anime-style-2">Have your any question look <span>here now</span></h2>
+            </div>
+
+            <!-- FAQ Accordion -->
+            <div class="faq-accordion" id="accordion">
+              <!-- FAQ Item 1 -->
+              <div class="accordion-item wow fadeInUp">
+                <h2 class="accordion-header" id="heading1">
+                  <button class="accordion-button" type="button" 
+                          data-bs-toggle="collapse" data-bs-target="#collapse1"
+                          aria-expanded="true" aria-controls="collapse1">
+                    <span>1.</span>
+                    Which sustainable materials do you recommend for an eco-friendly build?
+                  </button>
+                </h2>
+                <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="heading1" data-bs-parent="#accordion">
+                  <div class="accordion-body">
+                    <p>
+                      We prioritise FSC-certified timber, low-VOC paints, recycled
+                      steel / aluminium, and natural insulation such as cork or hemp.
+                      These options reduce embodied carbon while still delivering a
+                      high-quality finish.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- FAQ Item 2 -->
+              <div class="accordion-item wow fadeInUp" data-wow-delay="0.2s">
+                <h2 class="accordion-header" id="heading2">
+                  <button class="accordion-button collapsed" type="button"
+                          data-bs-toggle="collapse" data-bs-target="#collapse2"
+                          aria-expanded="false" aria-controls="collapse2">
+                    <span>2.</span>
+                    How do you keep a project on budget without compromising design?
+                  </button>
+                </h2>
+                <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2" data-bs-parent="#accordion">
+                  <div class="accordion-body">
+                    <p>
+                      Before we begin, we create a detailed cost plan and value-engineering
+                      matrix. During construction we track spend weekly, negotiate bulk
+                      rates with suppliers, and sign-off all variations with you first,
+                      so there are no surprises.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- FAQ Item 3 -->
+              <div class="accordion-item wow fadeInUp" data-wow-delay="0.4s">
+                <h2 class="accordion-header" id="heading3">
+                  <button class="accordion-button collapsed" type="button"
+                          data-bs-toggle="collapse" data-bs-target="#collapse3"
+                          aria-expanded="false" aria-controls="collapse3">
+                    <span>3.</span>
+                    What's the difference between architectural planning and interior styling?
+                  </button>
+                </h2>
+                <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3" data-bs-parent="#accordion">
+                  <div class="accordion-body">
+                    <p>
+                      Architectural planning covers the building envelope – structure,
+                      layout, services, and statutory approvals. Interior styling comes
+                      later and focuses on finishes, furnishings, lighting and décor.
+                      Our studio offers both, ensuring a seamless hand-off between the two.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- FAQ Item 4 -->
+              <div class="accordion-item wow fadeInUp" data-wow-delay="0.6s">
+                <h2 class="accordion-header" id="heading4">
+                  <button class="accordion-button collapsed" type="button"
+                          data-bs-toggle="collapse" data-bs-target="#collapse4"
+                          aria-expanded="false" aria-controls="collapse4">
+                    <span>4.</span>
+                    Can you work with listed or historic buildings, and what approvals are required?
+                  </button>
+                </h2>
+                <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4" data-bs-parent="#accordion">
+                  <div class="accordion-body">
+                    <p>
+                      Yes. We regularly liaise with conservation officers to obtain Listed
+                      Building Consent and, where needed, Planning Permission. Our approach
+                      preserves original fabric while discreetly integrating modern
+                      services and accessibility upgrades.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <!-- Our Faq Image -->
+          <div class="our-faqs-image">
+            <figure class="image-anime reveal">
+              <img src="images/question.png" alt="FAQ Illustration" loading="lazy">
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row">
+        <!-- INFORMATION -->
+        <div class="col-lg-3 col-md-6 mb-4">
+          <h4>INFORMATION</h4>
+          <ul>
+            <li><a href="about.html">About Our Company</a></li>
+            <li><a href="careers.html">Careers at Company</a></li>
+            <li><a href="projects.html">Our Latest Projects</a></li>
+          </ul>
+        </div>
+
+        <!-- CONTACT US -->
+        <div class="col-lg-6 col-md-6 mb-4">
+          <h4>CONTACT US</h4>
+          <ul class="contact-list">
+            <li>
+              <i class="fas fa-phone"></i>
+              <a href="tel:01217929167">0121 792 9167</a>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <a href="mailto:info@bordodesign.com">info@bordodesign.com</a>
+            </li>
+            <li>
+              <i class="fas fa-calendar-alt"></i>
+              <a href="https://calendly.com/bordo-design" target="_blank">Schedule a Consultation</a>
+            </li>
+            <li>
+              <i class="fas fa-map-marker-alt"></i>
+              30-34 Rookery Road, Birmingham, B21 9NB
+            </li>
+          </ul>
+        </div>
+
+        <!-- LOGO -->
+        <div class="col-lg-3 col-md-6 mb-4 text-center text-md-end">
+          <img src="images/logologo.png" alt="Bordo Logo" class="footer-logo">
+        </div>
+      </div>
+
+      <!-- COPYRIGHT -->
+      <div class="row mt-4">
+        <div class="col-12 text-center">
+          <p style="margin-bottom: 0;">© Bordo Design Ltd</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Essential JS - Optimized loading -->
+  <script src="js/bootstrap.min.js" defer></script>
+  <script src="js/all.min.js" defer></script>
+  <script src="js/wow.min.js" defer></script>
+  <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  
+  <!-- Optimized inline JavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Check if this is a conversion visit (for Google Ads tracking)
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('conversion') === 'scheduled') {
+        console.log('Conversion parameter detected - firing conversion tracking');
+        
+        // Fire Google Ads conversion immediately
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'conversion', {
+            'send_to': 'AW-XXXXXXXXX/XXXXXXXXXXXXXX', // REPLACE with your actual conversion ID/label
+            'value': 50.0,
+            'currency': 'GBP',
+            'transaction_id': Date.now().toString()
+          });
+          
+          // Also track in Google Analytics
+          gtag('event', 'appointment_confirmed', {
+            'event_category': 'conversions',
+            'event_label': 'consultation_scheduled',
+            'value': 50
+          });
+          
+          console.log('Google Ads conversion fired for scheduled appointment');
+        }
+      }
+      
+      // Preloader
+      const preloader = document.querySelector('.preloader');
+      window.addEventListener('load', function() {
+        preloader.style.display = 'none';
+      });
+      
+      // Elements
+      const header = document.querySelector('.main-header');
+      const menuToggle = document.getElementById('menuToggle');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const closeMenu = document.getElementById('closeMenu');
+      
+      // Show/hide mobile menu toggle based on screen size
+      function adjustForScreenSize() {
+        if (window.innerWidth <= 991) {
+          menuToggle.style.display = 'block';
+          document.getElementById('mainNav').style.display = 'none';
+        } else {
+          menuToggle.style.display = 'none';
+          document.getElementById('mainNav').style.display = 'flex';
+          mobileMenu.style.transform = 'translateY(-100%)';
+        }
+      }
+      
+      // Initialize
+      adjustForScreenSize();
+
+      // Dropdown functionality for desktop navigation
+      const dropdowns = document.querySelectorAll('.dropdown');
+      dropdowns.forEach(dropdown => {
+        const toggle = dropdown.querySelector('.dropdown-toggle');
+        const menu = dropdown.querySelector('.dropdown-menu');
+
+        if (menu && toggle) {
+          // Show dropdown on hover
+          dropdown.addEventListener('mouseenter', function() {
+            menu.style.display = 'block';
+          });
+
+          dropdown.addEventListener('mouseleave', function() {
+            menu.style.display = 'none';
+          });
+
+          // Also handle click for mobile/touch
+          toggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (menu.style.display === 'block') {
+              menu.style.display = 'none';
+            } else {
+              // Close other dropdowns
+              document.querySelectorAll('.dropdown-menu').forEach(otherMenu => {
+                if (otherMenu !== menu) {
+                  otherMenu.style.display = 'none';
+                }
+              });
+              menu.style.display = 'block';
+            }
+          });
+        }
+      });
+
+      // Close dropdowns when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!e.target.closest('.dropdown')) {
+          document.querySelectorAll('.dropdown-menu').forEach(menu => {
+            menu.style.display = 'none';
+          });
+        }
+      });
+
+      // Toggle mobile menu
+      menuToggle.addEventListener('click', function() {
+        mobileMenu.style.transform = 'translateY(0)';
+        document.body.style.overflow = 'hidden'; // Prevent scrolling while menu is open
+      });
+      
+      closeMenu.addEventListener('click', function() {
+        mobileMenu.style.transform = 'translateY(-100%)';
+        document.body.style.overflow = '';
+      });
+      
+      // Handle window resize
+      window.addEventListener('resize', adjustForScreenSize);
+      
+      // Throttled scroll handler for better performance
+      let lastScrollPosition = 0;
+      let ticking = false;
+      
+      function checkScroll() {
+        if (window.scrollY > 60) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+        ticking = false;
+      }
+      
+      window.addEventListener('scroll', function() {
+        lastScrollPosition = window.scrollY;
+        if (!ticking) {
+          window.requestAnimationFrame(function() {
+            checkScroll();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+      
+      // Check on page load
+      checkScroll();
+      
+      // Initialize WOW.js animations if available
+      if (typeof WOW === 'function') {
+        new WOW().init();
+      }
+      
+      // Bootstrap components initialization
+      const accordionItems = document.querySelectorAll('.accordion-button');
+      accordionItems.forEach(item => {
+        item.addEventListener('click', function() {
+          const target = document.querySelector(this.getAttribute('data-bs-target'));
+          if (target) {
+            if (target.classList.contains('show')) {
+              target.classList.remove('show');
+              this.classList.add('collapsed');
+              this.setAttribute('aria-expanded', 'false');
+            } else {
+              // Close all other accordions
+              document.querySelectorAll('.accordion-collapse.show').forEach(el => {
+                if (el.id !== target.id) {
+                  el.classList.remove('show');
+                  document.querySelector(`[aria-controls="${el.id}"]`).classList.add('collapsed');
+                  document.querySelector(`[aria-controls="${el.id}"]`).setAttribute('aria-expanded', 'false');
+                }
+              });
+              
+              target.classList.add('show');
+              this.classList.remove('collapsed');
+              this.setAttribute('aria-expanded', 'true');
+            }
+          }
+        });
+      });
+    });
+  </script>
+  
+  <!-- Calendly Conversion Tracking -->
+  <script>
+    // Listen for Calendly booking confirmations
+    window.addEventListener('message', function(e) {
+      // Verify the message is from Calendly
+      if (e.origin === "https://calendly.com" && e.data.event) {
+        console.log('Calendly event received:', e.data.event);
+        
+        // Check if it's a successful booking
+        if (e.data.event === 'calendly.event_scheduled') {
+          console.log('Appointment successfully scheduled!');
+          
+          // Option 1: Fire conversion directly
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'conversion', {
+              'send_to': 'AW-XXXXXXXXX/XXXXXXXXXXXXXX', // REPLACE with your actual conversion ID/label
+              'value': 50.0,
+              'currency': 'GBP',
+              'transaction_id': Date.now().toString()
+            });
+            
+            // Also track in Google Analytics for better insights
+            gtag('event', 'appointment_scheduled', {
+              'event_category': 'engagement',
+              'event_label': 'consultation_booking',
+              'value': 50
+            });
+            
+            console.log('Google Ads conversion tracked!');
+          }
+          
+          // Option 2: Redirect to the same page with conversion parameter
+          // This ensures Google Ads can track the conversion through the URL
+          window.location.href = 'https://www.bordodesign.com/contact?conversion=scheduled';
+          
+          // Show a nice success message
+          const successMessage = document.createElement('div');
+          successMessage.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #4CAF50;
+            color: white;
+            padding: 20px 30px;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            z-index: 9999;
+            animation: slideIn 0.3s ease-out;
+          `;
+          successMessage.innerHTML = `
+            <strong>✓ Booking Confirmed!</strong><br>
+            Check your email for confirmation details.
+          `;
+          document.body.appendChild(successMessage);
+          
+          // Remove message after 5 seconds
+          setTimeout(() => {
+            successMessage.style.animation = 'slideOut 0.3s ease-in';
+            setTimeout(() => successMessage.remove(), 300);
+          }, 5000);
+        }
+      }
+    });
+    
+    // Add animation styles for success message
+    if (!document.getElementById('calendly-animations')) {
+      const style = document.createElement('style');
+      style.id = 'calendly-animations';
+      style.textContent = `
+        @keyframes slideIn {
+          from { transform: translateX(100%); opacity: 0; }
+          to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes slideOut {
+          from { transform: translateX(0); opacity: 1; }
+          to { transform: translateX(100%); opacity: 0; }
+        }
+      `;
+      document.head.appendChild(style);
+    }
+  </script>
+  
+  <!-- Calendly Conversion Tracking -->
+  <script>
+    // Listen for Calendly booking confirmations
+    window.addEventListener('message', function(e) {
+      // Verify the message is from Calendly
+      if (e.origin === "https://calendly.com" && e.data.event) {
+        console.log('Calendly event received:', e.data.event);
+        
+        // Check if it's a successful booking
+        if (e.data.event === 'calendly.event_scheduled') {
+          console.log('Appointment successfully scheduled!');
+          
+          // Fire Google Ads conversion
+          // IMPORTANT: Replace 'AW-XXXXXXXXX/XXXXXXXXXXXXXX' with your actual conversion ID and label
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'conversion', {
+              'send_to': 'AW-XXXXXXXXX/XXXXXXXXXXXXXX', // <-- REPLACE THIS
+              'value': 50.0,
+              'currency': 'GBP',
+              'transaction_id': '' // Let Google generate this
+            });
+            
+            // Also track in Google Analytics for better insights
+            gtag('event', 'appointment_scheduled', {
+              'event_category': 'engagement',
+              'event_label': 'consultation_booking',
+              'value': 50
+            });
+            
+            console.log('Google Ads conversion tracked!');
+          }
+          
+          // Optional: Show a nice success message instead of alert
+          // You can customize this or remove it entirely
+          const successMessage = document.createElement('div');
+          successMessage.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #4CAF50;
+            color: white;
+            padding: 20px 30px;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            z-index: 9999;
+            animation: slideIn 0.3s ease-out;
+          `;
+          successMessage.innerHTML = `
+            <strong>✓ Booking Confirmed!</strong><br>
+            Check your email for confirmation details.
+          `;
+          document.body.appendChild(successMessage);
+          
+          // Remove message after 5 seconds
+          setTimeout(() => {
+            successMessage.style.animation = 'slideOut 0.3s ease-in';
+            setTimeout(() => successMessage.remove(), 300);
+          }, 5000);
+        }
+      }
+    });
+    
+    // Add animation styles for success message
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes slideIn {
+        from { transform: translateX(100%); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
+      }
+      @keyframes slideOut {
+        from { transform: translateX(0); opacity: 1; }
+        to { transform: translateX(100%); opacity: 0; }
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
+
+  <!-- Load navbar component -->
+  <script src="js/navbar-loader.js"></script>
+</body>
+</html>

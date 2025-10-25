@@ -1,0 +1,946 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>What We Do | Bordo Design</title>
+
+  <!-- SEO / Social -->
+  <meta name="description" content="Explore BORDO's comprehensive design and build services - from residential and commercial projects to bespoke carpentry, fabrication, and architectural glazing."/>
+  <meta property="og:title" content="What We Do | Bordo Design" />
+  <meta property="og:description" content="Explore BORDO's comprehensive design and build services." />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link href="css/all.min.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #a9b1b2;
+      --accent: #671c19;
+      --accent-dark: #621310;
+      --text: #283132;
+      --bg: #F8F8F8;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Hanken Grotesk", sans-serif;
+      font-weight: 100;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    /* Navbar Styles */
+    .main-header {
+      position: fixed !important;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100000;
+      background-color: rgba(76, 13, 10, 0.9);
+      transition: background-color 0.4s ease, box-shadow 0.4s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    body.expanded .main-header {
+      background-color: #4c0d0a;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .header-sticky {
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .main-header nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 60px;
+    }
+
+    .main-header .logo img {
+      height: 35px;
+      width: auto;
+    }
+
+    .main-header nav a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 15px;
+      display: block;
+      font-weight: 300;
+      font-size: 16px;
+    }
+
+    .main-header nav ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      transition: all 0.3s ease;
+      flex-direction: row;
+    }
+
+    .main-header nav ul li {
+      position: relative;
+      margin: 0 5px;
+      display: block;
+    }
+
+    .main-header nav ul li.dropdown {
+      position: relative;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #4c0d0a;
+      list-style: none;
+      padding: 10px 0;
+      margin: 0;
+      min-width: 200px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      z-index: 10003;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      flex-direction: column !important;
+    }
+
+    .dropdown-menu.show {
+      display: flex;
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .dropdown-menu li {
+      margin: 0 !important;
+      display: block !important;
+      width: 100%;
+    }
+
+    .dropdown-menu li a {
+      padding: 10px 20px !important;
+      display: block !important;
+      white-space: nowrap;
+    }
+
+    .dropdown-menu li a:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    #menuToggle {
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      z-index: 1002;
+      display: none;
+    }
+
+    #mobileMenu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #4c0d0a;
+      z-index: 10001;
+      transform: translateY(-100%);
+      transition: transform 0.3s ease;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #mobileMenu.active {
+      transform: translateY(0);
+    }
+
+    #closeMenu {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 991px) {
+      #menuToggle {
+        display: block;
+      }
+
+      #mainNav {
+        display: none !important;
+      }
+    }
+
+    /* Enhanced Hero Section with Images */
+    .hero-section {
+      margin-top: 80px;
+      position: relative;
+      min-height: 600px;
+      background: linear-gradient(135deg, rgba(103,28,25,0.05) 0%, rgba(169,177,178,0.05) 100%);
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: repeat(8, 60px);
+      gap: 15px;
+      padding: 40px 6%;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+
+    .hero-content {
+      grid-column: 4 / 10;
+      grid-row: 3 / 7;
+      background: rgba(255, 255, 255, 0.98);
+      padding: 60px;
+      border-radius: 8px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+      z-index: 10;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-content h1 {
+      font-size: 3.5rem;
+      color: var(--accent);
+      font-weight: 100;
+      margin-bottom: 20px;
+      letter-spacing: -1px;
+    }
+
+    .hero-content p {
+      font-size: 1.15rem;
+      color: var(--text);
+      opacity: 0.85;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* Image Boxes Around Hero */
+    .hero-image {
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .hero-image:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      z-index: 5;
+    }
+
+    .hero-image:hover img {
+      transform: scale(1.1);
+    }
+
+    .hero-image-1 {
+      grid-column: 1 / 4;
+      grid-row: 1 / 3;
+    }
+
+    .hero-image-2 {
+      grid-column: 10 / 13;
+      grid-row: 1 / 4;
+    }
+
+    .hero-image-3 {
+      grid-column: 1 / 3;
+      grid-row: 3 / 6;
+    }
+
+    .hero-image-4 {
+      grid-column: 11 / 13;
+      grid-row: 4 / 7;
+    }
+
+    .hero-image-5 {
+      grid-column: 2 / 5;
+      grid-row: 6 / 9;
+    }
+
+    .hero-image-6 {
+      grid-column: 9 / 12;
+      grid-row: 7 / 9;
+    }
+
+    .hero-image-7 {
+      grid-column: 5 / 7;
+      grid-row: 1 / 3;
+    }
+
+    .hero-image-8 {
+      grid-column: 7 / 9;
+      grid-row: 7 / 9;
+    }
+
+    /* Quick Links Section */
+    .quick-links {
+      padding: 30px 6%;
+      background: var(--white);
+      border-top: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .link-card {
+      background: var(--bg);
+      padding: 15px;
+      border-radius: 6px;
+      text-align: center;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+
+    .link-card:hover {
+      background: var(--white);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(103,28,25,0.1);
+      border-color: var(--accent);
+    }
+
+    .link-card h3 {
+      color: var(--accent);
+      font-size: 0.95rem;
+      font-weight: 400;
+      margin-bottom: 5px;
+    }
+
+    .link-card p {
+      font-size: 0.75rem;
+      color: var(--text);
+      opacity: 0.7;
+    }
+
+    /* Service Section */
+    .service-section {
+      padding: 80px 6%;
+      background: var(--white);
+    }
+
+    .service-section:nth-child(odd) {
+      background-color: rgba(245, 241, 232, 0.3);
+    }
+
+    .service-section:nth-child(even) {
+      background-color: rgba(232, 226, 213, 0.3);
+    }
+
+    .service-section:nth-child(3n) {
+      background-color: rgba(103, 28, 25, 0.05);
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      max-width: 1400px;
+      margin: 0 auto;
+      align-items: center;
+    }
+
+    .service-image {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    }
+
+    .service-content h2 {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 10px;
+      font-weight: 100;
+    }
+
+    .service-content h3 {
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 25px;
+      font-weight: 300;
+    }
+
+    .service-content p {
+      margin-bottom: 18px;
+      font-size: 1.05rem;
+      color: var(--text);
+      opacity: 0.9;
+    }
+
+    .service-content strong {
+      font-weight: 500;
+      color: var(--accent);
+    }
+
+    .keyword {
+      color: var(--primary);
+      font-weight: 400;
+    }
+
+    .highlight {
+      background: linear-gradient(to right, rgba(103,28,25,0.03), transparent);
+      padding: 20px;
+      border-left: 3px solid var(--accent);
+      margin: 25px 0;
+      font-size: 1.1rem;
+    }
+
+    .cta-link {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 30px;
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: 400;
+      transition: all 0.3s ease;
+    }
+
+    .cta-link:hover {
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(103,28,25,0.2);
+    }
+
+    /* Footer Styles */
+    .footer {
+      background-color: rgba(65, 12, 10, 0.95);
+      color: white;
+      padding: 40px 0 20px;
+      margin-top: 80px;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 40px;
+      padding: 0 20px;
+      align-items: start;
+    }
+
+    .footer-column h3 {
+      color: var(--primary);
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      font-weight: 400;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-column li {
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+    }
+
+    .footer-column a {
+      color: white;
+      text-decoration: none;
+      transition: opacity 0.3s;
+    }
+
+    .footer-column a:hover {
+      opacity: 0.7;
+    }
+
+    .footer-logo {
+      text-align: center;
+    }
+
+    .footer-logo img {
+      max-height: 80px;
+      opacity: 0.9;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      margin-top: 30px;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-rows: repeat(10, 50px);
+      }
+
+      .hero-content {
+        grid-column: 2 / 8;
+        grid-row: 4 / 8;
+        padding: 40px;
+      }
+
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero-image-1 { grid-column: 1 / 3; grid-row: 1 / 3; }
+      .hero-image-2 { grid-column: 6 / 9; grid-row: 1 / 3; }
+      .hero-image-3 { grid-column: 1 / 2; grid-row: 4 / 6; }
+      .hero-image-4 { grid-column: 8 / 9; grid-row: 5 / 7; }
+      .hero-image-5 { grid-column: 2 / 4; grid-row: 8 / 10; }
+      .hero-image-6 { grid-column: 5 / 7; grid-row: 8 / 10; }
+      .hero-image-7 { grid-column: 3 / 5; grid-row: 2 / 4; }
+      .hero-image-8 { display: none; }
+    }
+
+    @media (max-width: 768px) {
+      .hero-section {
+        min-height: auto;
+      }
+
+      .hero-grid {
+        display: block;
+        padding: 20px;
+      }
+
+      .hero-content {
+        padding: 40px 30px;
+        margin-bottom: 30px;
+      }
+
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+
+      .hero-image {
+        display: none;
+      }
+
+      .hero-image-1,
+      .hero-image-2 {
+        display: block;
+        width: 100%;
+        height: 200px;
+        margin-bottom: 20px;
+      }
+
+      .service-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .service-image {
+        height: 300px;
+      }
+
+      .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ========================================
+     NAVBAR HTML
+     ======================================== -->
+
+<header class="main-header">
+  <nav>
+    <div class="logo">
+      <a href="index.html">
+        <img src="images/logo11111.png" alt="Logo">
+      </a>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li class="dropdown">
+        <a href="whatwedo.html">What We Do</a>
+        <ul class="dropdown-menu">
+          <li><a href="whatwedo.html#residential">Residential</a></li>
+          <li><a href="whatwedo.html#commercial">Commercial</a></li>
+          <li><a href="whatwedo.html#office-fitouts">Office Fit-outs</a></li>
+          <li><a href="whatwedo.html#shopfitting">Shopfitting</a></li>
+          <li><a href="whatwedo.html#carpentry">Carpentry</a></li>
+          <li><a href="whatwedo.html#visualisation">Visualisation</a></li>
+          <li><a href="whatwedo.html#fabrication">Fabrication</a></li>
+          <li><a href="whatwedo.html#bordo-glass">Bordo Glass</a></li>
+        </ul>
+      </li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="brandandmarketing.html">Brand & Marketing</a></li>
+      <li class="dropdown">
+        <a href="#">Feed</a>
+        <ul class="dropdown-menu">
+          <li><a href="updates.html">Updates</a></li>
+          <li><a href="#articles">Articles</a></li>
+        </ul>
+      </li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <button class="navbar-toggle" id="menuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+</header>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-header">
+    <span>Menu</span>
+    <button class="close-menu" id="closeMenu">&times;</button>
+  </div>
+  <ul class="mobile-nav">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="whatwedo.html">What We Do</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="brandandmarketing.html">Brand & Marketing</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</div>
+
+  <!-- Enhanced Hero Section with Images -->
+  <section class="hero-section">
+    <div class="hero-grid">
+      <!-- Surrounding Images -->
+      <div class="hero-image hero-image-1">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=300&fit=crop" alt="Luxury Interior Design">
+      </div>
+      <div class="hero-image hero-image-2">
+        <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=400&h=400&fit=crop" alt="Modern Architecture">
+      </div>
+      <div class="hero-image hero-image-3">
+        <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?w=300&h=400&fit=crop" alt="Bespoke Carpentry">
+      </div>
+      <div class="hero-image hero-image-4">
+        <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=300&h=400&fit=crop" alt="Metal Fabrication">
+      </div>
+      <div class="hero-image hero-image-5">
+        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=400&h=300&fit=crop" alt="Glass Installation">
+      </div>
+      <div class="hero-image hero-image-6">
+        <img src="https://images.unsplash.com/photo-1600210492493-0946911123ea?w=400&h=300&fit=crop" alt="Residential Interior">
+      </div>
+      <div class="hero-image hero-image-7">
+        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=300&h=300&fit=crop" alt="Office Design">
+      </div>
+      <div class="hero-image hero-image-8">
+        <img src="https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?w=300&h=300&fit=crop" alt="3D Visualization">
+      </div>
+
+      <!-- Central Content -->
+      <div class="hero-content">
+        <h1>What We Do</h1>
+        <p>From concept to completion, BORDO delivers comprehensive design and build services. Our in-house capabilities span carpentry, fabrication, glazing, and visualization – creating exceptional spaces without compromise.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Links Section -->
+  <section class="quick-links">
+    <div class="links-grid">
+      <div class="link-card" onclick="location.href='#commercial'">
+        <h3>Commercial</h3>
+        <p>Transforming business spaces</p>
+      </div>
+      <div class="link-card" onclick="location.href='#residential'">
+        <h3>Residential</h3>
+        <p>Luxury homes without limits</p>
+      </div>
+      <div class="link-card" onclick="location.href='#carpentry'">
+        <h3>Carpentry</h3>
+        <p>Master craftsmanship</p>
+      </div>
+      <div class="link-card" onclick="location.href='#fabrication'">
+        <h3>Fabrication</h3>
+        <p>Precision engineering</p>
+      </div>
+      <div class="link-card" onclick="location.href='#visualisation'">
+        <h3>Visualisation</h3>
+        <p>See before you build</p>
+      </div>
+      <div class="link-card" onclick="location.href='#bordo-glass'">
+        <h3>BORDO Glass</h3>
+        <p>Architectural glazing</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Commercial -->
+  <section id="commercial" class="service-section">
+    <div class="service-grid">
+      <div class="service-content">
+        <h2>Commercial</h2>
+        <h3>Spaces that <strong>define brands</strong> and <strong>inspire teams</strong>.</h3>
+        <p>From headquarters to hospitality, <strong>BORDO</strong> transforms commercial environments into <span class="keyword">exceptional experiences</span>.</p>
+        <p>We understand that commercial spaces are more than buildings—they're <span class="keyword">brand statements</span>, <span class="keyword">productivity engines</span>, and <span class="keyword">customer touchpoints</span>.</p>
+        <p>Our commercial division brings together <strong>design intelligence</strong>, <strong>technical precision</strong>, and <strong>project management excellence</strong> to deliver spaces that work as beautifully as they look.</p>
+        <p>With all capabilities in-house—from <span class="keyword">architectural metalwork</span> to <span class="keyword">bespoke joinery</span>—we maintain complete control over quality, timeline, and budget.</p>
+        <p class="highlight">Whether reimagining a flagship store, crafting a corporate headquarters, or designing a boutique hotel, <strong>BORDO</strong> delivers commercial spaces that <strong>elevate brands</strong> and <strong>enhance experiences</strong>.</p>
+        <a href="contact.html" class="cta-link">Start Your Project</a>
+      </div>
+      <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800&h=600&fit=crop" alt="Modern commercial office space" class="service-image">
+    </div>
+  </section>
+
+  <!-- Residential -->
+  <section id="residential" class="service-section">
+    <div class="service-grid">
+      <img src="https://images.unsplash.com/photo-1600210492493-0946911123ea?w=800&h=600&fit=crop" alt="Luxury residential interior" class="service-image">
+      <div class="service-content">
+        <h2>Residential</h2>
+        <h3>Homes of distinction, <strong>crafted without limitation</strong>.</h3>
+        <p>Every detail <strong>designed</strong>, <strong>engineered</strong>, and <strong>built in-house</strong>—a complete expression of <span class="keyword">luxury living</span>.</p>
+        <p>A home is personal—it's where <span class="keyword">craft</span>, <span class="keyword">comfort</span>, and <span class="keyword">identity</span> meet.</p>
+        <p>At <strong>BORDO</strong>, we bring every discipline under one roof, allowing complete freedom to create without compromise. Our team of <span class="keyword">master craftsmen</span> and designers work seamlessly to deliver <strong>bespoke interiors</strong> of unmatched quality—from walk-in wardrobes and private libraries to home offices, games rooms, and cinema suites.</p>
+        <p>With <strong>in-house capability</strong> across <span class="keyword">wood</span>, <span class="keyword">stone</span>, <span class="keyword">aluminium</span>, and <span class="keyword">glass</span>, we realise ideas that others can only imagine.</p>
+        <p class="highlight">Each residence is designed exclusively around the individual—<strong>elegant</strong>, <strong>enduring</strong>, and unmistakably <strong>BORDO</strong>.</p>
+        <a href="contact.html" class="cta-link">Begin Your Journey</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Carpentry -->
+  <section id="carpentry" class="service-section">
+    <div class="service-grid">
+      <div class="service-content">
+        <h2>Carpentry</h2>
+        <h3>Where <strong>craftsmanship meets art</strong>.</h3>
+        <p><span class="keyword">Precision joinery</span>, <span class="keyword">bespoke furniture</span>, and <span class="keyword">architectural woodwork</span>—all created in-house by <strong>master carpenters</strong>.</p>
+        <p>Woodwork is at the heart of <strong>BORDO</strong>.</p>
+        <p>Our carpentry division brings together <span class="keyword">heritage skill</span> and <span class="keyword">modern engineering</span> to produce everything from refined interiors to large-scale installations.</p>
+        <p>We design and fabricate premium Italian- and German-inspired kitchens, wardrobes, and living spaces—crafted to <strong>millimetre perfection</strong>.</p>
+        <p>Beyond interiors, our expertise extends to custom libraries, saunas, art displays, and architectural timber features across commercial and institutional projects.</p>
+        <p class="highlight">With deep knowledge of materials, light, and finish, our craftsmen create work that blends <strong>precision with artistry</strong>—shaping spaces that feel <strong>alive</strong>, <strong>warm</strong>, and <strong>enduring</strong>.</p>
+        <a href="contact.html" class="cta-link">Explore Bespoke Carpentry</a>
+      </div>
+      <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?w=800&h=600&fit=crop" alt="Bespoke carpentry work" class="service-image">
+    </div>
+  </section>
+
+  <!-- Fabrication -->
+  <section id="fabrication" class="service-section">
+    <div class="service-grid">
+      <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&h=600&fit=crop" alt="Metal fabrication workshop" class="service-image">
+      <div class="service-content">
+        <h2>Fabrication</h2>
+        <h3><strong>Precision engineered</strong>. <strong>Artistically built</strong>.</h3>
+        <p><span class="keyword">Aluminium</span>, <span class="keyword">glass</span>, and <span class="keyword">metal fabrication</span>—crafted entirely in-house for <strong>total control</strong> and <strong>design freedom</strong>.</p>
+        <p>Fabrication is where <strong>imagination becomes structure</strong>.</p>
+        <p>Within our fully equipped facility, we design and engineer <strong>bespoke aluminium systems</strong>—from partitions and profiles to doors, frames, and architectural features.</p>
+        <p>Each component is <strong>precision-built</strong>, custom-painted, and colour-matched to any <span class="keyword">RAL specification</span>, giving complete control over tone and finish.</p>
+        <p>Our expertise extends beyond form and function.</p>
+        <p>We integrate glass, stone, and timber directly into our metalwork, allowing <strong>seamless transitions</strong> between materials.</p>
+        <p>Every detail—from the geometry of a joint to the texture of a surface—is refined to <strong>exacting standards</strong>.</p>
+        <p class="highlight">Whether structural or decorative, interior or exterior, our fabrication division gives <strong>BORDO</strong> the power to <strong>build without limitation</strong>—combining engineering accuracy with artistic intent.</p>
+        <a href="contact.html" class="cta-link">Discover Our Fabrication</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visualisation -->
+  <section id="visualisation" class="service-section">
+    <div class="service-grid">
+      <div class="service-content">
+        <h2>Visualisation</h2>
+        <h3>See your vision <strong>before it's built</strong>.</h3>
+        <p><strong>Immersive design visualisation</strong>—bridging imagination and reality through <span class="keyword">advanced CGI</span> and <span class="keyword">virtual reality</span>.</p>
+        <p>Every great design begins with a conversation.</p>
+        <p>From those first ideas, our visualisation team translates your thoughts and preferences into <strong>fully rendered</strong>, <strong>three-dimensional environments</strong>—crafted with the same attention to material, lighting, and proportion as the final build.</p>
+        <p>Using <span class="keyword">high-fidelity CGI</span> and <span class="keyword">virtual reality</span>, we enable clients to <strong>step inside their project</strong> before construction begins.</p>
+        <p>You can walk through the space, experience its scale, lighting, and flow, and explore how textures and materials interact in <strong>real time</strong>.</p>
+        <p class="highlight">This process eliminates uncertainty, deepens understanding, and builds <strong>absolute confidence</strong> in the design—ensuring that what you see is <strong>exactly what we deliver</strong>.</p>
+        <a href="contact.html" class="cta-link">Experience VR Design</a>
+      </div>
+      <img src="https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?w=800&h=600&fit=crop" alt="VR visualization technology" class="service-image">
+    </div>
+  </section>
+
+  <!-- BORDO Glass -->
+  <section id="bordo-glass" class="service-section">
+    <div class="service-grid">
+      <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&h=600&fit=crop" alt="Architectural glass installation" class="service-image">
+      <div class="service-content">
+        <h2>BORDO Glass</h2>
+        <h3><strong>Architectural glazing</strong>, perfected.</h3>
+        <p><span class="keyword">Custom aluminium systems</span> and <span class="keyword">glass solutions</span>—<strong>engineered</strong>, <strong>fabricated</strong>, and <strong>finished entirely in-house</strong>.</p>
+        <p><strong>BORDO Glass</strong> is more than a service—it's a <strong>specialist division</strong> dedicated to precision glazing and architectural aluminium.</p>
+        <p>From bespoke partitions and structural glass to fully integrated door systems, every component is designed, fabricated, and finished within our own facility.</p>
+        <p>We produce <strong>made-to-measure</strong> aluminium profiles, sliding and bifold doors, and custom partitions—all available in any <span class="keyword">RAL-matched finish</span> and compatible with a wide range of glass specifications.</p>
+        <p>Whether you need <span class="keyword">acoustic</span>, <span class="keyword">tinted</span>, <span class="keyword">frosted</span>, or <span class="keyword">smart switchable glass</span>, every option is engineered to <strong>exact tolerance</strong> and aesthetic intent.</p>
+        <p>BORDO Glass delivers the same design intelligence and craftsmanship that define the wider BORDO brand—but with the <strong>speed</strong>, <strong>precision</strong>, and <strong>configurability</strong> that modern commercial and architectural projects demand.</p>
+        <p class="highlight">For direct orders, specifications, and quick-turnaround glass systems, visit our dedicated site: <a href="https://bordoglass.co.uk" target="_blank" style="color: var(--accent); text-decoration: underline; font-weight: 500;">bordoglass.co.uk</a></p>
+        <a href="https://bordoglass.co.uk" target="_blank" class="cta-link">Visit BORDO Glass</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3>INFORMATION</h3>
+        <ul>
+          <li><a href="#">About Our Company</a></li>
+          <li><a href="#">Careers at Company</a></li>
+          <li><a href="#">Our Latest Projects</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3>CONTACT US</h3>
+        <ul class="contact">
+          <li>📞 0121 792 9167</li>
+          <li>✉️ <a href="mailto:info@bordodesign.com">info@bordodesign.com</a></li>
+          <li>📅 <a href="#">Schedule a Consultation</a></li>
+          <li>📍 30-34 Rookery Road, Birmingham, B21 9NB</li>
+        </ul>
+      </div>
+
+      <div class="footer-logo">
+        <img src="logologo.png" alt="Bordo Design Logo">
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © Bordo Design Ltd
+    </div>
+  </footer>
+
+  <!-- JavaScript for dropdown menus -->
+  <script>
+    (function(){
+      const dropdowns = document.querySelectorAll('.dropdown-toggle');
+
+      dropdowns.forEach(toggle => {
+        toggle.addEventListener('click', (e) => {
+          e.preventDefault();
+          const menu = toggle.nextElementSibling;
+          const isOpen = menu.style.display === 'block';
+
+          // Close all dropdowns
+          document.querySelectorAll('.dropdown-menu').forEach(m => m.style.display = 'none');
+
+          // Toggle current
+          menu.style.display = isOpen ? 'none' : 'block';
+        });
+      });
+
+      // Close dropdowns when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.dropdown')) {
+          document.querySelectorAll('.dropdown-menu').forEach(m => m.style.display = 'none');
+        }
+      });
+
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          const href = this.getAttribute('href');
+          if (href === '#') return;
+
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) {
+            const offset = 100;
+            const targetPosition = target.offsetTop - offset;
+            window.scrollTo({
+              top: targetPosition,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+    })();
+
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const closeMenu = document.getElementById('closeMenu');
+
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.add('active');
+    });
+
+    closeMenu.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+    });
+
+    // Dropdown menu control
+    const dropdowns = document.querySelectorAll('.dropdown');
+
+    dropdowns.forEach(dropdown => {
+      const dropdownMenu = dropdown.querySelector('.dropdown-menu');
+
+      dropdown.addEventListener('mouseenter', () => {
+        dropdownMenu.classList.add('show');
+      });
+
+      dropdown.addEventListener('mouseleave', () => {
+        dropdownMenu.classList.remove('show');
+      });
+    });
+  </script>
+</body>
+</html>

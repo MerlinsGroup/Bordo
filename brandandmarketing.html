@@ -1,0 +1,1783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Brand & Marketing | BORDO × MerlinsGroup</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@100;300;400;500;600&display=swap" rel="stylesheet">
+  <link href="css/all.min.css" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: "Hanken Grotesk", sans-serif;
+      background: #ffffff;
+      overflow: hidden;
+      width: 100%;
+      height: 100vh;
+      min-height: -webkit-fill-available;
+    }
+
+    body.expanded {
+      overflow-x: hidden;
+      overflow-y: auto;
+      height: auto;
+      min-height: auto;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        height: 100dvh;
+      }
+    }
+
+    html {
+      height: 100%;
+      height: -webkit-fill-available;
+    }
+
+    @supports (-webkit-touch-callout: none) {
+      body {
+        height: -webkit-fill-available;
+      }
+    }
+
+    .animation-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      height: 100dvh;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    @media (max-width: 768px) {
+      .animation-container {
+        height: 100dvh;
+      }
+    }
+
+    /* Vertical Line that splits into X */
+    .horizontal-line {
+      position: absolute;
+      width: 4px;
+      height: 0;
+      background: #671c19;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: expandLine 1s ease-out forwards;
+    }
+
+    @media (max-width: 768px) {
+      .horizontal-line {
+        width: 3px;
+        animation: expandLineVertical 1s ease-out forwards;
+      }
+    }
+
+    @keyframes expandLine {
+      0% {
+        height: 0;
+        transform: translate(-50%, -50%);
+      }
+      100% {
+        height: 120px;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    @media (max-width: 768px) {
+      @keyframes expandLineVertical {
+        0% {
+          height: 0;
+          transform: translate(-50%, -50%);
+        }
+        100% {
+          height: 80px;
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
+
+    /* X Symbol - Two rotating lines */
+    .x-symbol {
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    .x-symbol::before,
+    .x-symbol::after {
+      content: '';
+      position: absolute;
+      width: 4px;
+      height: 120px;
+      background: #671c19;
+      top: 0;
+      left: 50%;
+      margin-left: -2px;
+      transform-origin: 50% 50%;
+    }
+
+    @media (max-width: 768px) {
+      .x-symbol {
+        width: 80px;
+        height: 80px;
+      }
+
+      .x-symbol::before,
+      .x-symbol::after {
+        height: 80px;
+        width: 3px;
+        margin-left: -1.5px;
+      }
+    }
+
+    .x-symbol::before {
+      animation: rotateLine1 1.2s ease-in-out 1s forwards;
+      transform: rotate(0deg);
+    }
+
+    .x-symbol::after {
+      animation: rotateLine2 1.2s ease-in-out 1s forwards;
+      transform: rotate(0deg);
+    }
+
+    @keyframes rotateLine1 {
+      0% {
+        opacity: 0;
+        transform: rotate(0deg);
+      }
+      10% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 1;
+        transform: rotate(45deg);
+      }
+    }
+
+    @keyframes rotateLine2 {
+      0% {
+        opacity: 0;
+        transform: rotate(0deg);
+      }
+      10% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 1;
+        transform: rotate(-45deg);
+      }
+    }
+
+    /* Brand Names */
+    .brand-left,
+    .brand-right {
+      position: absolute;
+      font-size: 56px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      color: #671c19;
+      opacity: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .brand-left {
+      left: 50%;
+      margin-left: -400px;
+      text-align: right;
+      animation: slideInLeft 1s ease-out 2.2s forwards;
+    }
+
+    .brand-right {
+      left: 50%;
+      margin-left: 100px;
+      text-align: left;
+      animation: slideInRight 1s ease-out 2.2s forwards;
+    }
+
+    @media (max-width: 768px) {
+      .brand-left,
+      .brand-right {
+        font-size: 28px;
+        letter-spacing: 1px;
+        left: 50%;
+        margin-left: 0;
+        transform: translate(-50%, -50%);
+      }
+
+      .brand-left {
+        top: 25%;
+        animation: slideInTop 1s ease-out 2.2s forwards;
+      }
+
+      .brand-right {
+        top: 75%;
+        animation: slideInBottom 1s ease-out 2.2s forwards;
+      }
+    }
+
+    @media (max-width: 768px) {
+      @keyframes slideInTop {
+        0% { opacity: 0; transform: translate(-50%, -50%) translateY(-30px); }
+        100% { opacity: 1; transform: translate(-50%, -50%) translateY(0); }
+      }
+
+      @keyframes slideInBottom {
+        0% { opacity: 0; transform: translate(-50%, -50%) translateY(30px); }
+        100% { opacity: 1; transform: translate(-50%, -50%) translateY(0); }
+      }
+    }
+
+    @keyframes slideInLeft {
+      0% { opacity: 0; transform: translateY(-50%) translateX(-50px); }
+      100% { opacity: 1; transform: translateY(-50%) translateX(0); }
+    }
+
+    @keyframes slideInRight {
+      0% { opacity: 0; transform: translateY(-50%) translateX(50px); }
+      100% { opacity: 1; transform: translateY(-50%) translateX(0); }
+    }
+
+    /* Center Divider Line */
+    .center-divider {
+      position: absolute;
+      width: 2px;
+      height: 0;
+      background: #d0d0d0;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: expandDivider 1s ease-out 2.2s forwards;
+    }
+
+    @media (max-width: 768px) {
+      .center-divider {
+        width: 0;
+        height: 2px;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        animation: expandDividerHorizontal 1s ease-out 2.2s forwards;
+      }
+    }
+
+    @keyframes expandDivider {
+      0% {
+        height: 0;
+        top: 50%;
+      }
+      100% {
+        height: 100vh;
+        top: 0;
+      }
+    }
+
+    @media (max-width: 768px) {
+      @keyframes expandDividerHorizontal {
+        0% {
+          width: 0;
+          left: 50%;
+        }
+        100% {
+          width: 100vw;
+          left: 0;
+        }
+      }
+    }
+
+    /* Final State - Split Screen */
+    .split-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      height: 100dvh;
+      display: flex;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 1s ease-in;
+      z-index: 1000;
+    }
+
+    @media (max-width: 768px) {
+      .split-container {
+        height: 100dvh;
+      }
+    }
+
+    .split-container.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    body.expanded .split-container {
+      display: none;
+    }
+
+    body.expanded .animation-container {
+      display: none;
+    }
+
+    .split-side {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      cursor: pointer;
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .split-side.left {
+      background: linear-gradient(135deg, rgba(103, 28, 25, 0.02), rgba(139, 69, 19, 0.02));
+      border-right: 1px solid #e0e0e0;
+    }
+
+    .split-side.right {
+      background: linear-gradient(135deg, rgba(30, 58, 138, 0.02), rgba(59, 130, 246, 0.02));
+      border-left: 1px solid #e0e0e0;
+    }
+
+    @media (max-width: 768px) {
+      .split-container {
+        flex-direction: column;
+      }
+
+      .split-side.left {
+        border-right: none;
+        border-bottom: 1px solid #e0e0e0;
+      }
+
+      .split-side.right {
+        border-left: none;
+        border-top: 1px solid #e0e0e0;
+      }
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .split-side:hover {
+        flex: 1.2;
+        background-color: #000000;
+      }
+
+      .split-side:hover .split-brand,
+      .split-side:hover .split-brand-description {
+        color: #ffffff;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .split-side {
+        flex: 1;
+        height: 50vh;
+        position: relative;
+      }
+    }
+
+    .split-brand {
+      font-size: 56px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      color: #671c19;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .split-brand-description {
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      color: #333;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 768px) {
+      .split-brand {
+        font-size: 32px;
+        gap: 10px;
+      }
+
+      .split-brand-description {
+        font-size: 11px;
+        letter-spacing: 1px;
+      }
+
+      .split-side {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    .center-x {
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 80px;
+      height: 80px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      color: #671c19;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+      z-index: 10000;
+      line-height: 0;
+      transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    body.expanded .center-x {
+      position: absolute;
+      top: 50%;
+    }
+
+    @media (max-width: 768px) {
+      .center-x {
+        width: 60px;
+        height: 60px;
+        font-size: 36px;
+      }
+    }
+
+    /* Exploding Full-Screen Images */
+    .falling-image {
+      position: absolute;
+      width: 0;
+      height: 0;
+      overflow: hidden;
+      opacity: 0;
+      z-index: 1;
+      top: 50%;
+      border-radius: 0;
+      pointer-events: none;
+    }
+
+    .falling-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Left side explosion */
+    .falling-image:nth-child(1) {
+      left: 50%;
+      animation: explodeLeft 1.5s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards;
+      transition: left 0.8s cubic-bezier(0.4, 0, 0.2, 1), width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Right side explosion */
+    .falling-image:nth-child(2) {
+      left: 50%;
+      animation: explodeRight 1.5s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards;
+      transition: left 0.8s cubic-bezier(0.4, 0, 0.2, 1), width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    @keyframes explodeLeft {
+      0% {
+        width: 0;
+        height: 0;
+        top: 50%;
+        left: 50%;
+        opacity: 0;
+        transform: translate(0, -50%) scale(0);
+      }
+      30% {
+        opacity: 1;
+      }
+      100% {
+        width: 50vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        opacity: 0.15;
+        transform: translate(0, 0) scale(1);
+      }
+    }
+
+    @keyframes explodeRight {
+      0% {
+        width: 0;
+        height: 0;
+        top: 50%;
+        left: 50%;
+        opacity: 0;
+        transform: translate(0, -50%) scale(0);
+      }
+      30% {
+        opacity: 1;
+      }
+      100% {
+        width: 50vw;
+        height: 100vh;
+        top: 0;
+        left: 50%;
+        opacity: 0.15;
+        transform: translate(0, 0) scale(1);
+      }
+    }
+
+    /* Center Info Box */
+    .info-box {
+      position: absolute;
+      left: 50%;
+      bottom: 10%;
+      transform: translateX(-50%);
+      background: white;
+      padding: 40px 50px;
+      border-radius: 20px;
+      box-shadow: 0 20px 80px rgba(0, 0, 0, 0.2);
+      z-index: 10001;
+      opacity: 0;
+      animation: fadeInBox 1s ease-out 2s forwards;
+      text-align: center;
+      max-width: 800px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .info-box:hover {
+      transform: translateX(-50%) scale(1.05);
+      box-shadow: 0 30px 100px rgba(0, 0, 0, 0.3);
+    }
+
+    body.expanded .info-box {
+      display: none;
+    }
+
+    .info-box h2 {
+      font-size: 28px;
+      font-weight: 400;
+      line-height: 1.8;
+      color: #671c19;
+      letter-spacing: 1px;
+    }
+
+    .info-box strong {
+      font-weight: 600;
+      color: #671c19;
+    }
+
+    @media (max-width: 768px) {
+      .info-box {
+        padding: 25px 20px;
+        max-width: 90%;
+        bottom: 15%;
+      }
+
+      .info-box h2 {
+        font-size: 16px;
+        line-height: 1.5;
+        letter-spacing: 0.5px;
+      }
+
+      .info-box:hover {
+        transform: translateX(-50%) scale(1);
+      }
+    }
+
+    @keyframes fadeInBox {
+      0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(20px) scale(0.9);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0) scale(1);
+      }
+    }
+
+    /* Services Section */
+    .services-section {
+      min-height: 100vh;
+      padding: 120px 60px 80px;
+      background: #ffffff;
+      display: none;
+    }
+
+    .services-section.visible {
+      display: block;
+      animation: fadeInServices 0.8s ease-in forwards;
+    }
+
+    @keyframes fadeInServices {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      border-bottom: 2px solid #e0e0e0;
+      margin-bottom: 60px;
+      flex-wrap: wrap;
+    }
+
+    .tab-button {
+      padding: 20px 40px;
+      font-size: 20px;
+      font-weight: 600;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #999;
+      transition: all 0.3s;
+      border-bottom: 3px solid transparent;
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+
+    .tab-button.active {
+      color: #671c19;
+      border-bottom-color: #671c19;
+    }
+
+    .tab-button:hover {
+      color: #671c19;
+    }
+
+    .tab-button .short-text {
+      display: none;
+    }
+
+    .tab-button .full-text {
+      display: inline;
+    }
+
+    @media (max-width: 600px) {
+      .tab-button {
+        font-size: 16px;
+        padding: 15px 20px;
+        flex: 1 1 100%;
+        text-align: center;
+      }
+
+      .tab-button .short-text {
+        display: inline;
+      }
+
+      .tab-button .full-text {
+        display: none;
+      }
+    }
+
+    .tab-content {
+      display: none;
+      animation: fadeInContent 0.5s ease-in;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeInContent {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 40px;
+      padding: 40px 0;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .service-card {
+      background: #faf8f5;
+      padding: 40px;
+      border-radius: 15px;
+      transition: all 0.3s;
+      border: 2px solid transparent;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+      border-color: #671c19;
+      background: #ffffff;
+    }
+
+    .service-card h3 {
+      font-size: 28px;
+      font-weight: 600;
+      color: #671c19;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+    }
+
+    .service-card p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #666;
+    }
+
+    .service-card ul {
+      list-style: none;
+      margin-top: 20px;
+    }
+
+    .service-card ul li {
+      padding: 10px 0;
+      padding-left: 30px;
+      position: relative;
+      color: #555;
+    }
+
+    .service-card ul li:before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: #671c19;
+      font-weight: 600;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-header h1 {
+      font-size: 48px;
+      font-weight: 600;
+      color: #671c19;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+    }
+
+    .section-header p {
+      font-size: 20px;
+      color: #666;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    /* Navbar Styles */
+    .main-header {
+      position: fixed !important;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100000;
+      background-color: rgba(76, 13, 10, 0.9);
+      transition: background-color 0.4s ease, box-shadow 0.4s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    body.expanded .main-header {
+      background-color: #4c0d0a;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .header-sticky {
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .main-header nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 60px;
+    }
+
+    .main-header .logo img {
+      height: 35px;
+      width: auto;
+    }
+
+    .main-header nav a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 15px;
+      display: block;
+      font-weight: 300;
+      font-size: 16px;
+    }
+
+    .main-header nav ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      transition: all 0.3s ease;
+      flex-direction: row;
+    }
+
+    .main-header nav ul li {
+      position: relative;
+      margin: 0 5px;
+      display: block;
+    }
+
+    .main-header nav ul li.dropdown {
+      position: relative;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #4c0d0a;
+      list-style: none;
+      padding: 10px 0;
+      margin: 0;
+      min-width: 200px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      z-index: 10003;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      flex-direction: column !important;
+    }
+
+    .dropdown-menu.show {
+      display: flex;
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .dropdown-menu li {
+      margin: 0 !important;
+      display: block !important;
+      width: 100%;
+    }
+
+    .dropdown-menu li a {
+      padding: 10px 20px !important;
+      display: block !important;
+      white-space: nowrap;
+    }
+
+    .dropdown-menu li a:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    #menuToggle {
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      z-index: 1002;
+      display: none;
+    }
+
+    #mobileMenu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #4c0d0a;
+      z-index: 10001;
+      transform: translateY(-100%);
+      transition: transform 0.3s ease;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #mobileMenu.active {
+      transform: translateY(0);
+    }
+
+    #closeMenu {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 991px) {
+      #menuToggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none !important;
+      }
+    }
+
+    /* Footer Styles */
+    .footer {
+      background-color: #ffffff;
+      color: #2d1810;
+      padding: 0;
+      position: relative;
+      display: none;
+    }
+
+    body.expanded .footer {
+      display: block;
+    }
+
+    .footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 5%;
+      right: 5%;
+      height: 3px;
+      background-color: #671c19;
+    }
+
+    .footer-inner {
+      padding: 60px 5% 30px;
+    }
+
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      max-width: 1400px;
+      margin: 0 auto;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+
+    .footer-column {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .footer-column h3 {
+      color: #671c19;
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 12px;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .footer-column ul li a {
+      color: #2d1810;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-column ul li a:hover {
+      color: #671c19;
+    }
+
+    .footer-column ul.contact li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .footer-logo {
+      flex: 0 0 auto;
+      text-align: center;
+    }
+
+    .footer-logo img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background-color: white;
+      padding: 20px;
+      object-fit: contain;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 50px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(45, 24, 16, 0.1);
+      font-size: 14px;
+      color: #8b7355;
+    }
+
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        gap: 40px;
+      }
+
+      .footer-logo {
+        order: -1;
+      }
+
+      .main-header nav {
+        padding: 15px 20px;
+      }
+
+      .services-section {
+        padding: 100px 20px 60px;
+      }
+
+      .tabs {
+        flex-direction: row;
+        gap: 10px;
+        margin-bottom: 40px;
+        margin-top: 20px;
+        justify-content: center;
+      }
+
+      .tab-button {
+        flex: 1;
+        padding: 15px 20px;
+        font-size: 16px;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 20px 0;
+      }
+
+      .section-header h1 {
+        font-size: 28px;
+        line-height: 1.3;
+      }
+
+      .section-header p {
+        font-size: 15px;
+        padding: 0 10px;
+      }
+
+      .service-card {
+        padding: 25px 20px;
+      }
+
+      .service-card h3 {
+        font-size: 20px;
+      }
+
+      .service-card p {
+        font-size: 14px;
+      }
+
+      .service-card ul li {
+        font-size: 14px;
+      }
+
+      /* Mobile styles for benefit cards */
+      [style*="font-size: 42px"] {
+        font-size: 28px !important;
+        line-height: 1.3 !important;
+      }
+
+      [style*="font-size: 48px"][style*="margin-bottom: 20px"] {
+        font-size: 40px !important;
+      }
+
+      [style*="font-size: 24px"][style*="font-weight: 600"] {
+        font-size: 20px !important;
+      }
+
+      /* Mobile padding adjustments for sections */
+      [style*="padding: 60px 40px"] {
+        padding: 40px 20px !important;
+      }
+
+      [style*="padding: 50px 40px"] {
+        padding: 35px 20px !important;
+      }
+
+      [style*="padding: 35px 30px"] {
+        padding: 25px 20px !important;
+      }
+
+      [style*="padding: 25px"] {
+        padding: 20px !important;
+      }
+
+      /* Mobile margin adjustments */
+      [style*="margin: 80px auto"] {
+        margin: 50px auto !important;
+      }
+
+      [style*="margin: 60px auto"] {
+        margin: 40px auto !important;
+      }
+
+      [style*="margin-bottom: 60px"] {
+        margin-bottom: 35px !important;
+      }
+
+      [style*="margin-bottom: 50px"] {
+        margin-bottom: 30px !important;
+      }
+
+      /* Grid adjustments */
+      [style*="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))"] {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+      }
+
+      [style*="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr))"] {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+      }
+
+      /* CTA Button mobile */
+      [style*="padding: 18px 40px"] {
+        padding: 15px 30px !important;
+        font-size: 16px !important;
+      }
+
+      /* Text size adjustments */
+      [style*="font-size: 40px"] {
+        font-size: 26px !important;
+        line-height: 1.3 !important;
+      }
+
+      [style*="font-size: 36px"] {
+        font-size: 24px !important;
+        line-height: 1.3 !important;
+      }
+
+      [style*="font-size: 20px"][style*="font-weight: 600"] {
+        font-size: 18px !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="main-header">
+    <nav>
+      <div class="logo">
+        <a href="index.html">
+          <img src="images/logo11111.png" alt="Logo">
+        </a>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a href="whatwedo.html">What We Do</a>
+          <ul class="dropdown-menu">
+            <li><a href="whatwedo.html#residential">Residential</a></li>
+            <li><a href="whatwedo.html#commercial">Commercial</a></li>
+            <li><a href="whatwedo.html#office-fitouts">Office Fit-outs</a></li>
+            <li><a href="whatwedo.html#shopfitting">Shopfitting</a></li>
+            <li><a href="whatwedo.html#carpentry">Carpentry</a></li>
+            <li><a href="whatwedo.html#visualisation">Visualisation</a></li>
+            <li><a href="whatwedo.html#fabrication">Fabrication</a></li>
+            <li><a href="whatwedo.html#bordo-glass">Bordo Glass</a></li>
+          </ul>
+        </li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="brandandmarketing.html">Brand & Marketing</a></li>
+        <li class="dropdown">
+          <a href="#">Feed</a>
+          <ul class="dropdown-menu">
+            <li><a href="updates.html">Updates</a></li>
+            <li><a href="#articles">Articles</a></li>
+          </ul>
+        </li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <button class="navbar-toggle" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-header">
+      <span>Menu</span>
+      <button class="close-menu" id="closeMenu">&times;</button>
+    </div>
+    <ul class="mobile-nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="whatwedo.html">What We Do</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="brandandmarketing.html">Brand & Marketing</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- Animation Sequence -->
+  <div class="animation-container" id="animationContainer">
+    <div class="horizontal-line"></div>
+    <div class="x-symbol"></div>
+    <div class="center-divider"></div>
+    <div class="brand-left">BORDO</div>
+    <div class="brand-right">MERLINSGROUP</div>
+  </div>
+
+  <!-- Final Split Screen -->
+  <div class="split-container" id="splitContainer">
+    <!-- Exploding Images -->
+    <div class="falling-image" id="leftImage">
+      <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200&h=1600&fit=crop" alt="Marketing">
+    </div>
+    <div class="falling-image" id="rightImage">
+      <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=1600&fit=crop" alt="AI & Analytics">
+    </div>
+
+    <a href="#services-section" class="split-side left" style="text-decoration: none; display: flex; align-items: center; justify-content: center;" id="leftSide" data-tab="ai-automation">
+      <div class="split-brand">
+        <div class="split-brand-description">Artificial Intelligence</div>
+        <div>BORDO</div>
+      </div>
+    </a>
+
+    <a href="#services-section" class="split-side right" style="text-decoration: none; display: flex; align-items: center; justify-content: center;" id="rightSide" data-tab="branding-marketing">
+      <div class="split-brand">
+        <div class="split-brand-description">Apps, Automation & Marketing</div>
+        <div>MERLINSGROUP</div>
+      </div>
+    </a>
+
+    <div class="center-x" id="centerX">×</div>
+  </div>
+
+  <!-- Services Section -->
+  <div class="services-section" id="services-section">
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tab-button active" data-tab="ai-automation"><span class="full-text">AI & Automation</span><span class="short-text">AI</span></button>
+      <button class="tab-button" data-tab="branding-marketing"><span class="full-text">Branding & Marketing</span><span class="short-text">Marketing</span></button>
+    </div>
+
+    <!-- AI & Automation Tab -->
+    <div class="tab-content active" id="ai-automation-content">
+      <div class="section-header">
+        <h1>Artificial Intelligence & Automation</h1>
+        <p>Powered by BORDO - Transforming businesses through cutting-edge AI solutions and intelligent automation</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>AI Strategy & Consulting</h3>
+          <p>Strategic guidance to integrate AI into your business operations effectively.</p>
+          <ul>
+            <li>AI Readiness Assessment</li>
+            <li>Custom AI Roadmap Development</li>
+            <li>Technology Stack Selection</li>
+            <li>ROI Analysis & Projections</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <h3>Machine Learning Solutions</h3>
+          <p>Build predictive models and intelligent systems tailored to your needs.</p>
+          <ul>
+            <li>Predictive Analytics</li>
+            <li>Natural Language Processing</li>
+            <li>Computer Vision Applications</li>
+            <li>Custom ML Model Development</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <h3>Process Automation</h3>
+          <p>Automate repetitive tasks and streamline workflows for maximum efficiency.</p>
+          <ul>
+            <li>Robotic Process Automation (RPA)</li>
+            <li>Workflow Optimization</li>
+            <li>Data Pipeline Automation</li>
+            <li>Integration Solutions</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <h3>AI-Powered Analytics</h3>
+          <p>Transform data into actionable insights with advanced AI analytics.</p>
+          <ul>
+            <li>Business Intelligence Dashboards</li>
+            <li>Real-time Data Processing</li>
+            <li>Pattern Recognition & Anomaly Detection</li>
+            <li>Forecasting & Trend Analysis</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <h3>Chatbots & Virtual Assistants</h3>
+          <p>Enhance customer experience with intelligent conversational AI.</p>
+          <ul>
+            <li>Custom Chatbot Development</li>
+            <li>Voice Assistant Integration</li>
+            <li>24/7 Customer Support Automation</li>
+            <li>Multi-language Support</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <h3>AI Implementation & Support</h3>
+          <p>End-to-end implementation and ongoing support for your AI initiatives.</p>
+          <ul>
+            <li>Model Training & Deployment</li>
+            <li>Performance Monitoring</li>
+            <li>Continuous Optimization</li>
+            <li>Technical Support & Maintenance</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Benefits Section -->
+      <div style="max-width: 1200px; margin: 80px auto; padding: 0 20px;">
+        <h2 style="font-size: 42px; font-weight: 700; color: #671c19; text-align: center; margin-bottom: 60px;">Why Choose AI & Automation?</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+
+          <div style="background: linear-gradient(135deg, #faf8f5 0%, #f5f0ea 100%); padding: 35px 30px; border-radius: 15px; text-align: center; transition: transform 0.3s; border: 3px solid transparent;">
+            <div style="font-size: 48px; margin-bottom: 20px;">⚡</div>
+            <h3 style="font-size: 24px; font-weight: 600; color: #671c19; margin-bottom: 15px;">Boost Efficiency</h3>
+            <p style="color: #666; line-height: 1.7; font-size: 15px;">Automate tasks & work 24/7</p>
+          </div>
+
+          <div style="background: linear-gradient(135deg, #faf8f5 0%, #f5f0ea 100%); padding: 35px 30px; border-radius: 15px; text-align: center; transition: transform 0.3s; border: 3px solid transparent;">
+            <div style="font-size: 48px; margin-bottom: 20px;">💰</div>
+            <h3 style="font-size: 24px; font-weight: 600; color: #671c19; margin-bottom: 15px;">Cut Costs</h3>
+            <p style="color: #666; line-height: 1.7; font-size: 15px;">Save up to 40% on operations</p>
+          </div>
+
+          <div style="background: linear-gradient(135deg, #faf8f5 0%, #f5f0ea 100%); padding: 35px 30px; border-radius: 15px; text-align: center; transition: transform 0.3s; border: 3px solid transparent;">
+            <div style="font-size: 48px; margin-bottom: 20px;">📈</div>
+            <h3 style="font-size: 24px; font-weight: 600; color: #671c19; margin-bottom: 15px;">Smarter Decisions</h3>
+            <p style="color: #666; line-height: 1.7; font-size: 15px;">Data-driven insights instantly</p>
+          </div>
+
+          <div style="background: linear-gradient(135deg, #faf8f5 0%, #f5f0ea 100%); padding: 35px 30px; border-radius: 15px; text-align: center; transition: transform 0.3s; border: 3px solid transparent;">
+            <div style="font-size: 48px; margin-bottom: 20px;">⭐</div>
+            <h3 style="font-size: 24px; font-weight: 600; color: #671c19; margin-bottom: 15px;">Happy Customers</h3>
+            <p style="color: #666; line-height: 1.7; font-size: 15px;">Personalized experiences at scale</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Industries Section -->
+      <div style="max-width: 1200px; margin: 80px auto; padding: 50px 40px; background: #fff8f0; border-radius: 20px;">
+        <h2 style="font-size: 42px; font-weight: 700; color: #671c19; text-align: center; margin-bottom: 50px;">Industries We Serve</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;">
+
+          <div style="padding: 25px; background: white; border-radius: 12px; box-shadow: 0 3px 15px rgba(103,28,25,0.08); transition: all 0.3s;">
+            <h3 style="font-size: 20px; font-weight: 600; color: #671c19; margin-bottom: 10px; border-bottom: 2px solid #faf8f5; padding-bottom: 10px;">🏥 Healthcare</h3>
+            <p style="color: #666; line-height: 1.6; font-size: 14px;">Patient management, diagnostics & automation</p>
+          </div>
+
+          <div style="padding: 25px; background: white; border-radius: 12px; box-shadow: 0 3px 15px rgba(103,28,25,0.08); transition: all 0.3s;">
+            <h3 style="font-size: 20px; font-weight: 600; color: #671c19; margin-bottom: 10px; border-bottom: 2px solid #faf8f5; padding-bottom: 10px;">🛒 Retail</h3>
+            <p style="color: #666; line-height: 1.6; font-size: 14px;">Smart recommendations & inventory optimization</p>
+          </div>
+
+          <div style="padding: 25px; background: white; border-radius: 12px; box-shadow: 0 3px 15px rgba(103,28,25,0.08); transition: all 0.3s;">
+            <h3 style="font-size: 20px; font-weight: 600; color: #671c19; margin-bottom: 10px; border-bottom: 2px solid #faf8f5; padding-bottom: 10px;">🏭 Manufacturing</h3>
+            <p style="color: #666; line-height: 1.6; font-size: 14px;">Quality control & predictive maintenance</p>
+          </div>
+
+          <div style="padding: 25px; background: white; border-radius: 12px; box-shadow: 0 3px 15px rgba(103,28,25,0.08); transition: all 0.3s;">
+            <h3 style="font-size: 20px; font-weight: 600; color: #671c19; margin-bottom: 10px; border-bottom: 2px solid #faf8f5; padding-bottom: 10px;">💳 Finance</h3>
+            <p style="color: #666; line-height: 1.6; font-size: 14px;">Fraud detection & risk assessment</p>
+          </div>
+
+          <div style="padding: 25px; background: white; border-radius: 12px; box-shadow: 0 3px 15px rgba(103,28,25,0.08); transition: all 0.3s;">
+            <h3 style="font-size: 20px; font-weight: 600; color: #671c19; margin-bottom: 10px; border-bottom: 2px solid #faf8f5; padding-bottom: 10px;">🏠 Real Estate</h3>
+            <p style="color: #666; line-height: 1.6; font-size: 14px;">Property valuation & lead qualification</p>
+          </div>
+
+          <div style="padding: 25px; background: white; border-radius: 12px; box-shadow: 0 3px 15px rgba(103,28,25,0.08); transition: all 0.3s;">
+            <h3 style="font-size: 20px; font-weight: 600; color: #671c19; margin-bottom: 10px; border-bottom: 2px solid #faf8f5; padding-bottom: 10px;">⚖️ Legal</h3>
+            <p style="color: #666; line-height: 1.6; font-size: 14px;">Contract analysis & document automation</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- CTA Section -->
+      <div style="max-width: 1000px; margin: 80px auto; text-align: center; padding: 60px 40px; background: linear-gradient(135deg, #671c19 0%, #8B4513 100%); border-radius: 20px; color: white;">
+        <h2 style="font-size: 40px; font-weight: 600; margin-bottom: 20px;">Ready to Transform Your Business with AI?</h2>
+        <p style="font-size: 18px; margin-bottom: 30px; opacity: 0.9;">Let's discuss how BORDO can help you leverage AI and automation to achieve your business goals.</p>
+        <a href="contact.html" style="display: inline-block; padding: 18px 40px; background: white; color: #671c19; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 18px; transition: all 0.3s; box-shadow: 0 5px 20px rgba(0,0,0,0.2);">Schedule a Free Consultation</a>
+      </div>
+    </div>
+
+    <!-- Branding & Marketing Tab -->
+    <div class="tab-content" id="branding-marketing-content">
+      <div class="section-header">
+        <h1>Branding & Marketing</h1>
+        <p>Powered by MerlinsGroup - Creating compelling brand experiences and data-driven marketing strategies</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>Brand Identity & Design</h3>
+          <p>Craft a unique brand identity that resonates with your audience.</p>
+          <ul>
+            <li>Logo Design & Brand Guidelines</li>
+            <li>Visual Identity Systems</li>
+            <li>Brand Messaging & Positioning</li>
+            <li>Brand Architecture</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <h3>Digital Marketing</h3>
+          <p>Comprehensive digital marketing strategies to grow your online presence.</p>
+          <ul>
+            <li>SEO & Content Marketing</li>
+            <li>Social Media Management</li>
+            <li>PPC & Paid Advertising</li>
+            <li>Email Marketing Campaigns</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <h3>Web & App Development</h3>
+          <p>Beautiful, functional websites and mobile applications that convert.</p>
+          <ul>
+            <li>Custom Website Development</li>
+            <li>Mobile App Design & Development</li>
+            <li>E-commerce Solutions</li>
+            <li>UI/UX Design</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <h3>Content Creation</h3>
+          <p>Engaging content that tells your story and connects with customers.</p>
+          <ul>
+            <li>Copywriting & Content Strategy</li>
+            <li>Video Production & Photography</li>
+            <li>Graphic Design & Illustration</li>
+            <li>Podcast & Audio Production</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <h3>Marketing Automation</h3>
+          <p>Streamline your marketing efforts with intelligent automation tools.</p>
+          <ul>
+            <li>CRM Implementation & Integration</li>
+            <li>Lead Nurturing Workflows</li>
+            <li>Marketing Analytics & Reporting</li>
+            <li>Personalization Engines</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <h3>Growth Strategy</h3>
+          <p>Strategic planning and execution to scale your business growth.</p>
+          <ul>
+            <li>Market Research & Analysis</li>
+            <li>Customer Journey Mapping</li>
+            <li>Conversion Rate Optimization</li>
+            <li>Performance Tracking & KPIs</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Benefits Section -->
+      <div style="max-width: 1200px; margin: 80px auto; padding: 0 20px;">
+        <h2 style="font-size: 42px; font-weight: 700; color: #671c19; text-align: center; margin-bottom: 60px;">Why Invest in Marketing?</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+
+          <div style="background: linear-gradient(135deg, #faf8f5 0%, #f5f0ea 100%); padding: 35px 30px; border-radius: 15px; text-align: center; transition: transform 0.3s; border: 3px solid transparent;">
+            <div style="font-size: 48px; margin-bottom: 20px;">🎯</div>
+            <h3 style="font-size: 24px; font-weight: 600; color: #671c19; margin-bottom: 15px;">Stand Out</h3>
+            <p style="color: #666; line-height: 1.7; font-size: 15px;">Build memorable brand recognition</p>
+          </div>
+
+          <div style="background: linear-gradient(135deg, #faf8f5 0%, #f5f0ea 100%); padding: 35px 30px; border-radius: 15px; text-align: center; transition: transform 0.3s; border: 3px solid transparent;">
+            <div style="font-size: 48px; margin-bottom: 20px;">📈</div>
+            <h3 style="font-size: 24px; font-weight: 600; color: #671c19; margin-bottom: 15px;">Grow Revenue</h3>
+            <p style="color: #666; line-height: 1.7; font-size: 15px;">Predictable & scalable growth</p>
+          </div>
+
+          <div style="background: linear-gradient(135deg, #faf8f5 0%, #f5f0ea 100%); padding: 35px 30px; border-radius: 15px; text-align: center; transition: transform 0.3s; border: 3px solid transparent;">
+            <div style="font-size: 48px; margin-bottom: 20px;">💬</div>
+            <h3 style="font-size: 24px; font-weight: 600; color: #671c19; margin-bottom: 15px;">Tell Your Story</h3>
+            <p style="color: #666; line-height: 1.7; font-size: 15px;">Connect with your audience</p>
+          </div>
+
+          <div style="background: linear-gradient(135deg, #faf8f5 0%, #f5f0ea 100%); padding: 35px 30px; border-radius: 15px; text-align: center; transition: transform 0.3s; border: 3px solid transparent;">
+            <div style="font-size: 48px; margin-bottom: 20px;">🚀</div>
+            <h3 style="font-size: 24px; font-weight: 600; color: #671c19; margin-bottom: 15px;">Stay Ahead</h3>
+            <p style="color: #666; line-height: 1.7; font-size: 15px;">Outpace your competition</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Business Types Section -->
+      <div style="max-width: 1200px; margin: 80px auto; padding: 50px 40px; background: #fff8f0; border-radius: 20px;">
+        <h2 style="font-size: 42px; font-weight: 700; color: #671c19; text-align: center; margin-bottom: 50px;">Perfect For Your Business</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;">
+
+          <div style="padding: 25px; background: white; border-radius: 12px; box-shadow: 0 3px 15px rgba(103,28,25,0.08); transition: all 0.3s;">
+            <h3 style="font-size: 20px; font-weight: 600; color: #671c19; margin-bottom: 10px; border-bottom: 2px solid #faf8f5; padding-bottom: 10px;">🚀 Startups</h3>
+            <p style="color: #666; line-height: 1.6; font-size: 14px;">Brand launch & growth strategies</p>
+          </div>
+
+          <div style="padding: 25px; background: white; border-radius: 12px; box-shadow: 0 3px 15px rgba(103,28,25,0.08); transition: all 0.3s;">
+            <h3 style="font-size: 20px; font-weight: 600; color: #671c19; margin-bottom: 10px; border-bottom: 2px solid #faf8f5; padding-bottom: 10px;">🛍️ E-commerce</h3>
+            <p style="color: #666; line-height: 1.6; font-size: 14px;">Conversion optimization & automation</p>
+          </div>
+
+          <div style="padding: 25px; background: white; border-radius: 12px; box-shadow: 0 3px 15px rgba(103,28,25,0.08); transition: all 0.3s;">
+            <h3 style="font-size: 20px; font-weight: 600; color: #671c19; margin-bottom: 10px; border-bottom: 2px solid #faf8f5; padding-bottom: 10px;">💼 B2B Services</h3>
+            <p style="color: #666; line-height: 1.6; font-size: 14px;">Lead generation & thought leadership</p>
+          </div>
+
+          <div style="padding: 25px; background: white; border-radius: 12px; box-shadow: 0 3px 15px rgba(103,28,25,0.08); transition: all 0.3s;">
+            <h3 style="font-size: 20px; font-weight: 600; color: #671c19; margin-bottom: 10px; border-bottom: 2px solid #faf8f5; padding-bottom: 10px;">📍 Local Business</h3>
+            <p style="color: #666; line-height: 1.6; font-size: 14px;">Local SEO & reputation management</p>
+          </div>
+
+          <div style="padding: 25px; background: white; border-radius: 12px; box-shadow: 0 3px 15px rgba(103,28,25,0.08); transition: all 0.3s;">
+            <h3 style="font-size: 20px; font-weight: 600; color: #671c19; margin-bottom: 10px; border-bottom: 2px solid #faf8f5; padding-bottom: 10px;">💻 SaaS</h3>
+            <p style="color: #666; line-height: 1.6; font-size: 14px;">Product-led growth & onboarding</p>
+          </div>
+
+          <div style="padding: 25px; background: white; border-radius: 12px; box-shadow: 0 3px 15px rgba(103,28,25,0.08); transition: all 0.3s;">
+            <h3 style="font-size: 20px; font-weight: 600; color: #671c19; margin-bottom: 10px; border-bottom: 2px solid #faf8f5; padding-bottom: 10px;">⚡ Professional Services</h3>
+            <p style="color: #666; line-height: 1.6; font-size: 14px;">Authority building & client acquisition</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- CTA Section -->
+      <div style="max-width: 1000px; margin: 80px auto; text-align: center; padding: 60px 40px; background: linear-gradient(135deg, #671c19 0%, #8B4513 100%); border-radius: 20px; color: white;">
+        <h2 style="font-size: 40px; font-weight: 600; margin-bottom: 20px;">Ready to Elevate Your Brand?</h2>
+        <p style="font-size: 18px; margin-bottom: 30px; opacity: 0.9;">Let's create a marketing strategy that drives real results for your business with MerlinsGroup.</p>
+        <a href="contact.html" style="display: inline-block; padding: 18px 40px; background: white; color: #671c19; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 18px; transition: all 0.3s; box-shadow: 0 5px 20px rgba(0,0,0,0.2);">Get Your Free Strategy Session</a>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // After animation completes, fade out animation and show split screen
+    setTimeout(() => {
+      const animationContainer = document.getElementById('animationContainer');
+      const splitContainer = document.getElementById('splitContainer');
+
+      animationContainer.style.transition = 'opacity 1s ease-out';
+      animationContainer.style.opacity = '0';
+
+      setTimeout(() => {
+        animationContainer.style.display = 'none';
+        splitContainer.classList.add('active');
+      }, 1000);
+    }, 3200);
+
+    // Move X symbol and images with hover
+    const leftSide = document.getElementById('leftSide');
+    const rightSide = document.getElementById('rightSide');
+    const centerX = document.getElementById('centerX');
+    const leftImage = document.getElementById('leftImage');
+    const rightImage = document.getElementById('rightImage');
+
+    // Check if device is touch-enabled
+    const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+
+    // Hover effects for desktop only
+    if (!isTouchDevice) {
+      leftSide.addEventListener('mouseenter', () => {
+        const shiftAmount = window.innerWidth * 0.05; // 5% of viewport width
+        centerX.style.transform = `translate(-50%, -50%) translateX(${shiftAmount}px)`;
+        leftImage.style.width = `${45 + 5}vw`;
+        leftImage.style.left = '0';
+        rightImage.style.width = `${45 - 5}vw`;
+        rightImage.style.left = `${55}%`;
+      });
+
+      leftSide.addEventListener('mouseleave', () => {
+        centerX.style.transform = 'translate(-50%, -50%)';
+        leftImage.style.width = '50vw';
+        leftImage.style.left = '0';
+        rightImage.style.width = '50vw';
+        rightImage.style.left = '50%';
+      });
+
+      rightSide.addEventListener('mouseenter', () => {
+        const shiftAmount = window.innerWidth * 0.05; // 5% of viewport width
+        centerX.style.transform = `translate(-50%, -50%) translateX(-${shiftAmount}px)`;
+        leftImage.style.width = `${45 - 5}vw`;
+        leftImage.style.left = '0';
+        rightImage.style.width = `${45 + 5}vw`;
+        rightImage.style.left = `${45}%`;
+      });
+
+      rightSide.addEventListener('mouseleave', () => {
+        centerX.style.transform = 'translate(-50%, -50%)';
+        leftImage.style.width = '50vw';
+        leftImage.style.left = '0';
+        rightImage.style.width = '50vw';
+        rightImage.style.left = '50%';
+      });
+    }
+
+    // Handle side clicks to scroll and switch tabs
+    leftSide.addEventListener('click', (e) => {
+      e.preventDefault();
+      expandAndShowServices('ai-automation');
+    });
+
+    rightSide.addEventListener('click', (e) => {
+      e.preventDefault();
+      expandAndShowServices('branding-marketing');
+    });
+
+    function expandAndShowServices(tabName) {
+      // Enable body scrolling
+      document.body.classList.add('expanded');
+
+      // Show services section
+      const servicesSection = document.getElementById('services-section');
+      servicesSection.classList.add('visible');
+
+      // Switch to the selected tab
+      switchToTab(tabName);
+
+      // Scroll to top
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+
+    // Tab switching functionality
+    const tabButtons = document.querySelectorAll('.tab-button');
+
+    function switchToTab(tabName) {
+      // Remove active class from all buttons and contents
+      tabButtons.forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+
+      // Add active class to selected tab
+      const selectedButton = document.querySelector(`[data-tab="${tabName}"]`);
+      const selectedContent = document.getElementById(`${tabName}-content`);
+
+      if (selectedButton && selectedContent) {
+        selectedButton.classList.add('active');
+        selectedContent.classList.add('active');
+      }
+    }
+
+    // Add click event to tab buttons
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const tabName = button.getAttribute('data-tab');
+        switchToTab(tabName);
+      });
+    });
+
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const closeMenu = document.getElementById('closeMenu');
+
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.add('active');
+    });
+
+    closeMenu.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+    });
+
+    // Dropdown menu control
+    const dropdowns = document.querySelectorAll('.dropdown');
+
+    dropdowns.forEach(dropdown => {
+      const dropdownMenu = dropdown.querySelector('.dropdown-menu');
+
+      dropdown.addEventListener('mouseenter', () => {
+        dropdownMenu.classList.add('show');
+      });
+
+      dropdown.addEventListener('mouseleave', () => {
+        dropdownMenu.classList.remove('show');
+      });
+    });
+  </script>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-container">
+        <div class="footer-column">
+          <h3>INFORMATION</h3>
+          <ul>
+            <li><a href="about.html">About Our Company</a></li>
+            <li><a href="#">Careers at Company</a></li>
+            <li><a href="projects.html">Our Latest Projects</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3>CONTACT US</h3>
+          <ul class="contact">
+            <li>📞 0121 792 9167</li>
+            <li>✉️ <a href="mailto:info@bordodesign.com">info@bordodesign.com</a></li>
+            <li>📅 <a href="contact.html">Schedule a Consultation</a></li>
+            <li>📍 30-34 Rookery Road, Birmingham, B21 9NB</li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3>FOLLOW US</h3>
+          <ul class="social-links">
+            <li><a href="#" target="_blank">LinkedIn</a></li>
+            <li><a href="#" target="_blank">Instagram</a></li>
+            <li><a href="#" target="_blank">Facebook</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-logo">
+          <img src="logologo.png" alt="Bordo Design Logo">
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        © Bordo Design Ltd
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

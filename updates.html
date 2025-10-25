@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Updates | Bordo Design</title>
+
+  <!-- SEO / Social -->
+  <meta name="description" content="Latest news, insights, projects, and announcements from Bordo Design."/>
+  <meta property="og:title" content="Updates | Bordo Design" />
+  <meta property="og:description" content="Latest news, insights, projects, and announcements from Bordo Design." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/images/og-updates.jpg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link href="css/all.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="updates.css" />
+</head>
+<body>
+  <!-- Skip link for a11y -->
+  <a class="skip-link" href="#updates">Skip to updates</a>
+
+  <!-- Header / Navigation -->
+  <header class="main-header" style="position:fixed !important; top:0; left:0; width:100%; z-index:1000; background-color:#4c0d0a; transition:background-color 0.4s ease, box-shadow 0.4s ease;">
+    <div class="header-sticky" style="background:#4c0d0a; box-shadow:0 4px 12px rgba(0, 0, 0, 0.1);">
+      <div class="container">
+        <nav style="display:flex; justify-content:space-between; align-items:center; padding:15px 0;">
+          <!-- Logo -->
+          <a href="./" style="display:block; z-index:1002;">
+            <img src="images/logo11111.png" alt="Bordo Logo" style="max-height:50px;">
+          </a>
+
+          <!-- Mobile Menu Toggle Button -->
+          <button id="menuToggle" style="background:transparent; border:none; color:white; font-size:24px; cursor:pointer; z-index:1002; display:none;">
+            <i class="fas fa-bars"></i>
+          </button>
+
+          <!-- Navigation Menu -->
+          <ul id="mainNav" style="display:flex; list-style:none; margin:0; padding:0; transition:all 0.3s ease;">
+            <li style="position:relative; margin:0 5px;"><a href="index.html" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:300;">Home</a></li>
+
+            <!-- What We Do Dropdown -->
+            <li class="dropdown" style="position:relative; margin:0 5px;">
+              <a href="#" class="dropdown-toggle" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:300; cursor:pointer;">What We Do</a>
+              <ul class="dropdown-menu" style="display:none; position:absolute; top:100%; left:0; background-color:#4c0d0a; list-style:none; padding:10px 0; margin:0; min-width:200px; box-shadow:0 4px 6px rgba(0,0,0,0.1); z-index:1003;">
+                <li style="margin:0;"><a href="residential.html" style="color:white; text-decoration:none; padding:10px 20px; display:block; font-weight:300;">• Residential</a></li>
+                <li style="margin:0;"><a href="commercial.html" style="color:white; text-decoration:none; padding:10px 20px; display:block; font-weight:300;">• Commercial</a></li>
+                <li style="margin:0;"><a href="#office-fitouts" style="color:white; text-decoration:none; padding:10px 20px; display:block; font-weight:300;">• Office Fit-outs</a></li>
+                <li style="margin:0;"><a href="#shopfitting" style="color:white; text-decoration:none; padding:10px 20px; display:block; font-weight:300;">• Shopfitting</a></li>
+                <li style="margin:0;"><a href="#carpentry" style="color:white; text-decoration:none; padding:10px 20px; display:block; font-weight:300;">• Carpentry</a></li>
+                <li style="margin:0;"><a href="#visualisation" style="color:white; text-decoration:none; padding:10px 20px; display:block; font-weight:300;">• Visualisation</a></li>
+                <li style="margin:0;"><a href="#fabrication" style="color:white; text-decoration:none; padding:10px 20px; display:block; font-weight:300;">• Fabrication</a></li>
+                <li style="margin:0;"><a href="#bordo-glass" style="color:white; text-decoration:none; padding:10px 20px; display:block; font-weight:300;">• Bordo Glass</a></li>
+              </ul>
+            </li>
+
+            <li style="position:relative; margin:0 5px;"><a href="projects.html" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:300;">Projects</a></li>
+            <li style="position:relative; margin:0 5px;"><a href="#brand-marketing" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:300;">Brand & Marketing</a></li>
+
+            <!-- Feed Dropdown -->
+            <li class="dropdown" style="position:relative; margin:0 5px;">
+              <a href="#" class="dropdown-toggle" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:300; cursor:pointer;">Feed</a>
+              <ul class="dropdown-menu" style="display:none; position:absolute; top:100%; left:0; background-color:#4c0d0a; list-style:none; padding:10px 0; margin:0; min-width:150px; box-shadow:0 4px 6px rgba(0,0,0,0.1); z-index:1003;">
+                <li style="margin:0;"><a href="updates.html" style="color:white; text-decoration:none; padding:10px 20px; display:block; font-weight:300;">• Updates</a></li>
+                <li style="margin:0;"><a href="#articles" style="color:white; text-decoration:none; padding:10px 20px; display:block; font-weight:300;">• Articles</a></li>
+              </ul>
+            </li>
+
+            <li style="position:relative; margin:0 5px;"><a href="about.html" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:300;">About Us</a></li>
+            <li style="position:relative; margin:0 5px;"><a href="contact.html" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:300; background-color:#8B4513; border-radius:4px;">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <header class="site-header" style="margin-top:80px;">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a> <span aria-hidden="true">/</span>
+      <a href="#">Feed</a> <span aria-hidden="true">/</span>
+      <span aria-current="page">Updates</span>
+    </nav>
+    <h1>Company Updates</h1>
+    <p class="subtitle">News, insights, projects, and announcements from Bordo Design.</p>
+  </header>
+
+  <!-- Featured Update -->
+  <section class="featured" aria-labelledby="featured-heading">
+    <div class="featured-card" role="article" aria-describedby="featured-summary">
+      <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=500&fit=crop" alt="Modern office space design" loading="eager" />
+      <div class="featured-body">
+        <h2 id="featured-heading">New Birmingham Workspace Completed</h2>
+        <p id="featured-summary">We're thrilled to showcase our latest commercial fit-out project in Birmingham's business district, featuring custom joinery and innovative design solutions.</p>
+        <div class="meta">
+          <time datetime="2025-10-21">21 Oct 2025</time>
+          <span class="dot">•</span>
+          <span class="cat">Project</span>
+          <ul class="tags" aria-label="Tags">
+            <li>Commercial</li><li>Birmingham</li><li>Office Design</li>
+          </ul>
+        </div>
+        <a class="button" href="#">View Project</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sticky Controls -->
+  <section class="controls" aria-label="Filters and tools">
+    <form class="toolbar" role="search">
+      <div class="search">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M21 21l-4.35-4.35m1.35-5.15a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        <input id="q" name="q" type="search" placeholder="Search updates…" autocomplete="off" />
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="Categories">
+        <button type="button" class="tab is-active" data-cat="all" role="tab" aria-selected="true">All</button>
+        <button type="button" class="tab" data-cat="project" role="tab">Projects</button>
+        <button type="button" class="tab" data-cat="announcement" role="tab">Announcements</button>
+        <button type="button" class="tab" data-cat="insight" role="tab">Insights</button>
+        <button type="button" class="tab" data-cat="news" role="tab">News</button>
+      </div>
+
+      <div class="sort-archive">
+        <label class="select">
+          <span class="visually-hidden">Sort</span>
+          <select id="sort">
+            <option value="newest">Newest first</option>
+            <option value="oldest">Oldest first</option>
+            <option value="az">A → Z</option>
+          </select>
+        </label>
+        <label class="select">
+          <span class="visually-hidden">Archive month</span>
+          <input type="month" id="archive" />
+        </label>
+        <button class="mode-toggle" type="button" aria-pressed="false" title="Toggle dark mode">🌓</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- Main Layout -->
+  <div class="layout">
+    <!-- Sidebar -->
+    <aside class="sidebar" aria-label="Filters">
+      <section>
+        <h3>Popular tags</h3>
+        <div class="chip-group" id="tagChips">
+          <button type="button" class="chip" data-tag="Commercial">Commercial</button>
+          <button type="button" class="chip" data-tag="Residential">Residential</button>
+          <button type="button" class="chip" data-tag="Joinery">Joinery</button>
+          <button type="button" class="chip" data-tag="Birmingham">Birmingham</button>
+          <button type="button" class="chip" data-tag="Design">Design</button>
+          <button type="button" class="chip" data-tag="Visualisation">Visualisation</button>
+        </div>
+      </section>
+
+      <section class="widget">
+        <h3>Newsletter</h3>
+        <p>Get new updates in your inbox.</p>
+        <form class="subscribe" action="#" method="post" aria-label="Newsletter signup">
+          <input type="email" name="email" placeholder="you@company.com" required />
+          <button type="submit">Subscribe</button>
+        </form>
+      </section>
+
+      <section class="widget">
+        <h3>Get in Touch</h3>
+        <p>BORDO is a multidisciplinary design and build studio uniting design, fabrication and craftsmanship under one roof.</p>
+        <p style="font-size:14px; margin-top:10px;">📞 0121 792 9167<br>✉️ info@bordodesign.com</p>
+      </section>
+    </aside>
+
+    <!-- Updates Grid -->
+    <main id="updates" class="updates-grid" aria-live="polite">
+      <!-- Example cards -->
+      <article class="card"
+        itemscope itemtype="https://schema.org/NewsArticle"
+        data-cat="insight" data-tags="Design,Visualisation" data-date="2025-10-10">
+        <a href="#" class="card-media">
+          <img src="https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?w=600&h=400&fit=crop" alt="VR workspace visualization" loading="lazy">
+        </a>
+        <div class="card-body">
+          <time datetime="2025-10-10" itemprop="datePublished">10 Oct 2025</time>
+          <span class="badge">Insight</span>
+          <h2 itemprop="headline"><a href="#">Immersive VR Walkthroughs Now Available</a></h2>
+          <p itemprop="description">Experience your space before it's built with our new high-definition VR visualization service.</p>
+          <ul class="tags"><li>Design</li><li>Visualisation</li></ul>
+        </div>
+      </article>
+
+      <article class="card" itemscope itemtype="https://schema.org/NewsArticle"
+        data-cat="project" data-tags="Commercial,Birmingham" data-date="2025-09-30">
+        <a href="#" class="card-media">
+          <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=600&h=400&fit=crop" alt="Modern office interior" loading="lazy">
+        </a>
+        <div class="card-body">
+          <time datetime="2025-09-30">30 Sep 2025</time>
+          <span class="badge">Project</span>
+          <h2><a href="#">Tech Campus Build Completion</a></h2>
+          <p>Delivering a complex commercial project with precision, professionalism, and pride in Birmingham.</p>
+          <ul class="tags"><li>Commercial</li><li>Birmingham</li></ul>
+        </div>
+      </article>
+
+      <article class="card" data-cat="announcement" data-tags="Joinery,Workshop" data-date="2025-09-12">
+        <a href="#" class="card-media">
+          <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?w=600&h=400&fit=crop" alt="Custom kitchen joinery" loading="lazy">
+        </a>
+        <div class="card-body">
+          <time datetime="2025-09-12">12 Sep 2025</time>
+          <span class="badge">Announcement</span>
+          <h2><a href="#">Workshop Expansion Complete</a></h2>
+          <p>Our Birmingham-based workshop now produces even more custom kitchens, wardrobes, and joinery.</p>
+          <ul class="tags"><li>Joinery</li><li>Workshop</li></ul>
+        </div>
+      </article>
+
+      <article class="card" data-cat="project" data-tags="Residential,Design" data-date="2025-08-28">
+        <a href="#" class="card-media">
+          <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&h=400&fit=crop" alt="Luxury residential interior" loading="lazy">
+        </a>
+        <div class="card-body">
+          <time datetime="2025-08-28">28 Aug 2025</time>
+          <span class="badge">Project</span>
+          <h2><a href="#">Award-Winning Residential Project</a></h2>
+          <p>From planning and permissions to construction and interior fit-out, showcasing our integrated process.</p>
+          <ul class="tags"><li>Residential</li><li>Design</li></ul>
+        </div>
+      </article>
+
+      <article class="card" data-cat="news" data-tags="Fabrication" data-date="2025-08-10">
+        <a href="#" class="card-media">
+          <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=600&h=400&fit=crop" alt="Fabrication workshop" loading="lazy">
+        </a>
+        <div class="card-body">
+          <time datetime="2025-08-10">10 Aug 2025</time>
+          <span class="badge">News</span>
+          <h2><a href="#">New Fabrication Capabilities</a></h2>
+          <p>Enhanced in-house craftsmanship with state-of-the-art equipment for custom builds.</p>
+          <ul class="tags"><li>Fabrication</li></ul>
+        </div>
+      </article>
+
+      <!-- Hidden initially, revealed by "Load more" -->
+      <article class="card hidden" data-cat="insight" data-tags="Design,Commercial" data-date="2025-07-22">
+        <a href="#" class="card-media"><img src="https://images.unsplash.com/photo-1497366412874-3415097a27e7?w=600&h=400&fit=crop" alt="Office space design" loading="lazy"></a>
+        <div class="card-body">
+          <time datetime="2025-07-22">22 Jul 2025</time>
+          <span class="badge">Insight</span>
+          <h2><a href="#">Creating Workspaces That Inspire</a></h2>
+          <p>Balancing precision, security, and people in modern workplace design.</p>
+          <ul class="tags"><li>Design</li><li>Commercial</li></ul>
+        </div>
+      </article>
+
+      <article class="card hidden" data-cat="project" data-tags="Commercial,Birmingham" data-date="2025-06-18">
+        <a href="#" class="card-media"><img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=400&fit=crop" alt="Shopfitting project" loading="lazy"></a>
+        <div class="card-body">
+          <time datetime="2025-06-18">18 Jun 2025</time>
+          <span class="badge">Project</span>
+          <h2><a href="#">Birmingham Retail Shopfitting Complete</a></h2>
+          <p>End-to-end service from design to installation for a major retail client.</p>
+          <ul class="tags"><li>Commercial</li><li>Birmingham</li></ul>
+        </div>
+      </article>
+    </main>
+  </div>
+
+  <!-- Load more -->
+  <div class="loadmore-wrap">
+    <button id="loadMore" type="button">Load more</button>
+  </div>
+
+  <!-- Footer Start -->
+  <footer class="footer" style="background-color: #ffffff; color: #2d1810; padding: 0; position: relative;">
+    <div style="position: absolute; top: 0; left: 5%; right: 5%; height: 3px; background-color: #671c19;"></div>
+    <div style="padding: 60px 5% 30px;">
+    <div class="footer-container" style="display: flex; justify-content: space-between; align-items: flex-start; max-width: 1400px; margin: 0 auto; gap: 60px; flex-wrap: wrap;">
+      <div class="footer-column" style="flex: 1; min-width: 200px;">
+        <h3 style="color: #671c19; font-size: 16px; font-weight: 600; margin-bottom: 20px; letter-spacing: 1px;">INFORMATION</h3>
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 12px; font-size: 14px;"><a href="#" style="color: #2d1810; text-decoration: none;">About Our Company</a></li>
+          <li style="margin-bottom: 12px; font-size: 14px;"><a href="#" style="color: #2d1810; text-decoration: none;">Careers at Company</a></li>
+          <li style="margin-bottom: 12px; font-size: 14px;"><a href="#" style="color: #2d1810; text-decoration: none;">Our Latest Projects</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column" style="flex: 1; min-width: 200px;">
+        <h3 style="color: #671c19; font-size: 16px; font-weight: 600; margin-bottom: 20px; letter-spacing: 1px;">CONTACT US</h3>
+        <ul class="contact" style="list-style: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 12px; font-size: 14px;">📞 0121 792 9167</li>
+          <li style="margin-bottom: 12px; font-size: 14px;">✉️ <a href="mailto:info@bordodesign.com" style="color: #2d1810; text-decoration: none;">info@bordodesign.com</a></li>
+          <li style="margin-bottom: 12px; font-size: 14px;">📅 <a href="#" style="color: #2d1810; text-decoration: none;">Schedule a Consultation</a></li>
+          <li style="margin-bottom: 12px; font-size: 14px;">📍 30-34 Rookery Road, Birmingham, B21 9NB</li>
+        </ul>
+      </div>
+
+      <div class="footer-logo" style="flex: 0 0 auto; text-align: center;">
+        <img src="logologo.png" alt="Bordo Design Logo" style="width: 120px; height: 120px; border-radius: 50%; background-color: white; padding: 20px; object-fit: contain;">
+      </div>
+    </div>
+
+      <div class="footer-bottom" style="text-align: center; margin-top: 50px; padding-top: 30px; border-top: 1px solid rgba(45, 24, 16, 0.1); font-size: 14px; color: #8b7355;">
+        © Bordo Design Ltd
+      </div>
+    </div>
+  </footer>
+  <!-- Footer End -->
+
+  <!-- JS for filters/search/sort/dark mode/dropdown -->
+  <script>
+    (function(){
+      const $ = (s, r=document) => r.querySelector(s);
+      const $$ = (s, r=document) => [...r.querySelectorAll(s)];
+
+      // Dropdown functionality
+      $$('.dropdown-toggle').forEach(toggle => {
+        toggle.addEventListener('click', (e) => {
+          e.preventDefault();
+          const menu = toggle.nextElementSibling;
+          const isOpen = menu.style.display === 'block';
+          // Close all dropdowns
+          $$('.dropdown-menu').forEach(m => m.style.display = 'none');
+          // Toggle current
+          menu.style.display = isOpen ? 'none' : 'block';
+        });
+      });
+
+      // Close dropdowns when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.dropdown')) {
+          $$('.dropdown-menu').forEach(m => m.style.display = 'none');
+        }
+      });
+
+      // Dark mode
+      const toggle = $('.mode-toggle');
+      const root = document.documentElement;
+      const pref = localStorage.getItem('theme');
+      if(pref){ root.dataset.theme = pref; toggle.setAttribute('aria-pressed', pref==='dark'); }
+      toggle.addEventListener('click', ()=>{
+        const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+        root.dataset.theme = next;
+        toggle.setAttribute('aria-pressed', next==='dark');
+        localStorage.setItem('theme', next);
+      });
+
+      // Tabs (category)
+      let activeCat = 'all';
+      const tabs = $$('.tab');
+      tabs.forEach(t => t.addEventListener('click', ()=>{
+        tabs.forEach(x=>{
+          x.classList.remove('is-active');
+          x.setAttribute('aria-selected', 'false');
+        });
+        t.classList.add('is-active');
+        t.setAttribute('aria-selected', 'true');
+        activeCat = t.dataset.cat;
+        filter();
+      }));
+
+      // Tag chips
+      const activeTags = new Set();
+      $$('#tagChips .chip').forEach(chip=>{
+        chip.addEventListener('click', ()=>{
+          chip.classList.toggle('is-active');
+          const tag = chip.dataset.tag;
+          if(chip.classList.contains('is-active')) activeTags.add(tag); else activeTags.delete(tag);
+          filter();
+        });
+      });
+
+      // Search, sort, archive
+      const q = $('#q'), sortSel = $('#sort'), archive = $('#archive');
+      [q, sortSel, archive].forEach(el => el.addEventListener('input', ()=>{ filter(); }));
+
+      // Load more
+      const moreBtn = $('#loadMore');
+      moreBtn?.addEventListener('click', ()=>{
+        $$('.card.hidden').slice(0, 4).forEach(c=>c.classList.remove('hidden'));
+        if(!$('.card.hidden')) moreBtn.style.display='none';
+      });
+
+      function filter(){
+        let query = (q.value||'').trim().toLowerCase();
+        let month = archive.value; // yyyy-mm
+        const cards = $$('.updates-grid .card');
+
+        cards.forEach(card=>{
+          const cat = card.dataset.cat;
+          const tags = (card.dataset.tags||'').toLowerCase();
+          const date = card.dataset.date || '';
+          const title = (card.querySelector('h2')?.innerText||'').toLowerCase();
+          const desc  = (card.querySelector('p')?.innerText||'').toLowerCase();
+
+          // Category
+          const catOk = (activeCat==='all' || cat===activeCat);
+
+          // Tags (AND across selected tags)
+          const tagsOk = activeTags.size===0 || [...activeTags].every(t=>tags.includes(t.toLowerCase()));
+
+          // Search
+          const qOk = !query || title.includes(query) || desc.includes(query) || tags.includes(query) || cat.includes(query);
+
+          // Archive (month prefix)
+          const mOk = !month || (date.startsWith(month));
+
+          card.hidden = !(catOk && tagsOk && qOk && mOk);
+        });
+
+        // Sort
+        const container = $('.updates-grid');
+        const visible = $$('.updates-grid .card:not([hidden])');
+        visible.sort((a,b)=>{
+          if(sortSel.value==='oldest') return (a.dataset.date > b.dataset.date) ? 1 : -1;
+          if(sortSel.value==='az') return (a.querySelector('h2').innerText).localeCompare(b.querySelector('h2').innerText);
+          // newest
+          return (a.dataset.date < b.dataset.date) ? 1 : -1;
+        }).forEach(c=>container.appendChild(c));
+      }
+
+      // Initial state
+      filter();
+    })();
+  </script>
+</body>
+</html>
