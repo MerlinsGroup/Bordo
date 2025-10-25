@@ -203,25 +203,168 @@
     }
 
     /* Header and Navigation Styles */
-    header.main-header {
+    .main-header {
       position: fixed !important;
       top: 0;
       left: 0;
       width: 100%;
-      z-index: 1000;
-      background-color: rgba(76, 13, 10, 0.7) !important;
+      z-index: 100000;
+      background-color: #4c0d0a;
       transition: background-color 0.4s ease, box-shadow 0.4s ease;
-    }
-
-    header.main-header.scrolled {
-      background-color: #4c0d0a !important;
-      box-shadow: none;
+      border: none;
+      border-bottom: none;
     }
 
     .header-sticky {
-      background: rgba(76, 13, 10, 0.7) !important;
+      background: transparent;
       box-shadow: none !important;
     }
+
+    header.main-header.scrolled {
+      box-shadow: none !important;
+    }
+
+    .main-header nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 60px;
+    }
+
+    .main-header .logo img {
+      height: 35px;
+      width: auto;
+    }
+
+    .main-header nav a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 15px;
+      display: block;
+      font-weight: 300;
+      font-size: 16px;
+    }
+
+    .main-header,
+    .main-header *,
+    .navbar,
+    .navbar * {
+      border: none !important;
+      border-bottom: none !important;
+      outline: none !important;
+    }
+
+    .main-header nav ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      transition: all 0.3s ease;
+      flex-direction: row;
+    }
+
+    .main-header nav ul li {
+      position: relative;
+      margin: 0 5px;
+      display: block;
+    }
+
+    .main-header nav ul li.dropdown {
+      position: relative;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #4c0d0a;
+      list-style: none;
+      padding: 10px 0;
+      margin: 0;
+      min-width: 200px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      z-index: 10003;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      flex-direction: column !important;
+    }
+
+    .dropdown-menu.show {
+      display: flex;
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .dropdown-menu li {
+      margin: 0 !important;
+      display: block !important;
+      width: 100%;
+    }
+
+    .dropdown-menu li a {
+      padding: 10px 20px !important;
+      display: block !important;
+      white-space: nowrap;
+    }
+
+    .dropdown-menu li a:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    #menuToggle {
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      z-index: 1002;
+      display: none;
+    }
+
+    #mobileMenu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #4c0d0a;
+      z-index: 10001;
+      transform: translateY(-100%);
+      transition: transform 0.3s ease;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #mobileMenu.active {
+      transform: translateY(0);
+    }
+
+    #closeMenu {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 991px) {
+      #menuToggle {
+        display: block;
+      }
+
+      #mainNav {
+        display: none !important;
+      }
+    }
+
     
     .navbar {
       display: flex !important;
@@ -995,11 +1138,7 @@
       .new-hero-slider {
         height: -webkit-fill-available;
       }
-      
-      header.main-header {
-        position: absolute !important;
-      }
-      
+
       .slicknav_nav {
         height: -webkit-fill-available;
       }
@@ -1008,381 +1147,67 @@
 </head>
 <body>
 
-  <style>
-  /* Base navbar styles */
-  .main-header {
-    position: fixed !important;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    background-color: rgba(76, 13, 10, 0.5);
-    transition: background-color 0.4s ease, box-shadow 0.4s ease;
-  }
-  
-  .navbar {
-    padding: 15px 0;
-    transition: all 0.3s ease;
-  }
-  
-  .navbar-brand {
-    padding: 0;
-    margin-right: 1rem;
-  }
-  
-  .navbar-brand img {
-    max-height: 50px;
-    transition: max-height 0.3s ease;
-  }
-  
-  .nav-link {
-    color: white !important;
-    font-weight: 300;
-    padding: 10px 15px !important;
-    transition: opacity 0.3s ease;
-  }
-  
-  .nav-link:hover {
-    opacity: 0.85;
-  }
-  
-  /* Dropdown styling */
-  .dropdown-menu {
-    background-color: #4c0d0a;
-    border: none;
-    border-radius: 0;
-    margin-top: 0;
-    padding: 0;
-    z-index: 2000;
-    position: absolute;
-  }
-  
-  .dropdown-item {
-    color: white;
-    padding: 10px 20px;
-    font-weight: 300;
-  }
-  
-  .dropdown-item:hover {
-    background-color: rgba(255,255,255,0.1);
-    color: white;
-  }
-  
-  /* Scrolled state */
-  .main-header.scrolled {
-    background-color: #4c0d0a !important;
-    box-shadow: none;
-  }
-  
-  /* Mobile navbar toggle button */
-  .navbar-toggler {
-    border: none;
-    padding: 0;
-    outline: none !important;
-  }
-  
-  .navbar-toggler:focus {
-    outline: none;
-    box-shadow: none;
-  }
-  
-  /* Mobile menu */
-  @media (max-width: 991.98px) {
-    .navbar-collapse {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100vh;
-      width: 100%;
-      background-color: #4c0d0a;
-      padding: 80px 30px 30px;
-      transition: all 0.3s ease;
-      transform: translateX(-100%);
-      display: block;
-      z-index: 999;
-    }
-    
-    .navbar-collapse.show {
-      transform: translateX(0);
-    }
-    
-    .navbar-nav {
-      width: 100%;
-    }
-    
-    .nav-item {
-      margin: 5px 0;
-    }
-    
-    .nav-link {
-      font-size: 18px;
-      padding: 12px 5px !important;
-    }
-    
-    .dropdown-menu {
-      background-color: rgba(255,255,255,0.1);
-      padding: 0;
-      margin: 0;
-      border: none;
-    }
-    
-    .dropdown-item {
-      padding: 12px 20px;
-      color: white;
-    }
-    
-    /* Close button inside mobile menu */
-    .navbar-collapse::before {
-      content: '✕';
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 24px;
-      color: white;
-      cursor: pointer;
-    }
-  }
-  
-  /* Ultrawide screens */
-  @media (min-width: 2560px) {
-    .navbar {
-      padding: 25px 0;
-    }
-    
-    .navbar-brand img {
-      max-height: 70px;
-    }
-    
-    .nav-link {
-      font-size: 20px;
-      padding: 15px 25px !important;
-    }
-  }
+<!-- ========================================
+     NAVBAR HTML
+     ======================================== -->
 
-  /* Animation for mobile menu */
-  @keyframes slideIn {
-    from { transform: translateX(-100%); }
-    to { transform: translateX(0); }
-  }
-  
-  @keyframes slideOut {
-    from { transform: translateX(0); }
-    to { transform: translateX(-100%); }
-  }
-  
-  .navbar-collapse.show {
-    animation: slideIn 0.3s forwards;
-  }
-  
-  .navbar-collapse.collapsing {
-    animation: slideOut 0.3s forwards;
-  }
-  /* ---------- kill the desktop links on phones ---------- */
-@media (max-width: 991.98px){
-  #mainNav{display:none !important;}     /* hide UL with links   */
-  #menuToggle{display:block !important;} /* keep hamburger shown */
-}
-
-/* ===== ADDITIONAL RESPONSIVE FIXES FOR OVERLAP ISSUES ===== */
-/* Fix header z-index and positioning */
-header.main-header {
-  z-index: 9999 !important;
-}
-
-#mobileMenu {
-  z-index: 10000 !important;
-}
-
-/* Prevent overlap on mobile/tablet */
-@media (max-width: 991px) {
-  /* Ensure hamburger is visible and properly positioned */
-  #menuToggle {
-    position: relative !important;
-    z-index: 10001 !important;
-  }
-
-  /* Ensure logo doesn't get pushed */
-  .main-header .container {
-    padding: 0 15px !important;
-  }
-
-  .main-header nav {
-    justify-content: space-between !important;
-    align-items: center !important;
-    width: 100% !important;
-  }
-
-  .main-header nav > a {
-    flex-shrink: 0 !important;
-  }
-
-  /* Fix mobile menu layout */
-  #mobileMenu ul {
-    padding-top: 80px !important;
-    padding-bottom: 40px !important;
-    width: 100% !important;
-  }
-
-  #mobileMenu ul li {
-    margin-bottom: 10px !important;
-  }
-
-  #mobileMenu ul li a {
-    display: block !important;
-    padding: 12px 20px !important;
-    font-size: 16px !important;
-  }
-
-  #closeMenu {
-    z-index: 10001 !important;
-  }
-}
-
-/* Tablet specific fixes (768px - 991px) */
-@media (min-width: 768px) and (max-width: 991px) {
-  .main-header nav {
-    padding: 12px 0 !important;
-  }
-
-  .main-header img {
-    max-height: 45px !important;
-  }
-
-  #menuToggle {
-    font-size: 22px !important;
-  }
-
-  /* Prevent sections from overlapping with header */
-  .hero-slider-layout {
-    margin-top: 0 !important;
-  }
-
-  /* Adjust section padding */
-  #servicesParallax1 {
-    padding: 70px 20px !important;
-  }
-
-  .our-project {
-    padding: 60px 0 !important;
-  }
-}
-
-/* Small mobile fixes (up to 480px) */
-@media (max-width: 480px) {
-  .main-header nav {
-    padding: 8px 0 !important;
-  }
-
-  .main-header img {
-    max-height: 35px !important;
-  }
-
-  #menuToggle {
-    font-size: 20px !important;
-  }
-
-  /* Adjust carousel buttons */
-  .carousel-arrow {
-    width: 45px !important;
-    height: 45px !important;
-    font-size: 22px !important;
-  }
-
-  .carousel-arrow-left {
-    left: 5px !important;
-  }
-
-  .carousel-arrow-right {
-    right: 5px !important;
-  }
-}
-
-/* Ensure white line below navbar is responsive */
-@media (max-width: 768px) {
-  div[style*="top: 80px"] {
-    display: none !important;
-  }
-}
-
-</style>
-
-<!-- Mobile-Friendly Navbar (REPLACE ENTIRE HEADER SECTION WITH THIS) -->
-<header class="main-header" style="position:fixed !important; top:0; left:0; width:100%; z-index:1000; background-color:transparent; transition:background-color 0.4s ease, box-shadow 0.4s ease;">
-  <div class="header-sticky" style="background:transparent; box-shadow:none;">
-    <div class="container">
-      <nav style="display:flex; justify-content:space-between; align-items:center; padding:15px 0;">
-        <!-- Logo -->
-        <a href="./" style="display:block; z-index:1002;">
-          <img src="images/logo11111.png" alt="Bordo Logo" style="max-height:50px;">
-        </a>
-        
-        <!-- Mobile Menu Toggle Button -->
-        <button id="menuToggle" style="background:transparent; border:none; color:white; font-size:24px; cursor:pointer; z-index:1002; display:none;">
-          <i class="fas fa-bars"></i>
-        </button>
-        
-        <!-- Navigation Menu -->
-        <ul id="mainNav" style="display:flex; list-style:none; margin:0; padding:0; transition:all 0.3s ease;">
-          <li style="position:relative; margin:0 5px;"><a href="index.html" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:300;">Home</a></li>
-
-          <!-- What We Do Dropdown -->
-          <li class="dropdown" style="position:relative; margin:0 5px;">
-            <a href="whatwedo.html" class="dropdown-toggle" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:300; cursor:pointer;">What We Do</a>
-            <ul class="dropdown-menu" style="display:none; position:absolute; top:100%; left:0; background-color:#4c0d0a; list-style:none; padding:10px 0; margin:0; min-width:200px; box-shadow:0 4px 6px rgba(0,0,0,0.1); z-index:1003;">
-              <li style="margin:0;"><a href="whatwedo.html#residential" style="color:white; text-decoration:none; padding:10px 20px; display:block; font-weight:300;">• Residential</a></li>
-              <li style="margin:0;"><a href="whatwedo.html#commercial" style="color:white; text-decoration:none; padding:10px 20px; display:block; font-weight:300;">• Commercial</a></li>
-              <li style="margin:0;"><a href="whatwedo.html#office-fitouts" style="color:white; text-decoration:none; padding:10px 20px; display:block; font-weight:300;">• Office Fit-outs</a></li>
-              <li style="margin:0;"><a href="whatwedo.html#shopfitting" style="color:white; text-decoration:none; padding:10px 20px; display:block; font-weight:300;">• Shopfitting</a></li>
-              <li style="margin:0;"><a href="whatwedo.html#carpentry" style="color:white; text-decoration:none; padding:10px 20px; display:block; font-weight:300;">• Carpentry</a></li>
-              <li style="margin:0;"><a href="whatwedo.html#visualisation" style="color:white; text-decoration:none; padding:10px 20px; display:block; font-weight:300;">• Visualisation</a></li>
-              <li style="margin:0;"><a href="whatwedo.html#fabrication" style="color:white; text-decoration:none; padding:10px 20px; display:block; font-weight:300;">• Fabrication</a></li>
-              <li style="margin:0;"><a href="whatwedo.html#bordo-glass" style="color:white; text-decoration:none; padding:10px 20px; display:block; font-weight:300;">• Bordo Glass</a></li>
-            </ul>
-          </li>
-
-          <li style="position:relative; margin:0 5px;"><a href="projects.html" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:300;">Projects</a></li>
-          <li style="position:relative; margin:0 5px;"><a href="brandandmarketing.html" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:300;">Brand & Marketing</a></li>
-
-          <!-- Feed Dropdown -->
-          <li class="dropdown" style="position:relative; margin:0 5px;">
-            <a href="#" class="dropdown-toggle" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:300; cursor:pointer;">Feed</a>
-            <ul class="dropdown-menu" style="display:none; position:absolute; top:100%; left:0; background-color:#4c0d0a; list-style:none; padding:10px 0; margin:0; min-width:150px; box-shadow:0 4px 6px rgba(0,0,0,0.1); z-index:1003;">
-              <li style="margin:0;"><a href="updates.html" style="color:white; text-decoration:none; padding:10px 20px; display:block; font-weight:300;">• Updates</a></li>
-              <li style="margin:0;"><a href="#articles" style="color:white; text-decoration:none; padding:10px 20px; display:block; font-weight:300;">• Articles</a></li>
-            </ul>
-          </li>
-
-          <li style="position:relative; margin:0 5px;"><a href="about.html" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:300;">About Us</a></li>
-          <li style="position:relative; margin:0 5px;"><a href="contact.html" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:300; background-color:#8B4513; border-radius:4px;">Contact</a></li>
-        </ul>
-      </nav>
+<header class="main-header" style="background-color: #4c0d0a !important;">
+  <nav style="background-color: #4c0d0a !important;">
+    <div class="logo">
+      <a href="index.html">
+        <img src="images/logo11111.png" alt="Logo">
+      </a>
     </div>
-  </div>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li class="dropdown">
+        <a href="whatwedo.html">What We Do</a>
+        <ul class="dropdown-menu">
+          <li><a href="whatwedo.html#residential">Residential</a></li>
+          <li><a href="whatwedo.html#commercial">Commercial</a></li>
+          <li><a href="whatwedo.html#office-fitouts">Office Fit-outs</a></li>
+          <li><a href="whatwedo.html#shopfitting">Shopfitting</a></li>
+          <li><a href="whatwedo.html#carpentry">Carpentry</a></li>
+          <li><a href="whatwedo.html#visualisation">Visualisation</a></li>
+          <li><a href="whatwedo.html#fabrication">Fabrication</a></li>
+          <li><a href="whatwedo.html#bordo-glass">Bordo Glass</a></li>
+        </ul>
+      </li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="brandandmarketing.html">Brand & Marketing</a></li>
+      <li class="dropdown">
+        <a href="#">Feed</a>
+        <ul class="dropdown-menu">
+          <li><a href="updates.html">Updates</a></li>
+          <li><a href="#articles">Articles</a></li>
+        </ul>
+      </li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <button class="navbar-toggle" id="menuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
 </header>
 
-<!-- Mobile Menu Overlay -->
-<div id="mobileMenu" style="position:fixed; top:0; left:0; width:100%; height:100%; background-color:#4c0d0a; z-index:1001; transform:translateY(-100%); transition:transform 0.3s ease; overflow-y:auto; display:flex; flex-direction:column; justify-content:center; align-items:center;">
-  <button id="closeMenu" style="position:absolute; top:20px; right:20px; background:none; border:none; color:white; font-size:24px; cursor:pointer;">
-    <i class="fas fa-times"></i>
-  </button>
-  <ul style="list-style:none; padding:0; margin:0; width:100%; text-align:center;">
-    <li style="position:relative; margin:0 5px;"><a href="index.html" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:300;">Home</a></li>
-    <li style="position:relative; margin:0 5px;"><a href="whatwedo.html" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:500;">What We Do</a></li>
-    <li style="position:relative; margin:0 5px; padding-left:20px;"><a href="whatwedo.html#residential" style="color:white; text-decoration:none; padding:8px 15px; display:block; font-weight:300; font-size:14px;">• Residential</a></li>
-    <li style="position:relative; margin:0 5px; padding-left:20px;"><a href="whatwedo.html#commercial" style="color:white; text-decoration:none; padding:8px 15px; display:block; font-weight:300; font-size:14px;">• Commercial</a></li>
-    <li style="position:relative; margin:0 5px; padding-left:20px;"><a href="whatwedo.html#office-fitouts" style="color:white; text-decoration:none; padding:8px 15px; display:block; font-weight:300; font-size:14px;">• Office Fit-outs</a></li>
-    <li style="position:relative; margin:0 5px; padding-left:20px;"><a href="whatwedo.html#shopfitting" style="color:white; text-decoration:none; padding:8px 15px; display:block; font-weight:300; font-size:14px;">• Shopfitting</a></li>
-    <li style="position:relative; margin:0 5px; padding-left:20px;"><a href="whatwedo.html#carpentry" style="color:white; text-decoration:none; padding:8px 15px; display:block; font-weight:300; font-size:14px;">• Carpentry</a></li>
-    <li style="position:relative; margin:0 5px; padding-left:20px;"><a href="whatwedo.html#visualisation" style="color:white; text-decoration:none; padding:8px 15px; display:block; font-weight:300; font-size:14px;">• Visualisation</a></li>
-    <li style="position:relative; margin:0 5px; padding-left:20px;"><a href="whatwedo.html#fabrication" style="color:white; text-decoration:none; padding:8px 15px; display:block; font-weight:300; font-size:14px;">• Fabrication</a></li>
-    <li style="position:relative; margin:0 5px; padding-left:20px;"><a href="whatwedo.html#bordo-glass" style="color:white; text-decoration:none; padding:8px 15px; display:block; font-weight:300; font-size:14px;">• Bordo Glass</a></li>
-    <li style="position:relative; margin:0 5px;"><a href="projects.html" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:300;">Projects</a></li>
-    <li style="position:relative; margin:0 5px;"><a href="brandandmarketing.html" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:300;">Brand & Marketing</a></li>
-    <li style="position:relative; margin:0 5px;"><a href="#" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:500;">Feed</a></li>
-    <li style="position:relative; margin:0 5px; padding-left:20px;"><a href="updates.html" style="color:white; text-decoration:none; padding:8px 15px; display:block; font-weight:300; font-size:14px;">• Updates</a></li>
-    <li style="position:relative; margin:0 5px; padding-left:20px;"><a href="#articles" style="color:white; text-decoration:none; padding:8px 15px; display:block; font-weight:300; font-size:14px;">• Articles</a></li>
-    <li style="position:relative; margin:0 5px;"><a href="about.html" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:300;">About Us</a></li>
-    <li style="position:relative; margin:0 5px;"><a href="contact.html" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:300; background-color:#8B4513; border-radius:4px;">Contact</a></li>
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-header">
+    <span>Menu</span>
+    <button class="close-menu" id="closeMenu">&times;</button>
+  </div>
+  <ul class="mobile-nav">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="whatwedo.html">What We Do</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="brandandmarketing.html">Brand & Marketing</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="contact.html">Contact</a></li>
   </ul>
 </div>
        
@@ -1427,9 +1252,6 @@ header.main-header {
       }
     });
   </script>
-
-  <!-- White Line Below Navbar -->
-<div style="width: calc(100% - 40px); height: 0.5px; background-color: white; margin: 0 20px; position: absolute; top: 80px; left: 0; z-index: 999; opacity: 0.8;"></div>
   <style>@media (min-width: 2560px) {
     /* ---- 1) Center & enlarge the parallax slogan ---- */
     section#servicesParallax1 .hero-overlay {
@@ -3649,30 +3471,6 @@ h1, h2, h3, h4, h5, h6 {
 }
       <style>
 /* Sticky navbar default */
-header.main-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  background: transparent;
-  transition: background-color 0.4s ease, box-shadow 0.4s ease;
-}
-
-.navbar-nav .nav-link {
-  color: black;
-  transition: color 0.4s ease;
-}
-
-/* On scroll */
-header.main-header.scrolled {
-  background-color: #4c0d0a; /* Maroon */
-  box-shadow: none;
-}
-
-header.main-header.scrolled .nav-link {
-  color: white !important;
-}
 
 
 </style>
@@ -4157,46 +3955,33 @@ document.addEventListener('DOMContentLoaded',function(){
     }
   });
 
-  // Mobile menu functionality
-  const menuToggle = document.getElementById('menuToggle');
-  const closeMenu = document.getElementById('closeMenu');
-  const mobileMenu = document.getElementById('mobileMenu');
+  // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const closeMenu = document.getElementById('closeMenu');
 
-  if (menuToggle && closeMenu && mobileMenu) {
-    menuToggle.addEventListener('click', function() {
-      mobileMenu.style.transform = 'translateY(0)';
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.add('active');
     });
 
-    closeMenu.addEventListener('click', function() {
-      mobileMenu.style.transform = 'translateY(-100%)';
+    closeMenu.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
     });
 
-    // Close mobile menu when clicking on a link
-    const mobileMenuLinks = mobileMenu.querySelectorAll('a');
-    mobileMenuLinks.forEach(link => {
-      link.addEventListener('click', function() {
-        mobileMenu.style.transform = 'translateY(-100%)';
+    // Dropdown menu control
+    const dropdowns = document.querySelectorAll('.dropdown');
+
+    dropdowns.forEach(dropdown => {
+      const dropdownMenu = dropdown.querySelector('.dropdown-menu');
+
+      dropdown.addEventListener('mouseenter', () => {
+        dropdownMenu.classList.add('show');
+      });
+
+      dropdown.addEventListener('mouseleave', () => {
+        dropdownMenu.classList.remove('show');
       });
     });
-  }
-
-  // Desktop dropdown functionality
-  const dropdowns = document.querySelectorAll('.dropdown');
-  dropdowns.forEach(dropdown => {
-    dropdown.addEventListener('mouseenter', function() {
-      const menu = this.querySelector('.dropdown-menu');
-      if (menu && window.innerWidth > 991) {
-        menu.style.display = 'block';
-      }
-    });
-
-    dropdown.addEventListener('mouseleave', function() {
-      const menu = this.querySelector('.dropdown-menu');
-      if (menu && window.innerWidth > 991) {
-        menu.style.display = 'none';
-      }
-    });
-  });
 
 });
 document.addEventListener('DOMContentLoaded', function() {
