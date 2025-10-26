@@ -1110,33 +1110,33 @@ header.main-header.scrolled #mainNav a {
     </div>
 
     <!-- Project Modal -->
-    <div id="projectModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.95); z-index: 200000; overflow-y: auto; padding: 20px;">
-      <button onclick="closeProjectModal()" style="position: fixed; top: 30px; right: 30px; background: #4c0d0a; color: white; border: none; width: 50px; height: 50px; cursor: pointer; font-size: 28px; border-radius: 50%; z-index: 200001; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">&times;</button>
-
-      <div style="position: relative; max-width: 1400px; margin: 0 auto; background: white;">
+    <div id="projectModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); z-index: 200000; overflow-y: auto; padding: 40px 20px;">
+      <div style="position: relative; max-width: 1400px; margin: 0 auto; background: white; border-radius: 8px; overflow: hidden;">
         <div id="modalContent"></div>
       </div>
     </div><style>
-  /* Footer Styles from index.html */
+  /* Footer Styles - Maroon Background */
   .footer {
-    background-color: #ffffff;
-    color: #2d1810;
-    padding: 0;
-    position: relative;
+    background-color: #3b3d3e;
+    color: white;
+    padding: 80px 0 30px;
   }
 
-  .footer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 5%;
-    right: 5%;
-    height: 3px;
-    background-color: #671c19;
+  .footer *,
+  .footer h3,
+  .footer p,
+  .footer a,
+  .footer ul li a {
+    color: white !important;
+  }
+
+  .footer a:hover {
+    color: #f0f0f0 !important;
+    opacity: 0.9;
   }
 
   .footer-inner {
-    padding: 60px 5% 30px;
+    padding: 0;
   }
 
   .footer-container {
@@ -1147,6 +1147,7 @@ header.main-header.scrolled #mainNav a {
     margin: 0 auto;
     gap: 60px;
     flex-wrap: wrap;
+    padding: 0 5%;
   }
 
   .footer-column {
@@ -1155,11 +1156,11 @@ header.main-header.scrolled #mainNav a {
   }
 
   .footer-column h3 {
-    color: #671c19;
-    font-size: 16px;
-    font-weight: 600;
+    color: white !important;
+    font-size: 18px;
+    font-weight: 400;
     margin-bottom: 20px;
-    letter-spacing: 1px;
+    text-transform: uppercase;
   }
 
   .footer-column ul {
@@ -1169,26 +1170,26 @@ header.main-header.scrolled #mainNav a {
   }
 
   .footer-column ul li {
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     font-size: 14px;
     line-height: 1.6;
   }
 
   .footer-column ul li a {
-    color: #2d1810;
+    color: white !important;
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: opacity 0.3s ease;
   }
 
   .footer-column ul li a:hover {
-    color: #671c19;
+    opacity: 0.7;
   }
 
   .footer-column ul.contact li {
     display: flex;
     align-items: flex-start;
     gap: 8px;
-    color: #2d1810;
+    color: white !important;
   }
 
   .footer-logo {
@@ -1207,11 +1208,11 @@ header.main-header.scrolled #mainNav a {
 
   .footer-bottom {
     text-align: center;
-    margin-top: 50px;
-    padding-top: 30px;
-    border-top: 1px solid rgba(45, 24, 16, 0.1);
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     font-size: 14px;
-    color: #8b7355;
+    color: white !important;
   }
 
   @media (max-width: 768px) {
@@ -1226,47 +1227,157 @@ header.main-header.scrolled #mainNav a {
   }
 </style>
 
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-container">
-    <div class="footer-column">
-      <h3>INFORMATION</h3>
-      <ul>
-        <li><a href="#">About Our Company</a></li>
-        <li><a href="#">Careers at Company</a></li>
-        <li><a href="#">Our Latest Projects</a></li>
-      </ul>
+<!-- Footer Start -->
+  <style>
+    .footer {
+      background-color: #ffffff;
+      color: #2d1810;
+      padding: 0;
+      position: relative;
+    }
+
+    .footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 5%;
+      right: 5%;
+      height: 3px;
+      background-color: #671c19;
+    }
+
+    .footer-inner {
+      padding: 60px 5% 30px;
+    }
+
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      max-width: 1400px;
+      margin: 0 auto;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+
+    .footer-column {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .footer-column h3 {
+      color: #671c19;
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 12px;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .footer-column ul li a {
+      color: #2d1810;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-column ul li a:hover {
+      color: #671c19;
+    }
+
+    .footer-column ul.contact li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .footer-logo {
+      flex: 0 0 auto;
+      text-align: center;
+    }
+
+    .footer-logo img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background-color: white;
+      padding: 20px;
+      object-fit: contain;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 50px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(45, 24, 16, 0.1);
+      font-size: 14px;
+      color: #8b7355;
+    }
+
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        gap: 40px;
+      }
+
+      .footer-logo {
+        order: -1;
+      }
+    }
+  </style>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-container">
+      <div class="footer-column">
+        <h3>INFORMATION</h3>
+        <ul>
+          <li><a href="#">About Our Company</a></li>
+          <li><a href="#">Careers at Company</a></li>
+          <li><a href="#">Our Latest Projects</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3>CONTACT US</h3>
+        <ul class="contact">
+          <li>📞 0121 792 9167</li>
+          <li>✉️ <a href="mailto:info@bordodesign.com">info@bordodesign.com</a></li>
+          <li>📅 <a href="#">Schedule a Consultation</a></li>
+          <li>📍 30-34 Rookery Road, Birmingham, B21 9NB</li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3>FOLLOW US</h3>
+        <ul class="social-links">
+          <li><a href="#" target="_blank">LinkedIn</a></li>
+          <li><a href="#" target="_blank">Instagram</a></li>
+          <li><a href="#" target="_blank">Facebook</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-logo">
+        <img src="logologo.png" alt="Bordo Design Logo">
+      </div>
     </div>
 
-    <div class="footer-column">
-      <h3>CONTACT US</h3>
-      <ul class="contact">
-        <li>📞 0121 792 9167</li>
-        <li>✉️ <a href="mailto:info@bordodesign.com">info@bordodesign.com</a></li>
-        <li>📅 <a href="#">Schedule a Consultation</a></li>
-        <li>📍 30-34 Rookery Road, Birmingham, B21 9NB</li>
-      </ul>
+      <div class="footer-bottom">
+        © Bordo Design Ltd
+      </div>
     </div>
-
-    <div class="footer-column">
-      <h3>FOLLOW US</h3>
-      <ul class="social-links">
-        <li><a href="#" target="_blank">LinkedIn</a></li>
-        <li><a href="#" target="_blank">Instagram</a></li>
-        <li><a href="#" target="_blank">Facebook</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-logo">
-      <img src="logologo.png" alt="Bordo Design Logo">
-    </div>
-  </div>
-
-    <div class="footer-bottom">
-      © Bordo Design Ltd
-    </div>
-  </div>
-</footer>
+  </footer>
+  <!-- Footer End -->
     <!-- Jquery Library File -->
     <script src="js/jquery-3.7.1.min.js"></script>
     <!-- Bootstrap js file -->
@@ -1482,6 +1593,12 @@ h1, h2, h3, h4, h5, h6 {
         gallery: [
           "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/de4b6607-8849-472c-3e13-2968af055600/public",
           "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/de4b6607-8849-472c-3e13-2968af055600/public",
+          "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/de4b6607-8849-472c-3e13-2968af055600/public",
+          "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/de4b6607-8849-472c-3e13-2968af055600/public",
+          "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/de4b6607-8849-472c-3e13-2968af055600/public",
+          "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/de4b6607-8849-472c-3e13-2968af055600/public",
+          "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/de4b6607-8849-472c-3e13-2968af055600/public",
+          "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/de4b6607-8849-472c-3e13-2968af055600/public",
           "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/de4b6607-8849-472c-3e13-2968af055600/public"
         ],
         description: "A modern dental practice that combines urban sophistication with patient comfort. This design focuses on creating a welcoming environment that reduces anxiety and promotes relaxation.",
@@ -1504,6 +1621,12 @@ h1, h2, h3, h4, h5, h6 {
         category: "Automotive Retail",
         image: "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/e50bc3f5-940d-4c2b-13a9-801c46dacd00/public",
         gallery: [
+          "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/e50bc3f5-940d-4c2b-13a9-801c46dacd00/public",
+          "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/e50bc3f5-940d-4c2b-13a9-801c46dacd00/public",
+          "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/e50bc3f5-940d-4c2b-13a9-801c46dacd00/public",
+          "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/e50bc3f5-940d-4c2b-13a9-801c46dacd00/public",
+          "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/e50bc3f5-940d-4c2b-13a9-801c46dacd00/public",
+          "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/e50bc3f5-940d-4c2b-13a9-801c46dacd00/public",
           "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/e50bc3f5-940d-4c2b-13a9-801c46dacd00/public",
           "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/e50bc3f5-940d-4c2b-13a9-801c46dacd00/public",
           "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/e50bc3f5-940d-4c2b-13a9-801c46dacd00/public"
@@ -1530,6 +1653,12 @@ h1, h2, h3, h4, h5, h6 {
         gallery: [
           "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/bdf60d06-8344-4da5-d563-591a58432400/public",
           "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/bdf60d06-8344-4da5-d563-591a58432400/public",
+          "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/bdf60d06-8344-4da5-d563-591a58432400/public",
+          "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/bdf60d06-8344-4da5-d563-591a58432400/public",
+          "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/bdf60d06-8344-4da5-d563-591a58432400/public",
+          "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/bdf60d06-8344-4da5-d563-591a58432400/public",
+          "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/bdf60d06-8344-4da5-d563-591a58432400/public",
+          "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/bdf60d06-8344-4da5-d563-591a58432400/public",
           "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/bdf60d06-8344-4da5-d563-591a58432400/public"
         ],
         description: "An upscale hotel design that redefines luxury accommodation. Every detail has been carefully considered to provide guests with an unforgettable experience combining comfort, elegance, and modern amenities.",
@@ -1552,6 +1681,12 @@ h1, h2, h3, h4, h5, h6 {
         category: "Educational Institution",
         image: "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/51b0f1f2-635c-4630-9d45-0daa42c91e00/public",
         gallery: [
+          "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/51b0f1f2-635c-4630-9d45-0daa42c91e00/public",
+          "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/51b0f1f2-635c-4630-9d45-0daa42c91e00/public",
+          "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/51b0f1f2-635c-4630-9d45-0daa42c91e00/public",
+          "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/51b0f1f2-635c-4630-9d45-0daa42c91e00/public",
+          "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/51b0f1f2-635c-4630-9d45-0daa42c91e00/public",
+          "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/51b0f1f2-635c-4630-9d45-0daa42c91e00/public",
           "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/51b0f1f2-635c-4630-9d45-0daa42c91e00/public",
           "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/51b0f1f2-635c-4630-9d45-0daa42c91e00/public",
           "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/51b0f1f2-635c-4630-9d45-0daa42c91e00/public"
@@ -1602,6 +1737,12 @@ h1, h2, h3, h4, h5, h6 {
         gallery: [
           "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/e50bc3f5-940d-4c2b-13a9-801c46dacd00/public",
           "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/e50bc3f5-940d-4c2b-13a9-801c46dacd00/public",
+          "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/e50bc3f5-940d-4c2b-13a9-801c46dacd00/public",
+          "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/e50bc3f5-940d-4c2b-13a9-801c46dacd00/public",
+          "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/e50bc3f5-940d-4c2b-13a9-801c46dacd00/public",
+          "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/e50bc3f5-940d-4c2b-13a9-801c46dacd00/public",
+          "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/e50bc3f5-940d-4c2b-13a9-801c46dacd00/public",
+          "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/e50bc3f5-940d-4c2b-13a9-801c46dacd00/public",
           "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/e50bc3f5-940d-4c2b-13a9-801c46dacd00/public"
         ],
         description: "A revolutionary showroom design that represents the future of luxury automotive retail. The Loop creates an immersive brand experience that showcases Mercedes-Benz's commitment to innovation and excellence.",
@@ -1626,6 +1767,12 @@ h1, h2, h3, h4, h5, h6 {
         gallery: [
           "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/bdf60d06-8344-4da5-d563-591a58432400/public",
           "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/bdf60d06-8344-4da5-d563-591a58432400/public",
+          "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/bdf60d06-8344-4da5-d563-591a58432400/public",
+          "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/bdf60d06-8344-4da5-d563-591a58432400/public",
+          "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/bdf60d06-8344-4da5-d563-591a58432400/public",
+          "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/bdf60d06-8344-4da5-d563-591a58432400/public",
+          "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/bdf60d06-8344-4da5-d563-591a58432400/public",
+          "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/bdf60d06-8344-4da5-d563-591a58432400/public",
           "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/bdf60d06-8344-4da5-d563-591a58432400/public"
         ],
         description: "An upscale hotel design that redefines luxury accommodation. Every detail has been carefully considered to provide guests with an unforgettable experience combining comfort, elegance, and modern amenities.",
@@ -1648,6 +1795,12 @@ h1, h2, h3, h4, h5, h6 {
         category: "Educational Institution",
         image: "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/51b0f1f2-635c-4630-9d45-0daa42c91e00/public",
         gallery: [
+          "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/51b0f1f2-635c-4630-9d45-0daa42c91e00/public",
+          "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/51b0f1f2-635c-4630-9d45-0daa42c91e00/public",
+          "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/51b0f1f2-635c-4630-9d45-0daa42c91e00/public",
+          "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/51b0f1f2-635c-4630-9d45-0daa42c91e00/public",
+          "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/51b0f1f2-635c-4630-9d45-0daa42c91e00/public",
+          "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/51b0f1f2-635c-4630-9d45-0daa42c91e00/public",
           "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/51b0f1f2-635c-4630-9d45-0daa42c91e00/public",
           "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/51b0f1f2-635c-4630-9d45-0daa42c91e00/public",
           "https://imagedelivery.net/CNmwbT2atVIyaWo4we-vfg/51b0f1f2-635c-4630-9d45-0daa42c91e00/public"
@@ -1678,8 +1831,8 @@ h1, h2, h3, h4, h5, h6 {
       if (project.gallery && project.gallery.length > 0) {
         project.gallery.forEach(imgSrc => {
           galleryHTML += `
-            <div style="flex: 0 0 calc(33.333% - 10px); margin: 5px;">
-              <img src="${imgSrc}" alt="${project.title}" style="width: 100%; height: 250px; object-fit: cover;">
+            <div style="overflow: hidden; border-radius: 8px;">
+              <img src="${imgSrc}" alt="${project.title}" style="width: 100%; height: 300px; object-fit: cover; display: block; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
             </div>
           `;
         });
@@ -1701,6 +1854,11 @@ h1, h2, h3, h4, h5, h6 {
       }
 
       modalContent.innerHTML = `
+        <!-- Close Button Bar -->
+        <div style="background: #4c0d0a; padding: 15px 30px; display: flex; justify-content: flex-end; align-items: center;">
+          <button onclick="closeProjectModal()" style="background: transparent; color: white; border: 2px solid white; padding: 10px 30px; cursor: pointer; font-size: 14px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; transition: all 0.3s ease; border-radius: 4px;" onmouseover="this.style.background='white'; this.style.color='#4c0d0a';" onmouseout="this.style.background='transparent'; this.style.color='white';">Close</button>
+        </div>
+
         <!-- Hero Image -->
         <img src="${project.image}" alt="${project.title}" style="width: 100%; height: 500px; object-fit: cover; display: block;">
 
@@ -1719,7 +1877,7 @@ h1, h2, h3, h4, h5, h6 {
           ${project.gallery && project.gallery.length > 0 ? `
             <div style="margin-bottom: 50px;">
               <h2 style="color: #4c0d0a; font-size: 32px; margin-bottom: 30px; font-weight: 400;">Project Gallery</h2>
-              <div style="display: flex; flex-wrap: wrap; margin: -5px;">
+              <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px;">
                 ${galleryHTML}
               </div>
             </div>
