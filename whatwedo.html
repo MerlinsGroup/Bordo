@@ -162,7 +162,8 @@
       background-color: rgba(255, 255, 255, 0.1);
     }
 
-    #menuToggle {
+    #menuToggle,
+    .navbar-toggle {
       background: transparent;
       border: none;
       color: white;
@@ -170,6 +171,16 @@
       cursor: pointer;
       z-index: 1002;
       display: none;
+      padding: 5px;
+    }
+
+    .navbar-toggle span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      margin: 4px 0;
+      transition: 0.3s;
     }
 
     #mobileMenu {
@@ -205,11 +216,13 @@
     }
 
     @media (max-width: 991px) {
-      #menuToggle {
-        display: block;
+      #menuToggle,
+      .navbar-toggle {
+        display: block !important;
       }
 
-      #mainNav {
+      #mainNav,
+      .nav-links {
         display: none !important;
       }
     }
@@ -645,34 +658,69 @@
     }
 
     @media (max-width: 768px) {
+      .main-header nav {
+        padding: 15px 20px;
+      }
+
+      #menuToggle {
+        display: block !important;
+        color: white;
+      }
+
+      .nav-links {
+        display: none !important;
+      }
+
       .hero-section {
         min-height: auto;
+        margin-top: 80px;
+        padding: 40px 0;
+        background: white;
       }
 
       .hero-grid {
         display: block;
         padding: 20px;
+        gap: 0;
       }
 
       .hero-content {
-        padding: 40px 30px;
-        margin-bottom: 30px;
+        padding: 40px 20px;
+        margin-bottom: 0;
+        position: static;
+        transform: none;
+        background: white;
+        box-shadow: none;
+        border-radius: 0;
       }
 
       .hero-content h1 {
-        font-size: 2rem;
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        color: #000;
       }
 
+      .hero-content p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: #333;
+      }
+
+      /* Hide all animated images on mobile */
       .hero-image {
-        display: none;
+        display: none !important;
+        animation: none;
       }
 
       .hero-image-1,
-      .hero-image-2 {
-        display: block;
-        width: 100%;
-        height: 200px;
-        margin-bottom: 20px;
+      .hero-image-2,
+      .hero-image-3,
+      .hero-image-4,
+      .hero-image-5,
+      .hero-image-6,
+      .hero-image-7,
+      .hero-image-8 {
+        display: none !important;
       }
 
       .service-grid {
@@ -1132,3 +1180,4 @@
   </script>
 </body>
 </html>
+
