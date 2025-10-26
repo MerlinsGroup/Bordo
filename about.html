@@ -121,24 +121,37 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
     
     /* Mobile Menu */
-    #menuToggle {
+    #menuToggle,
+    .navbar-toggle {
       background: transparent;
       border: none;
       color: white;
       font-size: 24px;
       cursor: pointer;
-      z-index: 1002;
+      z-index: 10002;
       display: none;
+      padding: 5px;
+      position: relative;
     }
-    
-    #mobileMenu {
+
+    .navbar-toggle span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      margin: 4px 0;
+      transition: 0.3s;
+    }
+
+    #mobileMenu,
+    .mobile-menu {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       background-color: #4c0d0a;
-      z-index: 1001;
+      z-index: 10001;
       transform: translateY(-100%);
       transition: transform 0.3s ease;
       overflow-y: auto;
@@ -147,7 +160,52 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       justify-content: center;
       align-items: center;
     }
-    
+
+    #mobileMenu.active,
+    .mobile-menu.active {
+      transform: translateY(0);
+    }
+
+    .mobile-menu-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 15px 20px;
+      background-color: rgba(0, 0, 0, 0.2);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    .mobile-nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 80px 20px 20px;
+    }
+
+    .mobile-nav a {
+      display: block;
+      padding: 15px 30px;
+      color: white;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      font-weight: 300;
+      font-size: 20px;
+      text-align: center;
+      width: 100%;
+    }
+
+    .mobile-nav a:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
     #closeMenu {
       position: absolute;
       top: 20px;
@@ -389,8 +447,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     /* Responsive Adjustments */
     @media (max-width: 991px) {
-      #menuToggle {
-        display: block;
+      #menuToggle,
+      .navbar-toggle {
+        display: block !important;
       }
 
       #mainNav {
@@ -553,8 +612,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </a>
 
         <!-- Mobile Menu Toggle Button -->
-        <button id="menuToggle" style="background:transparent; border:none; color:white; font-size:24px; cursor:pointer; z-index:1002; display:none;">
-          <i class="fas fa-bars"></i>
+        <button id="menuToggle" class="navbar-toggle" style="background:transparent; border:none; color:white; font-size:24px; cursor:pointer; z-index:10002; display:none; padding:5px; position:relative;">
+          <span style="display:block; width:25px; height:3px; background-color:white; margin:4px 0; transition:0.3s;"></span>
+          <span style="display:block; width:25px; height:3px; background-color:white; margin:4px 0; transition:0.3s;"></span>
+          <span style="display:block; width:25px; height:3px; background-color:white; margin:4px 0; transition:0.3s;"></span>
         </button>
 
         <!-- Navigation Menu -->
@@ -597,29 +658,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </header>
 
 <!-- Mobile Menu Overlay -->
-<div id="mobileMenu" style="position:fixed; top:0; left:0; width:100%; height:100%; background-color:#4c0d0a; z-index:1001; transform:translateY(-100%); transition:transform 0.3s ease; overflow-y:auto; display:flex; flex-direction:column; justify-content:center; align-items:center;">
-  <button id="closeMenu" style="position:absolute; top:20px; right:20px; background:none; border:none; color:white; font-size:24px; cursor:pointer;">
-    <i class="fas fa-times"></i>
-  </button>
-  <ul style="list-style:none; padding:0; margin:0; width:100%; text-align:center;">
-    <li style="position:relative; margin:0 5px;"><a href="index.html" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:300;">Home</a></li>
-    <li style="position:relative; margin:0 5px;"><a href="#" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:500;">What We Do</a></li>
-    <li style="position:relative; margin:0 5px; padding-left:20px;"><a href="residential.html" style="color:white; text-decoration:none; padding:8px 15px; display:block; font-weight:300; font-size:14px;">• Residential</a></li>
-    <li style="position:relative; margin:0 5px; padding-left:20px;"><a href="commercial.html" style="color:white; text-decoration:none; padding:8px 15px; display:block; font-weight:300; font-size:14px;">• Commercial</a></li>
-    <li style="position:relative; margin:0 5px; padding-left:20px;"><a href="#office-fitouts" style="color:white; text-decoration:none; padding:8px 15px; display:block; font-weight:300; font-size:14px;">• Office Fit-outs</a></li>
-    <li style="position:relative; margin:0 5px; padding-left:20px;"><a href="#shopfitting" style="color:white; text-decoration:none; padding:8px 15px; display:block; font-weight:300; font-size:14px;">• Shopfitting</a></li>
-    <li style="position:relative; margin:0 5px; padding-left:20px;"><a href="#carpentry" style="color:white; text-decoration:none; padding:8px 15px; display:block; font-weight:300; font-size:14px;">• Carpentry</a></li>
-    <li style="position:relative; margin:0 5px; padding-left:20px;"><a href="#visualisation" style="color:white; text-decoration:none; padding:8px 15px; display:block; font-weight:300; font-size:14px;">• Visualisation</a></li>
-    <li style="position:relative; margin:0 5px; padding-left:20px;"><a href="#fabrication" style="color:white; text-decoration:none; padding:8px 15px; display:block; font-weight:300; font-size:14px;">• Fabrication</a></li>
-    <li style="position:relative; margin:0 5px; padding-left:20px;"><a href="#bordo-glass" style="color:white; text-decoration:none; padding:8px 15px; display:block; font-weight:300; font-size:14px;">• Bordo Glass</a></li>
-    <li style="position:relative; margin:0 5px;"><a href="projects.html" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:300;">Projects</a></li>
-    <li style="position:relative; margin:0 5px;"><a href="#brand-marketing" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:300;">Brand & Marketing</a></li>
-    <li style="position:relative; margin:0 5px;"><a href="#" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:500;">Feed</a></li>
-    <li style="position:relative; margin:0 5px; padding-left:20px;"><a href="#updates" style="color:white; text-decoration:none; padding:8px 15px; display:block; font-weight:300; font-size:14px;">• Updates</a></li>
-    <li style="position:relative; margin:0 5px; padding-left:20px;"><a href="#articles" style="color:white; text-decoration:none; padding:8px 15px; display:block; font-weight:300; font-size:14px;">• Articles</a></li>
-    <li style="position:relative; margin:0 5px;"><a href="about.html" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:300;">About Us</a></li>
-    <li style="position:relative; margin:0 5px;"><a href="contact.html" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:300; background-color:#8B4513; border-radius:4px;">Contact</a></li>
-  </ul>
+<div id="mobileMenu" class="mobile-menu" style="position:fixed; top:0; left:0; width:100%; height:100%; background-color:#4c0d0a; z-index:10001; transform:translateY(-100%); transition:transform 0.3s ease; overflow-y:auto; display:flex; flex-direction:column; justify-content:center; align-items:center;">
+  <div class="mobile-menu-header" style="position:absolute; top:0; left:0; right:0; padding:15px 20px; background-color:rgba(0,0,0,0.2); display:flex; justify-content:space-between; align-items:center;">
+    <span style="color:white; font-size:18px; font-weight:500;">MENU</span>
+    <button id="closeMenu" class="close-menu" style="background:transparent; border:none; color:white; font-size:28px; cursor:pointer; z-index:10002; padding:5px;">✕</button>
+  </div>
+  <nav class="mobile-nav" style="display:flex; flex-direction:column; align-items:center; justify-content:center; width:100%; padding:80px 20px 20px;">
+    <a href="index.html" style="display:block; padding:15px 30px; color:white; text-decoration:none; transition:background-color 0.3s ease; font-weight:300; font-size:20px; text-align:center; width:100%;">Home</a>
+    <a href="whatwedo.html" style="display:block; padding:15px 30px; color:white; text-decoration:none; transition:background-color 0.3s ease; font-weight:300; font-size:20px; text-align:center; width:100%;">What We Do</a>
+    <a href="projects.html" style="display:block; padding:15px 30px; color:white; text-decoration:none; transition:background-color 0.3s ease; font-weight:300; font-size:20px; text-align:center; width:100%;">Projects</a>
+    <a href="brandandmarketing.html" style="display:block; padding:15px 30px; color:white; text-decoration:none; transition:background-color 0.3s ease; font-weight:300; font-size:20px; text-align:center; width:100%;">Brand & Marketing</a>
+    <a href="updates.html" style="display:block; padding:15px 30px; color:white; text-decoration:none; transition:background-color 0.3s ease; font-weight:300; font-size:20px; text-align:center; width:100%;">Updates</a>
+    <a href="about.html" style="display:block; padding:15px 30px; color:white; text-decoration:none; transition:background-color 0.3s ease; font-weight:300; font-size:20px; text-align:center; width:100%;">About Us</a>
+    <a href="contact.html" style="display:block; padding:15px 30px; color:white; text-decoration:none; transition:background-color 0.3s ease; font-weight:300; font-size:20px; text-align:center; width:100%;">Contact</a>
+  </nav>
 </div>
 
     <style>
