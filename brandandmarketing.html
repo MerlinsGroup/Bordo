@@ -783,19 +783,28 @@
       left: 0;
       width: 100%;
       z-index: 100000;
-      background-color: rgba(76, 13, 10, 0.9);
-      transition: background-color 0.4s ease, box-shadow 0.4s ease;
-      backdrop-filter: blur(10px);
-    }
-
-    body.expanded .main-header {
       background-color: #4c0d0a;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transition: background-color 0.4s ease, box-shadow 0.4s ease;
+      border: none;
+      border-bottom: none;
     }
 
     .header-sticky {
       background: transparent;
-      box-shadow: none;
+      box-shadow: none !important;
+    }
+
+    header.main-header.scrolled {
+      box-shadow: none !important;
+    }
+
+    .main-header,
+    .main-header *,
+    .navbar,
+    .navbar * {
+      border: none !important;
+      border-bottom: none !important;
+      outline: none !important;
     }
 
     .main-header nav {
@@ -1736,48 +1745,157 @@
     });
   </script>
 
-  <!-- Footer -->
+  <!-- Footer Start -->
+  <style>
+    .footer {
+      background-color: #ffffff;
+      color: #2d1810;
+      padding: 0;
+      position: relative;
+    }
+
+    .footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 5%;
+      right: 5%;
+      height: 3px;
+      background-color: #671c19;
+    }
+
+    .footer-inner {
+      padding: 60px 5% 30px;
+    }
+
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      max-width: 1400px;
+      margin: 0 auto;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+
+    .footer-column {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .footer-column h3 {
+      color: #671c19;
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 12px;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .footer-column ul li a {
+      color: #2d1810;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-column ul li a:hover {
+      color: #671c19;
+    }
+
+    .footer-column ul.contact li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .footer-logo {
+      flex: 0 0 auto;
+      text-align: center;
+    }
+
+    .footer-logo img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background-color: white;
+      padding: 20px;
+      object-fit: contain;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 50px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(45, 24, 16, 0.1);
+      font-size: 14px;
+      color: #8b7355;
+    }
+
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        gap: 40px;
+      }
+
+      .footer-logo {
+        order: -1;
+      }
+    }
+  </style>
+
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-container">
-        <div class="footer-column">
-          <h3>INFORMATION</h3>
-          <ul>
-            <li><a href="about.html">About Our Company</a></li>
-            <li><a href="#">Careers at Company</a></li>
-            <li><a href="projects.html">Our Latest Projects</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-column">
-          <h3>CONTACT US</h3>
-          <ul class="contact">
-            <li>📞 0121 792 9167</li>
-            <li>✉️ <a href="mailto:info@bordodesign.com">info@bordodesign.com</a></li>
-            <li>📅 <a href="contact.html">Schedule a Consultation</a></li>
-            <li>📍 30-34 Rookery Road, Birmingham, B21 9NB</li>
-          </ul>
-        </div>
-
-        <div class="footer-column">
-          <h3>FOLLOW US</h3>
-          <ul class="social-links">
-            <li><a href="#" target="_blank">LinkedIn</a></li>
-            <li><a href="#" target="_blank">Instagram</a></li>
-            <li><a href="#" target="_blank">Facebook</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-logo">
-          <img src="logologo.png" alt="Bordo Design Logo">
-        </div>
+      <div class="footer-column">
+        <h3>INFORMATION</h3>
+        <ul>
+          <li><a href="#">About Our Company</a></li>
+          <li><a href="#">Careers at Company</a></li>
+          <li><a href="#">Our Latest Projects</a></li>
+        </ul>
       </div>
+
+      <div class="footer-column">
+        <h3>CONTACT US</h3>
+        <ul class="contact">
+          <li>📞 0121 792 9167</li>
+          <li>✉️ <a href="mailto:info@bordodesign.com">info@bordodesign.com</a></li>
+          <li>📅 <a href="#">Schedule a Consultation</a></li>
+          <li>📍 30-34 Rookery Road, Birmingham, B21 9NB</li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3>FOLLOW US</h3>
+        <ul class="social-links">
+          <li><a href="#" target="_blank">LinkedIn</a></li>
+          <li><a href="#" target="_blank">Instagram</a></li>
+          <li><a href="#" target="_blank">Facebook</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-logo">
+        <img src="logologo.png" alt="Bordo Design Logo">
+      </div>
+    </div>
 
       <div class="footer-bottom">
         © Bordo Design Ltd
       </div>
     </div>
   </footer>
+  <!-- Footer End -->
 
 </body>
 </html>
