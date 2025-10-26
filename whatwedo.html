@@ -58,19 +58,28 @@
       left: 0;
       width: 100%;
       z-index: 100000;
-      background-color: rgba(76, 13, 10, 0.9);
-      transition: background-color 0.4s ease, box-shadow 0.4s ease;
-      backdrop-filter: blur(10px);
-    }
-
-    body.expanded .main-header {
       background-color: #4c0d0a;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transition: background-color 0.4s ease, box-shadow 0.4s ease;
+      border: none;
+      border-bottom: none;
     }
 
     .header-sticky {
       background: transparent;
-      box-shadow: none;
+      box-shadow: none !important;
+    }
+
+    header.main-header.scrolled {
+      box-shadow: none !important;
+    }
+
+    .main-header,
+    .main-header *,
+    .navbar,
+    .navbar * {
+      border: none !important;
+      border-bottom: none !important;
+      outline: none !important;
     }
 
     .main-header nav {
@@ -239,20 +248,22 @@
     }
 
     .hero-content h1 {
-      font-size: 3.5rem;
-      color: var(--accent);
+      font-size: 4rem;
+      color: #2d1810;
       font-weight: 100;
-      margin-bottom: 20px;
-      letter-spacing: -1px;
+      margin-bottom: 25px;
+      letter-spacing: -2px;
+      line-height: 1.1;
     }
 
     .hero-content p {
-      font-size: 1.15rem;
+      font-size: 1.2rem;
       color: var(--text);
-      opacity: 0.85;
-      max-width: 600px;
+      opacity: 0.9;
+      max-width: 650px;
       margin: 0 auto;
-      line-height: 1.7;
+      line-height: 1.8;
+      font-weight: 300;
     }
 
     /* Image Boxes Around Hero */
@@ -261,6 +272,7 @@
       overflow: hidden;
       position: relative;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: float 6s ease-in-out infinite;
     }
 
     .hero-image img {
@@ -274,10 +286,60 @@
       transform: scale(1.05);
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
       z-index: 5;
+      animation-play-state: paused;
     }
 
     .hero-image:hover img {
       transform: scale(1.1);
+    }
+
+    /* Floating Animation */
+    @keyframes float {
+      0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+      }
+      25% {
+        transform: translate(10px, -10px) rotate(1deg);
+      }
+      50% {
+        transform: translate(-5px, 10px) rotate(-1deg);
+      }
+      75% {
+        transform: translate(-10px, -5px) rotate(0.5deg);
+      }
+    }
+
+    /* Different animation delays for each image */
+    .hero-image-1 {
+      animation-delay: 0s;
+    }
+
+    .hero-image-2 {
+      animation-delay: 0.5s;
+    }
+
+    .hero-image-3 {
+      animation-delay: 1s;
+    }
+
+    .hero-image-4 {
+      animation-delay: 1.5s;
+    }
+
+    .hero-image-5 {
+      animation-delay: 2s;
+    }
+
+    .hero-image-6 {
+      animation-delay: 2.5s;
+    }
+
+    .hero-image-7 {
+      animation-delay: 3s;
+    }
+
+    .hero-image-8 {
+      animation-delay: 3.5s;
     }
 
     .hero-image-1 {
@@ -322,23 +384,23 @@
 
     /* Quick Links Section */
     .quick-links {
-      padding: 30px 6%;
+      padding: 20px 6%;
       background: var(--white);
       border-top: 1px solid rgba(0,0,0,0.05);
     }
 
     .links-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 15px;
-      max-width: 900px;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      gap: 10px;
+      max-width: 600px;
       margin: 0 auto;
     }
 
     .link-card {
       background: var(--bg);
-      padding: 15px;
-      border-radius: 6px;
+      padding: 10px;
+      border-radius: 4px;
       text-align: center;
       transition: all 0.3s ease;
       cursor: pointer;
@@ -354,13 +416,13 @@
 
     .link-card h3 {
       color: var(--accent);
-      font-size: 0.95rem;
+      font-size: 0.75rem;
       font-weight: 400;
-      margin-bottom: 5px;
+      margin-bottom: 3px;
     }
 
     .link-card p {
-      font-size: 0.75rem;
+      font-size: 0.65rem;
       color: var(--text);
       opacity: 0.7;
     }
@@ -457,67 +519,102 @@
       box-shadow: 0 10px 20px rgba(103,28,25,0.2);
     }
 
-    /* Footer Styles */
+    /* Footer Styles - Exact Match to index.html */
     .footer {
-      background-color: rgba(65, 12, 10, 0.95);
-      color: white;
-      padding: 40px 0 20px;
+      background-color: #ffffff;
+      color: #2d1810;
+      padding: 0;
+      position: relative;
       margin-top: 80px;
     }
 
+    .footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 5%;
+      right: 5%;
+      height: 3px;
+      background-color: #671c19;
+    }
+
+    .footer-inner {
+      padding: 60px 5% 30px;
+    }
+
     .footer-container {
-      max-width: 1200px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      max-width: 1400px;
       margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 40px;
-      padding: 0 20px;
-      align-items: start;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+
+    .footer-column {
+      flex: 1;
+      min-width: 200px;
     }
 
     .footer-column h3 {
-      color: var(--primary);
-      font-size: 1.2rem;
-      margin-bottom: 20px;
-      font-weight: 400;
+      color: #671c19 !important;
+      font-size: 16px !important;
+      font-weight: 600 !important;
+      margin-bottom: 20px !important;
+      letter-spacing: 1px !important;
     }
 
     .footer-column ul {
       list-style: none;
       padding: 0;
+      margin: 0;
     }
 
-    .footer-column li {
+    .footer-column ul li {
       margin-bottom: 12px;
-      font-size: 0.95rem;
+      font-size: 14px;
+      line-height: 1.6;
     }
 
-    .footer-column a {
-      color: white;
+    .footer-column ul li a {
+      color: #2d1810;
       text-decoration: none;
-      transition: opacity 0.3s;
+      transition: color 0.3s ease;
     }
 
-    .footer-column a:hover {
-      opacity: 0.7;
+    .footer-column ul li a:hover {
+      color: #671c19;
+    }
+
+    .footer-column ul.contact li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      color: #2d1810;
     }
 
     .footer-logo {
+      flex: 0 0 auto;
       text-align: center;
     }
 
     .footer-logo img {
-      max-height: 80px;
-      opacity: 0.9;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background-color: white;
+      padding: 20px;
+      object-fit: contain;
     }
 
     .footer-bottom {
       text-align: center;
-      padding: 20px;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      margin-top: 30px;
-      font-size: 0.9rem;
-      opacity: 0.8;
+      margin-top: 50px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(45, 24, 16, 0.1);
+      font-size: 14px;
+      color: #8b7355;
     }
 
     /* Responsive Design */
@@ -692,37 +789,8 @@
       <!-- Central Content -->
       <div class="hero-content">
         <h1>What We Do</h1>
-        <p>From concept to completion, BORDO delivers comprehensive design and build services. Our in-house capabilities span carpentry, fabrication, glazing, and visualization – creating exceptional spaces without compromise.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Quick Links Section -->
-  <section class="quick-links">
-    <div class="links-grid">
-      <div class="link-card" onclick="location.href='#commercial'">
-        <h3>Commercial</h3>
-        <p>Transforming business spaces</p>
-      </div>
-      <div class="link-card" onclick="location.href='#residential'">
-        <h3>Residential</h3>
-        <p>Luxury homes without limits</p>
-      </div>
-      <div class="link-card" onclick="location.href='#carpentry'">
-        <h3>Carpentry</h3>
-        <p>Master craftsmanship</p>
-      </div>
-      <div class="link-card" onclick="location.href='#fabrication'">
-        <h3>Fabrication</h3>
-        <p>Precision engineering</p>
-      </div>
-      <div class="link-card" onclick="location.href='#visualisation'">
-        <h3>Visualisation</h3>
-        <p>See before you build</p>
-      </div>
-      <div class="link-card" onclick="location.href='#bordo-glass'">
-        <h3>BORDO Glass</h3>
-        <p>Architectural glazing</p>
+        <p>From <span style="color: #671c19; font-weight: 400;">concept to completion</span>, BORDO delivers comprehensive design and build services.</p>
+        <p style="margin-top: 15px; font-size: 1rem; opacity: 0.75;">Our in-house capabilities span carpentry, fabrication, glazing, and visualisation – creating exceptional spaces without compromise.</p>
       </div>
     </div>
   </section>
@@ -836,9 +904,118 @@
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- Footer Start -->
+  <style>
+    .footer {
+      background-color: #ffffff;
+      color: #2d1810;
+      padding: 0;
+      position: relative;
+    }
+
+    .footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 5%;
+      right: 5%;
+      height: 3px;
+      background-color: #671c19;
+    }
+
+    .footer-inner {
+      padding: 60px 5% 30px;
+    }
+
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      max-width: 1400px;
+      margin: 0 auto;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+
+    .footer-column {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .footer-column h3 {
+      color: #671c19 !important;
+      font-size: 16px !important;
+      font-weight: 600 !important;
+      margin-bottom: 20px !important;
+      letter-spacing: 1px !important;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 12px;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .footer-column ul li a {
+      color: #2d1810;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-column ul li a:hover {
+      color: #671c19;
+    }
+
+    .footer-column ul.contact li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .footer-logo {
+      flex: 0 0 auto;
+      text-align: center;
+    }
+
+    .footer-logo img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background-color: white;
+      padding: 20px;
+      object-fit: contain;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 50px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(45, 24, 16, 0.1);
+      font-size: 14px;
+      color: #8b7355;
+    }
+
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        gap: 40px;
+      }
+
+      .footer-logo {
+        order: -1;
+      }
+    }
+  </style>
+
   <footer class="footer">
-    <div class="footer-container">
+    <div class="footer-inner">
+      <div class="footer-container">
       <div class="footer-column">
         <h3>INFORMATION</h3>
         <ul>
@@ -858,15 +1035,26 @@
         </ul>
       </div>
 
+      <div class="footer-column">
+        <h3>FOLLOW US</h3>
+        <ul class="social-links">
+          <li><a href="#" target="_blank">LinkedIn</a></li>
+          <li><a href="#" target="_blank">Instagram</a></li>
+          <li><a href="#" target="_blank">Facebook</a></li>
+        </ul>
+      </div>
+
       <div class="footer-logo">
         <img src="logologo.png" alt="Bordo Design Logo">
       </div>
     </div>
 
-    <div class="footer-bottom">
-      © Bordo Design Ltd
+      <div class="footer-bottom">
+        © Bordo Design Ltd
+      </div>
     </div>
   </footer>
+  <!-- Footer End -->
 
   <!-- JavaScript for dropdown menus -->
   <script>
