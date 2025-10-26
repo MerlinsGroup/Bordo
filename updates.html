@@ -37,8 +37,10 @@
           </a>
 
           <!-- Mobile Menu Toggle Button -->
-          <button id="menuToggle" style="background:transparent; border:none; color:white; font-size:24px; cursor:pointer; z-index:1002; display:none;">
-            <i class="fas fa-bars"></i>
+          <button id="menuToggle" class="navbar-toggle" style="background:transparent; border:none; color:white; font-size:24px; cursor:pointer; z-index:10002; display:none; padding:5px; position:relative;">
+            <span style="display:block; width:25px; height:3px; background-color:white; margin:4px 0; transition:0.3s;"></span>
+            <span style="display:block; width:25px; height:3px; background-color:white; margin:4px 0; transition:0.3s;"></span>
+            <span style="display:block; width:25px; height:3px; background-color:white; margin:4px 0; transition:0.3s;"></span>
           </button>
 
           <!-- Navigation Menu -->
@@ -314,7 +316,119 @@
   </footer>
   <!-- Footer End -->
 
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="mobile-menu">
+    <div class="mobile-menu-header">
+      <span>MENU</span>
+      <button id="closeMenu" class="close-menu" style="background:transparent; border:none; color:white; font-size:28px; cursor:pointer; z-index:10002; padding:5px;">✕</button>
+    </div>
+    <nav class="mobile-nav">
+      <a href="index.html">Home</a>
+      <a href="whatwedo.html">What We Do</a>
+      <a href="projects.html">Projects</a>
+      <a href="brandandmarketing.html">Brand & Marketing</a>
+      <a href="updates.html">Updates</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+
+  <style>
+    /* Mobile menu styles */
+    #mobileMenu,
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #4c0d0a;
+      z-index: 10001;
+      transform: translateY(-100%);
+      transition: transform 0.3s ease;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #mobileMenu.active,
+    .mobile-menu.active {
+      transform: translateY(0);
+    }
+
+    .mobile-menu-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 15px 20px;
+      background-color: rgba(0, 0, 0, 0.2);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    .mobile-nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 80px 20px 20px;
+    }
+
+    .mobile-nav a {
+      display: block;
+      padding: 15px 30px;
+      color: white;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      font-weight: 300;
+      font-size: 20px;
+      text-align: center;
+      width: 100%;
+    }
+
+    .mobile-nav a:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    @media (max-width: 991px) {
+      #menuToggle,
+      .navbar-toggle {
+        display: block !important;
+      }
+
+      #mainNav {
+        display: none !important;
+      }
+    }
+  </style>
+
   <!-- JS for filters/search/sort/dark mode/dropdown -->
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const closeMenu = document.getElementById('closeMenu');
+
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.add('active');
+      });
+    }
+
+    if (closeMenu && mobileMenu) {
+      closeMenu.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+      });
+    }
+  </script>
   <script>
     (function(){
       const $ = (s, r=document) => r.querySelector(s);
