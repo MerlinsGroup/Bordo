@@ -1,212 +1,902 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-DC2PGQXSTW"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-DC2PGQXSTW');
-</script>
-  <!-- Google Tag Manager -->
-<script>
-(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id=GTM-NSL3PX7V'+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-NSL3PX7V');
-</script>
-
-  <!-- Google tag (gtag.js) -->
-
-
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-  <meta name="description" content="Bordo Design - Architecture and Interior Design">
-  <meta name="keywords" content="architecture, interior design, bordo design, birmingham">
-  <meta name="author" content="Bordo Design">
-  
-  <!-- Page Title -->
-  <title>BordoDesign - Contact</title>
-  
-  <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=2">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png?v=2">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png?v=2">
-  
-  <!-- Google Fonts - Load only what's needed -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Brand & Marketing | BORDO × MerlinsGroup</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
-  <!-- Core CSS - Defer non-critical CSS -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@100;300;400;500;600&display=swap" rel="stylesheet">
   <link href="css/all.min.css" rel="stylesheet">
-  
-  <!-- Consolidated Custom CSS -->
+
   <style>
-    /* === Base Styles === */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: Helvetica, sans-serif;
-      margin-top: 10vh;
-      background-color: white;
+      font-family: "Hanken Grotesk", sans-serif;
+      background: #ffffff;
+      overflow: hidden;
+      width: 100%;
+      height: 100vh;
+      min-height: -webkit-fill-available;
     }
-    
-    h1, h2, h3, h4, h5, h6 {
-      font-weight: 100;
+
+    body.expanded {
+      overflow-x: hidden;
+      overflow-y: auto;
+      height: auto;
+      min-height: auto;
     }
-    
-    
-  :root{
-	--primary-color			: #a9b1b2;
-	--secondery-color		: #F8F8F8;
-	--text-color			: #283132;
-	--accent-color			: #671c19;
-	--white-color			: #FFFFFF;
-	--divider-color			: #EAF0EC;
-	--dark-divider-color	: #FFFFFF1A;
-	--error-color			: rgb(230, 87, 87);
-	--default-font			: "Hanken Grotesk", sans-serif;
-}
 
-    
- .preloader{
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	z-index: 1000;
-	background-color: var(--accent-color);
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
+    @media (max-width: 768px) {
+      body {
+        height: 100dvh;
+      }
+    }
 
-.loading-container,
-.loading{
-	height: 100px;
-	position: relative;
-	width: 100px;
-	border-radius: 100%;
-}
+    html {
+      height: 100%;
+      height: -webkit-fill-available;
+    }
 
-.loading-container{
-	margin: 40px auto;
-}
+    @supports (-webkit-touch-callout: none) {
+      body {
+        height: -webkit-fill-available;
+      }
+    }
 
-.loading{
-	border: 1px solid transparent;
-	border-color: transparent var(--white-color) transparent var(--white-color);
-	animation: rotate-loading 1.5s linear 0s infinite normal;
-	transform-origin: 50% 50%;
-}
+    .animation-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      height: 100dvh;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
 
-.loading-container:hover .loading,
-.loading-container .loading{
-	transition: all 0.5s ease-in-out;
-}
+    @media (max-width: 768px) {
+      .animation-container {
+        height: 100dvh;
+      }
+    }
 
-#loading-icon{
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	max-width: 66px;
-	transform: translate(-50%, -50%);
-}
+    /* Vertical Line that splits into X */
+    .horizontal-line {
+      position: absolute;
+      width: 4px;
+      height: 0;
+      background: #671c19;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: expandLine 1s ease-out forwards;
+    }
 
-@keyframes rotate-loading{
-	0%{
-		transform: rotate(0deg);
-	}
+    @media (max-width: 768px) {
+      .horizontal-line {
+        width: 3px;
+        animation: expandLineVertical 1s ease-out forwards;
+      }
+    }
 
-	100%{
-		transform: rotate(360deg);
-	}
-}
-#loading-icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
+    @keyframes expandLine {
+      0% {
+        height: 0;
+        transform: translate(-50%, -50%);
+      }
+      100% {
+        height: 120px;
+        transform: translate(-50%, -50%);
+      }
+    }
 
-#loading-icon img {
-  max-width: 66px;
-  max-height: 50px;
-  width: auto;
-  height: auto;
-}
-    /* === Header & Navigation === */
+    @media (max-width: 768px) {
+      @keyframes expandLineVertical {
+        0% {
+          height: 0;
+          transform: translate(-50%, -50%);
+        }
+        100% {
+          height: 80px;
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
+
+    /* X Symbol - Two rotating lines */
+    .x-symbol {
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    .x-symbol::before,
+    .x-symbol::after {
+      content: '';
+      position: absolute;
+      width: 4px;
+      height: 120px;
+      background: #671c19;
+      top: 0;
+      left: 50%;
+      margin-left: -2px;
+      transform-origin: 50% 50%;
+    }
+
+    @media (max-width: 768px) {
+      .x-symbol {
+        width: 80px;
+        height: 80px;
+      }
+
+      .x-symbol::before,
+      .x-symbol::after {
+        height: 80px;
+        width: 3px;
+        margin-left: -1.5px;
+      }
+    }
+
+    .x-symbol::before {
+      animation: rotateLine1 1.2s ease-in-out 1s forwards;
+      transform: rotate(0deg);
+    }
+
+    .x-symbol::after {
+      animation: rotateLine2 1.2s ease-in-out 1s forwards;
+      transform: rotate(0deg);
+    }
+
+    @keyframes rotateLine1 {
+      0% {
+        opacity: 0;
+        transform: rotate(0deg);
+      }
+      10% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 1;
+        transform: rotate(45deg);
+      }
+    }
+
+    @keyframes rotateLine2 {
+      0% {
+        opacity: 0;
+        transform: rotate(0deg);
+      }
+      10% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 1;
+        transform: rotate(-45deg);
+      }
+    }
+
+    /* Brand Names */
+    .brand-left,
+    .brand-right {
+      position: absolute;
+      font-size: 56px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      color: #671c19;
+      opacity: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .brand-left {
+      left: 50%;
+      margin-left: -400px;
+      text-align: right;
+      animation: slideInLeft 1s ease-out 2.2s forwards;
+    }
+
+    .brand-right {
+      left: 50%;
+      margin-left: 100px;
+      text-align: left;
+      animation: slideInRight 1s ease-out 2.2s forwards;
+    }
+
+    @media (max-width: 768px) {
+      .brand-left,
+      .brand-right {
+        font-size: 28px;
+        letter-spacing: 1px;
+        left: 50%;
+        margin-left: 0;
+        transform: translate(-50%, -50%);
+      }
+
+      .brand-left {
+        top: 25%;
+        animation: slideInTop 1s ease-out 2.2s forwards;
+      }
+
+      .brand-right {
+        top: 75%;
+        animation: slideInBottom 1s ease-out 2.2s forwards;
+      }
+    }
+
+    @media (max-width: 768px) {
+      @keyframes slideInTop {
+        0% { opacity: 0; transform: translate(-50%, -50%) translateY(-30px); }
+        100% { opacity: 1; transform: translate(-50%, -50%) translateY(0); }
+      }
+
+      @keyframes slideInBottom {
+        0% { opacity: 0; transform: translate(-50%, -50%) translateY(30px); }
+        100% { opacity: 1; transform: translate(-50%, -50%) translateY(0); }
+      }
+    }
+
+    @keyframes slideInLeft {
+      0% { opacity: 0; transform: translateY(-50%) translateX(-50px); }
+      100% { opacity: 1; transform: translateY(-50%) translateX(0); }
+    }
+
+    @keyframes slideInRight {
+      0% { opacity: 0; transform: translateY(-50%) translateX(50px); }
+      100% { opacity: 1; transform: translateY(-50%) translateX(0); }
+    }
+
+    /* Center Divider Line */
+    .center-divider {
+      position: absolute;
+      width: 2px;
+      height: 0;
+      background: #d0d0d0;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: expandDivider 1s ease-out 2.2s forwards;
+    }
+
+    @media (max-width: 768px) {
+      .center-divider {
+        width: 0;
+        height: 2px;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        animation: expandDividerHorizontal 1s ease-out 2.2s forwards;
+      }
+    }
+
+    @keyframes expandDivider {
+      0% {
+        height: 0;
+        top: 50%;
+      }
+      100% {
+        height: 100vh;
+        top: 0;
+      }
+    }
+
+    @media (max-width: 768px) {
+      @keyframes expandDividerHorizontal {
+        0% {
+          width: 0;
+          left: 50%;
+        }
+        100% {
+          width: 100vw;
+          left: 0;
+        }
+      }
+    }
+
+    /* Final State - Split Screen */
+    .split-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      height: 100dvh;
+      display: flex;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 1s ease-in;
+      z-index: 1000;
+    }
+
+    @media (max-width: 768px) {
+      .split-container {
+        height: 100dvh;
+      }
+    }
+
+    .split-container.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    body.expanded .split-container {
+      display: none;
+    }
+
+    body.expanded .animation-container {
+      display: none;
+    }
+
+    .split-side {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      cursor: pointer;
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .split-side.left {
+      background: linear-gradient(135deg, rgba(103, 28, 25, 0.02), rgba(139, 69, 19, 0.02));
+      border-right: 1px solid #e0e0e0;
+    }
+
+    .split-side.right {
+      background: linear-gradient(135deg, rgba(30, 58, 138, 0.02), rgba(59, 130, 246, 0.02));
+      border-left: 1px solid #e0e0e0;
+    }
+
+    @media (max-width: 768px) {
+      .split-container {
+        flex-direction: column;
+      }
+
+      .split-side.left {
+        border-right: none;
+        border-bottom: 1px solid #e0e0e0;
+      }
+
+      .split-side.right {
+        border-left: none;
+        border-top: 1px solid #e0e0e0;
+      }
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .split-side:hover {
+        flex: 1.2;
+        background-color: #000000;
+      }
+
+      .split-side:hover .split-brand,
+      .split-side:hover .split-brand-description {
+        color: #ffffff;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .split-side {
+        flex: 1;
+        height: 50vh;
+        position: relative;
+      }
+    }
+
+    .split-brand {
+      font-size: 56px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      color: #671c19;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .split-brand-description {
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      color: #333;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 768px) {
+      .split-brand {
+        font-size: 32px;
+        gap: 10px;
+      }
+
+      .split-brand-description {
+        font-size: 11px;
+        letter-spacing: 1px;
+      }
+
+      .split-side {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    .center-x {
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 80px;
+      height: 80px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      color: #671c19;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+      z-index: 10000;
+      line-height: 0;
+      transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    body.expanded .center-x {
+      position: absolute;
+      top: 50%;
+    }
+
+    @media (max-width: 768px) {
+      .center-x {
+        width: 60px;
+        height: 60px;
+        font-size: 36px;
+      }
+    }
+
+    /* Exploding Full-Screen Images */
+    .falling-image {
+      position: absolute;
+      width: 0;
+      height: 0;
+      overflow: hidden;
+      opacity: 0;
+      z-index: 1;
+      top: 50%;
+      border-radius: 0;
+      pointer-events: none;
+    }
+
+    .falling-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Left side explosion */
+    .falling-image:nth-child(1) {
+      left: 50%;
+      animation: explodeLeft 1.5s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards;
+      transition: left 0.8s cubic-bezier(0.4, 0, 0.2, 1), width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Right side explosion */
+    .falling-image:nth-child(2) {
+      left: 50%;
+      animation: explodeRight 1.5s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards;
+      transition: left 0.8s cubic-bezier(0.4, 0, 0.2, 1), width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    @keyframes explodeLeft {
+      0% {
+        width: 0;
+        height: 0;
+        top: 50%;
+        left: 50%;
+        opacity: 0;
+        transform: translate(0, -50%) scale(0);
+      }
+      30% {
+        opacity: 1;
+      }
+      100% {
+        width: 50vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        opacity: 0.15;
+        transform: translate(0, 0) scale(1);
+      }
+    }
+
+    @keyframes explodeRight {
+      0% {
+        width: 0;
+        height: 0;
+        top: 50%;
+        left: 50%;
+        opacity: 0;
+        transform: translate(0, -50%) scale(0);
+      }
+      30% {
+        opacity: 1;
+      }
+      100% {
+        width: 50vw;
+        height: 100vh;
+        top: 0;
+        left: 50%;
+        opacity: 0.15;
+        transform: translate(0, 0) scale(1);
+      }
+    }
+
+    /* Center Info Box */
+    .info-box {
+      position: absolute;
+      left: 50%;
+      bottom: 10%;
+      transform: translateX(-50%);
+      background: white;
+      padding: 40px 50px;
+      border-radius: 20px;
+      box-shadow: 0 20px 80px rgba(0, 0, 0, 0.2);
+      z-index: 10001;
+      opacity: 0;
+      animation: fadeInBox 1s ease-out 2s forwards;
+      text-align: center;
+      max-width: 800px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .info-box:hover {
+      transform: translateX(-50%) scale(1.05);
+      box-shadow: 0 30px 100px rgba(0, 0, 0, 0.3);
+    }
+
+    body.expanded .info-box {
+      display: none;
+    }
+
+    .info-box h2 {
+      font-size: 28px;
+      font-weight: 400;
+      line-height: 1.8;
+      color: #671c19;
+      letter-spacing: 1px;
+    }
+
+    .info-box strong {
+      font-weight: 600;
+      color: #671c19;
+    }
+
+    @media (max-width: 768px) {
+      .info-box {
+        padding: 25px 20px;
+        max-width: 90%;
+        bottom: 15%;
+      }
+
+      .info-box h2 {
+        font-size: 16px;
+        line-height: 1.5;
+        letter-spacing: 0.5px;
+      }
+
+      .info-box:hover {
+        transform: translateX(-50%) scale(1);
+      }
+    }
+
+    @keyframes fadeInBox {
+      0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(20px) scale(0.9);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0) scale(1);
+      }
+    }
+
+    /* Services Section */
+    .services-section {
+      min-height: 100vh;
+      padding: 120px 60px 80px;
+      background: #ffffff;
+      display: none;
+    }
+
+    .services-section.visible {
+      display: block;
+      animation: fadeInServices 0.8s ease-in forwards;
+    }
+
+    @keyframes fadeInServices {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      border-bottom: 2px solid #e0e0e0;
+      margin-bottom: 60px;
+      flex-wrap: wrap;
+    }
+
+    .tab-button {
+      padding: 20px 40px;
+      font-size: 20px;
+      font-weight: 600;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #999;
+      transition: all 0.3s;
+      border-bottom: 3px solid transparent;
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+
+    .tab-button.active {
+      color: #671c19;
+      border-bottom-color: #671c19;
+    }
+
+    .tab-button:hover {
+      color: #671c19;
+    }
+
+    .tab-button .short-text {
+      display: none;
+    }
+
+    .tab-button .full-text {
+      display: inline;
+    }
+
+    @media (max-width: 600px) {
+      .tab-button {
+        font-size: 16px;
+        padding: 15px 20px;
+        flex: 1 1 100%;
+        text-align: center;
+      }
+
+      .tab-button .short-text {
+        display: inline;
+      }
+
+      .tab-button .full-text {
+        display: none;
+      }
+    }
+
+    .tab-content {
+      display: none;
+      animation: fadeInContent 0.5s ease-in;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeInContent {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 40px;
+      padding: 40px 0;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .service-card {
+      background: #faf8f5;
+      padding: 40px;
+      border-radius: 15px;
+      transition: all 0.3s;
+      border: 2px solid transparent;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+      border-color: #671c19;
+      background: #ffffff;
+    }
+
+    .service-card h3 {
+      font-size: 28px;
+      font-weight: 600;
+      color: #671c19;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+    }
+
+    .service-card p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #666;
+    }
+
+    .service-card ul {
+      list-style: none;
+      margin-top: 20px;
+    }
+
+    .service-card ul li {
+      padding: 10px 0;
+      padding-left: 30px;
+      position: relative;
+      color: #555;
+    }
+
+    .service-card ul li:before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: #671c19;
+      font-weight: 600;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-header h1 {
+      font-size: 48px;
+      font-weight: 600;
+      color: #671c19;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+    }
+
+    .section-header p {
+      font-size: 20px;
+      color: #666;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    /* Navbar Styles */
     .main-header {
       position: fixed !important;
       top: 0;
       left: 0;
       width: 100%;
-      z-index: 1000;
-      background-color: transparent;
+      z-index: 100000;
+      background-color: #4c0d0a;
       transition: background-color 0.4s ease, box-shadow 0.4s ease;
+      border: none;
+      border-bottom: none;
     }
-    
-    .main-header.scrolled {
-      background-color: #4c0d0a !important;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-    
+
     .header-sticky {
-      background: transparent !important;
+      background: transparent;
       box-shadow: none !important;
     }
-    
-    .navbar-nav .nav-link,
-    #mainNav a {
-      color: #621310 !important;
-      transition: color 0.3s ease, opacity 0.3s ease;
+
+    header.main-header.scrolled {
+      box-shadow: none !important;
     }
-    
-    .main-header.scrolled .navbar-nav .nav-link,
-    .main-header.scrolled #mainNav a {
-      color: white !important;
+
+    .main-header,
+    .main-header *,
+    .navbar,
+    .navbar * {
+      border: none !important;
+      border-bottom: none !important;
+      outline: none !important;
     }
-    
-    #menuToggle {
-      background: transparent;
-      border: none;
-      color: #621310;
-      font-size: 24px;
-      cursor: pointer;
-      z-index: 1003;
-      display: none;
+
+    .main-header nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 60px;
     }
-    
-    .main-header.scrolled #menuToggle i.fas.fa-bars {
-      color: white !important;
+
+    .main-header .logo img {
+      height: 35px;
+      width: auto;
     }
-    
-    #mainNav {
+
+    .main-header nav a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 15px;
+      display: block;
+      font-weight: 300;
+      font-size: 16px;
+    }
+
+    .main-header nav ul {
       display: flex;
       list-style: none;
       margin: 0;
       padding: 0;
       transition: all 0.3s ease;
+      flex-direction: row;
     }
-    
-    #mainNav li {
+
+    .main-header nav ul li {
       position: relative;
       margin: 0 5px;
-    }
-    
-    #mainNav a {
-      text-decoration: none;
-      padding: 10px 15px;
       display: block;
-      font-weight: 300;
     }
-    
+
+    .main-header nav ul li.dropdown {
+      position: relative;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #4c0d0a;
+      list-style: none;
+      padding: 10px 0;
+      margin: 0;
+      min-width: 200px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      z-index: 10003;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      flex-direction: column !important;
+    }
+
+    .dropdown-menu.show {
+      display: flex;
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .dropdown-menu li {
+      margin: 0 !important;
+      display: block !important;
+      width: 100%;
+    }
+
+    .dropdown-menu li a {
+      padding: 10px 20px !important;
+      display: block !important;
+      white-space: nowrap;
+    }
+
+    .dropdown-menu li a:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    #menuToggle {
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      z-index: 1002;
+      display: none;
+    }
+
     #mobileMenu {
       position: fixed;
       top: 0;
@@ -214,7 +904,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       width: 100%;
       height: 100%;
       background-color: #4c0d0a;
-      z-index: 1001;
+      z-index: 10001;
       transform: translateY(-100%);
       transition: transform 0.3s ease;
       overflow-y: auto;
@@ -223,28 +913,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       justify-content: center;
       align-items: center;
     }
-    
-    #mobileMenu ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      width: 100%;
-      text-align: center;
+
+    #mobileMenu.active {
+      transform: translateY(0);
     }
-    
-    #mobileMenu li {
-      position: relative;
-      margin: 5px;
-    }
-    
-    #mobileMenu a {
-      color: white;
-      text-decoration: none;
-      padding: 10px 15px;
-      display: block;
-      font-weight: 300;
-    }
-    
+
     #closeMenu {
       position: absolute;
       top: 20px;
@@ -255,1170 +928,1062 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       font-size: 24px;
       cursor: pointer;
     }
-    
-    .header-divider {
-      width: calc(100% - 40px);
-      height: 0.5px;
+
+    /* Mobile Menu Burger Button */
+    .navbar-toggle {
+      display: none;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 10px;
+      z-index: 1002;
+    }
+
+    .navbar-toggle span {
+      display: block;
+      width: 25px;
+      height: 3px;
       background-color: white;
-      margin: 0 20px;
-      position: absolute;
-      top: 80px;
-      left: 0;
+      margin: 5px 0;
+      transition: 0.3s;
+    }
+
+    /* Mobile Menu Styles */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 300px;
+      height: 100%;
+      background-color: #4c0d0a;
+      transition: right 0.3s ease;
       z-index: 1001;
-      opacity: 0.8;
-    }
-    
-    /* === Contact Page === */
-    .page-contact-us {
-      padding: 80px 0 40px;
-    }
-    
-    .contact-us-image figure {
-      overflow: hidden;
-      margin: 0;
-      height: 100%;
-    }
-    
-    .contact-us-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.7s ease;
-    }
-    
-    .image-anime img:hover {
-      transform: scale(1.05);
-    }
-    
-    .contact-us-form {
-      padding: 30px 0;
-    }
-    
-    .section-title {
-      margin-bottom: 30px;
-    }
-    
-    .section-title h3 {
-      color: #621310;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-      font-size: 18px;
-      letter-spacing: 2px;
-    }
-    
-    .section-title h2 {
-      font-size: 42px;
-      margin-bottom: 20px;
-      font-weight: 300;
-    }
-    
-    .section-title h2 span {
-      color: #621310;
-    }
-    
-    .section-title p {
-      font-size: 16px;
-      line-height: 1.7;
-    }
-    
-    .btn-default {
-      background-color: #621310;
-      color: white !important;
-      border: none;
-      padding: 14px 40px;
-      display: inline-block;
-      text-decoration: none;
-      font-weight: 400;
-      transition: background-color 0.3s ease;
-    }
-    
-    .btn-default:hover {
-      background-color: #8b1b17;
-    }
-    
-    /* === Calendly Integration Styles === */
-    .calendly-container {
-      width: 100%;
-      background-color: #f8f8f8;
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-      margin-top: 30px;
-    }
-    
-    .calendly-inline-widget {
-      min-width: 320px;
-      height: 650px;
-      border-radius: 8px;
-      overflow: hidden;
-    }
-    
-    /* Adjust Calendly styling */
-    .calendly-inline-widget iframe {
-      border-radius: 8px;
-    }
-    
-    /* === Map Section === */
-    .google-map {
-      padding: 40px 0 60px;
-    }
-    
-    .google-map iframe {
-      border: none;
-      margin-bottom: 40px;
-    }
-    
-    .contact-info-box {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      margin-top: 20px;
-    }
-    
-    .contact-info-item {
-      flex: 0 0 calc(33.333% - 20px);
-      display: flex;
-      margin-bottom: 30px;
-    }
-    
-    .contact-info-item .icon-box {
-      width: 50px;
-      height: 50px;
-      background-color: #f5f5f5;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-right: 15px;
-      color: #621310;
-    }
-    
-    .contact-info-item h3 {
-      font-size: 16px;
-      text-transform: uppercase;
-      margin-bottom: 5px;
-      font-weight: 400;
-    }
-    
-    .contact-info-item p, 
-    .contact-info-item a {
-      font-size: 15px;
-      margin: 0;
-      color: #333;
-      text-decoration: none;
-    }
-    
-    .contact-info-item a:hover {
-      color: #621310;
-    }
-    
-    /* === FAQ Section === */
-    .our-faqs {
-      padding: 60px 0;
-      background-color: white;
-    }
-    
-    .faq-accordion {
-      margin-top: 40px;
-    }
-    
-    .accordion-item {
-      margin-bottom: 15px;
-      border: none;
-    }
-    
-    .accordion-button {
-      padding: 15px;
-      font-size: 18px;
-      font-weight: 300;
-      background-color: #f5f5f5;
-      border: none;
-      border-radius: 0 !important;
-      position: relative;
-    }
-    
-    .accordion-button:not(.collapsed) {
-      color: #621310;
-      background-color: #f5f5f5;
-      box-shadow: none;
-    }
-    
-    .accordion-button span {
-      margin-right: 15px;
-      color: #621310;
-      font-weight: 500;
-    }
-    
-    .accordion-button:after {
-      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23621310'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
-    }
-    
-    .accordion-body {
-      padding: 20px;
-      background-color: #f9f9f9;
-    }
-    
-    .our-faqs-image img {
-      max-width: 100%;
-      height: auto;
-    }
-    
-    /* === Footer === */
-    .site-footer {
-      background-color: #2f3236;
-      color: #ffffff;
-      font-size: 15px;
+      overflow-y: auto;
       padding-top: 60px;
-      padding-bottom: 40px;
     }
-    
-    .site-footer h4 {
-      color: #ffffff;
-      font-weight: 100;
-      margin-bottom: 20px;
-      text-transform: uppercase;
+
+    .mobile-menu.active {
+      right: 0;
     }
-    
-    .site-footer ul {
-      list-style: none;
-      padding: 0;
-    }
-    
-    .site-footer ul li {
-      margin-bottom: 12px;
-    }
-    
-    .site-footer a {
-      color: #ffffff;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    
-    .site-footer a:hover, 
-    .site-footer a:focus, 
-    .site-footer a:active {
-      color: #4c0d0a !important;
-      text-decoration: none;
-    }
-    
-    .contact-list i {
-      margin-right: 8px;
-      min-width: 18px;
-      display: inline-block;
-    }
-    
-    .footer-logo {
-      max-width: 150px;
-      opacity: 0.9;
-    }
-    
-    /* === Responsive Styles === */
-    @media (max-width: 991px) {
-      #menuToggle {
-        display: block;
-      }
-      
-      #mainNav {
-        display: none;
-      }
-      
-      .contact-info-item {
-        flex: 0 0 100%;
-      }
-      
-      .contact-us-image {
-        margin-bottom: 40px;
-      }
-      
-      .calendly-inline-widget {
-        height: 580px;
-      }
-    }
-    
-    @media (max-width: 767px) {
-      .section-title h2 {
-        font-size: 32px;
-      }
-      
-      .page-contact-us {
-        padding: 60px 0 30px;
-      }
-      
-      .calendly-container {
-        padding: 15px;
-      }
-      
-      .calendly-inline-widget {
-        height: 550px;
-      }
-    }
-    
-    /* === Animation Classes === */
-    .reveal {
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .reveal::before {
-      content: '';
+
+    .mobile-menu-header {
       position: absolute;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
-      background: #621310;
-      transform: translateX(-100%);
-      animation: reveal 1.5s ease forwards;
+      right: 0;
+      padding: 15px 20px;
+      background-color: rgba(0, 0, 0, 0.2);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+      font-size: 18px;
+      font-weight: 500;
     }
-    
-    @keyframes reveal {
-      0% {
-        transform: translateX(-100%);
+
+    .close-menu {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 30px;
+      cursor: pointer;
+      line-height: 1;
+      padding: 0;
+      width: 30px;
+      height: 30px;
+    }
+
+    .mobile-nav {
+      list-style: none;
+      padding: 20px 0;
+      margin: 0;
+    }
+
+    .mobile-nav li {
+      margin: 0;
+    }
+
+    .mobile-nav a {
+      display: block;
+      padding: 15px 30px;
+      color: white;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      font-weight: 300;
+    }
+
+    .mobile-nav a:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    @media (max-width: 991px) {
+      #menuToggle,
+      .navbar-toggle {
+        display: block;
       }
-      50% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(100%);
+
+      .nav-links {
+        display: none !important;
       }
     }
-    
-    .wow {
-      visibility: hidden;
+
+    /* Footer Styles */
+    .footer {
+      background-color: #ffffff;
+      color: #2d1810;
+      padding: 0;
+      position: relative;
+      display: none;
     }
-  .reveal::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #621310;
-  transform: translateX(-100%);
-  animation: reveal 1.5s ease forwards;
-}
 
-/* Additional styles to ensure left alignment */
-.text-left {
-  text-align: left !important;
-}
-
-.contact-info-box {
-  display: block;
-}
-
-.contact-info-item {
-  margin-bottom: 20px;
-}
-
-.me-3 {
-  margin-right: 1rem !important;
-}
-
-  /* Default (Mobile First) */
-  #mobileMenu a {
-    font-size: 20px;
-  }
-
-  /* Tablets (>= 600px) */
-  @media (min-width: 600px) {
-    #mobileMenu a {
-      font-size: 20px;
+    body.expanded .footer {
+      display: block;
     }
-  }
 
-  /* Small laptops (>= 768px) */
-  @media (min-width: 768px) {
-    #mobileMenu a {
-      font-size: 25px;
+    .footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 5%;
+      right: 5%;
+      height: 3px;
+      background-color: #671c19;
     }
-  }
 
-  /* Desktops (>= 1024px) */
-  @media (min-width: 1024px) {
-    #mobileMenu a {
-      font-size: 22px;
+    .footer-inner {
+      padding: 60px 5% 30px;
     }
-  }
+
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      max-width: 1400px;
+      margin: 0 auto;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+
+    .footer-column {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .footer-column h3 {
+      color: #671c19;
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 12px;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .footer-column ul li a {
+      color: #2d1810;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-column ul li a:hover {
+      color: #671c19;
+    }
+
+    .footer-column ul.contact li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .footer-logo {
+      flex: 0 0 auto;
+      text-align: center;
+    }
+
+    .footer-logo img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background-color: white;
+      padding: 20px;
+      object-fit: contain;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 50px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(45, 24, 16, 0.1);
+      font-size: 14px;
+      color: #8b7355;
+    }
+
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        gap: 40px;
+      }
+
+      .footer-logo {
+        order: -1;
+      }
+
+      .main-header nav {
+        padding: 15px 20px;
+      }
+
+      .services-section {
+        padding: 100px 20px 60px;
+      }
+
+      .tabs {
+        flex-direction: row;
+        gap: 10px;
+        margin-bottom: 40px;
+        margin-top: 20px;
+        justify-content: center;
+      }
+
+      .tab-button {
+        flex: 1;
+        padding: 15px 20px;
+        font-size: 16px;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 20px 0;
+      }
+
+      .section-header h1 {
+        font-size: 28px;
+        line-height: 1.3;
+      }
+
+      .section-header p {
+        font-size: 15px;
+        padding: 0 10px;
+      }
+
+      .service-card {
+        padding: 25px 20px;
+      }
+
+      .service-card h3 {
+        font-size: 20px;
+      }
+
+      .service-card p {
+        font-size: 14px;
+      }
+
+      .service-card ul li {
+        font-size: 14px;
+      }
+
+      /* Mobile styles for benefit cards */
+      [style*="font-size: 42px"] {
+        font-size: 28px !important;
+        line-height: 1.3 !important;
+      }
+
+      [style*="font-size: 48px"][style*="margin-bottom: 20px"] {
+        font-size: 40px !important;
+      }
+
+      [style*="font-size: 24px"][style*="font-weight: 600"] {
+        font-size: 20px !important;
+      }
+
+      /* Mobile padding adjustments for sections */
+      [style*="padding: 60px 40px"] {
+        padding: 40px 20px !important;
+      }
+
+      [style*="padding: 50px 40px"] {
+        padding: 35px 20px !important;
+      }
+
+      [style*="padding: 35px 30px"] {
+        padding: 25px 20px !important;
+      }
+
+      [style*="padding: 25px"] {
+        padding: 20px !important;
+      }
+
+      /* Mobile margin adjustments */
+      [style*="margin: 80px auto"] {
+        margin: 50px auto !important;
+      }
+
+      [style*="margin: 60px auto"] {
+        margin: 40px auto !important;
+      }
+
+      [style*="margin-bottom: 60px"] {
+        margin-bottom: 35px !important;
+      }
+
+      [style*="margin-bottom: 50px"] {
+        margin-bottom: 30px !important;
+      }
+
+      /* Grid adjustments */
+      [style*="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))"] {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+      }
+
+      [style*="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr))"] {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+      }
+
+      /* CTA Button mobile */
+      [style*="padding: 18px 40px"] {
+        padding: 15px 30px !important;
+        font-size: 16px !important;
+      }
+
+      /* Text size adjustments */
+      [style*="font-size: 40px"] {
+        font-size: 26px !important;
+        line-height: 1.3 !important;
+      }
+
+      [style*="font-size: 36px"] {
+        font-size: 24px !important;
+        line-height: 1.3 !important;
+      }
+
+      [style*="font-size: 20px"][style*="font-weight: 600"] {
+        font-size: 18px !important;
+      }
+    }
   </style>
 </head>
-<body><!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NSL3PX7V"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<body>
 
-
-<!-- End Google Tag Manager (noscript) -->
-  <!-- Preloader - Reduced to just one -->
-  <!-- Preloader Start -->
-  <div class="preloader">
-    <div class="loading-container">
-      <div class="loading"></div>
-      <div id="loading-icon"><img src="images/logoiswhite.png" alt="max-height:50px;"></div>
-    </div>
-  </div>
-
-  <!-- Navigation Header -->
-  <header class="main-header" style="position:fixed !important; top:0; left:0; width:100%; z-index:1000; background-color:transparent; transition:background-color 0.4s ease, box-shadow 0.4s ease;">
-    <div class="header-sticky" style="background:transparent; box-shadow:none;">
-      <div class="container">
-        <nav style="display:flex; justify-content:space-between; align-items:center; padding:15px 0;">
-          <!-- Logo -->
-          <a href="./" style="display:block; z-index:1002;">
-            <img src="images/logoiswhite.png" alt="Bordo Logo" style="max-height:50px;">
-          </a>
-
-          <!-- Mobile Menu Toggle Button -->
-          <button id="menuToggle" style="background:transparent; border:none; color:white; font-size:24px; cursor:pointer; z-index:1002; display:none;">
-            <i class="fas fa-bars"></i>
-          </button>
-
-          <!-- Navigation Menu -->
-          <ul id="mainNav" style="display:flex; list-style:none; margin:0; padding:0; transition:all 0.3s ease;">
-            <li style="position:relative; margin:0 5px;"><a href="index.html" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:300;">Home</a></li>
-
-            <!-- What We Do Dropdown -->
-            <li class="dropdown" style="position:relative; margin:0 5px;">
-              <a href="#" class="dropdown-toggle" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:300; cursor:pointer;">What We Do ▾</a>
-              <ul class="dropdown-menu" style="display:none; position:absolute; top:100%; left:0; background-color:#4c0d0a; list-style:none; padding:10px 0; margin:0; min-width:200px; box-shadow:0 4px 6px rgba(0,0,0,0.1); z-index:1003;">
-                <li style="margin:0;"><a href="residential.html" style="color:white; text-decoration:none; padding:10px 20px; display:block; font-weight:300;">• Residential</a></li>
-                <li style="margin:0;"><a href="commercial.html" style="color:white; text-decoration:none; padding:10px 20px; display:block; font-weight:300;">• Commercial</a></li>
-                <li style="margin:0;"><a href="#office-fitouts" style="color:white; text-decoration:none; padding:10px 20px; display:block; font-weight:300;">• Office Fit-outs</a></li>
-                <li style="margin:0;"><a href="#shopfitting" style="color:white; text-decoration:none; padding:10px 20px; display:block; font-weight:300;">• Shopfitting</a></li>
-                <li style="margin:0;"><a href="#carpentry" style="color:white; text-decoration:none; padding:10px 20px; display:block; font-weight:300;">• Carpentry</a></li>
-                <li style="margin:0;"><a href="#visualisation" style="color:white; text-decoration:none; padding:10px 20px; display:block; font-weight:300;">• Visualisation</a></li>
-                <li style="margin:0;"><a href="#fabrication" style="color:white; text-decoration:none; padding:10px 20px; display:block; font-weight:300;">• Fabrication</a></li>
-                <li style="margin:0;"><a href="#bordo-glass" style="color:white; text-decoration:none; padding:10px 20px; display:block; font-weight:300;">• Bordo Glass</a></li>
-              </ul>
-            </li>
-
-            <li style="position:relative; margin:0 5px;"><a href="projects.html" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:300;">Projects</a></li>
-            <li style="position:relative; margin:0 5px;"><a href="#brand-marketing" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:300;">Brand & Marketing</a></li>
-
-            <!-- Feed Dropdown -->
-            <li class="dropdown" style="position:relative; margin:0 5px;">
-              <a href="#" class="dropdown-toggle" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:300; cursor:pointer;">Feed</a>
-              <ul class="dropdown-menu" style="display:none; position:absolute; top:100%; left:0; background-color:#4c0d0a; list-style:none; padding:10px 0; margin:0; min-width:150px; box-shadow:0 4px 6px rgba(0,0,0,0.1); z-index:1003;">
-                <li style="margin:0;"><a href="#updates" style="color:white; text-decoration:none; padding:10px 20px; display:block; font-weight:300;">• Updates</a></li>
-                <li style="margin:0;"><a href="#articles" style="color:white; text-decoration:none; padding:10px 20px; display:block; font-weight:300;">• Articles</a></li>
-              </ul>
-            </li>
-
-            <li style="position:relative; margin:0 5px;"><a href="about.html" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:300;">About Us</a></li>
-            <li style="position:relative; margin:0 5px;"><a href="contact.html" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:300; background-color:#8B4513; border-radius:4px;">Contact</a></li>
-          </ul>
-        </nav>
+  <!-- Navbar -->
+  <header class="main-header">
+    <nav>
+      <div class="logo">
+        <a href="index.html">
+          <img src="images/logo11111.png" alt="Logo">
+        </a>
       </div>
-    </div>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a href="whatwedo.html">What We Do</a>
+          <ul class="dropdown-menu">
+            <li><a href="whatwedo.html#residential">Residential</a></li>
+            <li><a href="whatwedo.html#commercial">Commercial</a></li>
+            <li><a href="whatwedo.html#office-fitouts">Office Fit-outs</a></li>
+            <li><a href="whatwedo.html#shopfitting">Shopfitting</a></li>
+            <li><a href="whatwedo.html#carpentry">Carpentry</a></li>
+            <li><a href="whatwedo.html#visualisation">Visualisation</a></li>
+            <li><a href="whatwedo.html#fabrication">Fabrication</a></li>
+            <li><a href="whatwedo.html#bordo-glass">Bordo Glass</a></li>
+          </ul>
+        </li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="brandandmarketing.html">Brand & Marketing</a></li>
+        <li class="dropdown">
+          <a href="#">Feed</a>
+          <ul class="dropdown-menu">
+            <li><a href="updates.html">Updates</a></li>
+            <li><a href="#articles">Articles</a></li>
+          </ul>
+        </li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <button class="navbar-toggle" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
   </header>
 
   <!-- Mobile Menu -->
-  <div id="mobileMenu" style="position:fixed; top:0; left:0; width:100%; height:100%; background-color:#4c0d0a; z-index:1001; transform:translateY(-100%); transition:transform 0.3s ease; overflow-y:auto; display:flex; flex-direction:column; justify-content:center; align-items:center;">
-    <button id="closeMenu" style="position:absolute; top:20px; right:20px; background:none; border:none; color:white; font-size:24px; cursor:pointer;">
-      <i class="fas fa-times"></i>
-    </button>
-    <div class="header-divider" style="width:calc(100% - 40px); height:0.5px; background-color:white; margin:0 20px; position:absolute; top:80px; left:0; z-index:1001; opacity:0.8;"></div>
-    <ul style="list-style:none; padding:0; margin:0; width:100%; text-align:center;">
-      <li style="position:relative; margin:0 5px;"><a href="index.html" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:300;">Home</a></li>
-      <li style="position:relative; margin:0 5px;"><a href="#" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:500;">What We Do</a></li>
-      <li style="position:relative; margin:0 5px; padding-left:20px;"><a href="residential.html" style="color:white; text-decoration:none; padding:8px 15px; display:block; font-weight:300; font-size:14px;">• Residential</a></li>
-      <li style="position:relative; margin:0 5px; padding-left:20px;"><a href="commercial.html" style="color:white; text-decoration:none; padding:8px 15px; display:block; font-weight:300; font-size:14px;">• Commercial</a></li>
-      <li style="position:relative; margin:0 5px; padding-left:20px;"><a href="#office-fitouts" style="color:white; text-decoration:none; padding:8px 15px; display:block; font-weight:300; font-size:14px;">• Office Fit-outs</a></li>
-      <li style="position:relative; margin:0 5px; padding-left:20px;"><a href="#shopfitting" style="color:white; text-decoration:none; padding:8px 15px; display:block; font-weight:300; font-size:14px;">• Shopfitting</a></li>
-      <li style="position:relative; margin:0 5px; padding-left:20px;"><a href="#carpentry" style="color:white; text-decoration:none; padding:8px 15px; display:block; font-weight:300; font-size:14px;">• Carpentry</a></li>
-      <li style="position:relative; margin:0 5px; padding-left:20px;"><a href="#visualisation" style="color:white; text-decoration:none; padding:8px 15px; display:block; font-weight:300; font-size:14px;">• Visualisation</a></li>
-      <li style="position:relative; margin:0 5px; padding-left:20px;"><a href="#fabrication" style="color:white; text-decoration:none; padding:8px 15px; display:block; font-weight:300; font-size:14px;">• Fabrication</a></li>
-      <li style="position:relative; margin:0 5px; padding-left:20px;"><a href="#bordo-glass" style="color:white; text-decoration:none; padding:8px 15px; display:block; font-weight:300; font-size:14px;">• Bordo Glass</a></li>
-      <li style="position:relative; margin:0 5px;"><a href="projects.html" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:300;">Projects</a></li>
-      <li style="position:relative; margin:0 5px;"><a href="#brand-marketing" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:300;">Brand & Marketing</a></li>
-      <li style="position:relative; margin:0 5px;"><a href="#" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:500;">Feed</a></li>
-      <li style="position:relative; margin:0 5px; padding-left:20px;"><a href="#updates" style="color:white; text-decoration:none; padding:8px 15px; display:block; font-weight:300; font-size:14px;">• Updates</a></li>
-      <li style="position:relative; margin:0 5px; padding-left:20px;"><a href="#articles" style="color:white; text-decoration:none; padding:8px 15px; display:block; font-weight:300; font-size:14px;">• Articles</a></li>
-      <li style="position:relative; margin:0 5px;"><a href="about.html" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:300;">About Us</a></li>
-      <li style="position:relative; margin:0 5px;"><a href="contact.html" style="color:white; text-decoration:none; padding:10px 15px; display:block; font-weight:300; background-color:#8B4513; border-radius:4px;">Contact</a></li>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-header">
+      <span>Menu</span>
+      <button class="close-menu" id="closeMenu">&times;</button>
+    </div>
+    <ul class="mobile-nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="whatwedo.html">What We Do</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="brandandmarketing.html">Brand & Marketing</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
   </div>
 
-  <!-- Contact Us Section -->
-  <div class="page-contact-us">
-    <div class="container">
-      <div class="row align-items-stretch">
-        <div class="col-lg-6">
-          <!-- Contact Us Image -->
-          <div class="contact-us-image h-100">
-            <figure class="image-anime reveal h-100">
-              <img src="images/photo2.jpg" alt="Contact Image" loading="lazy">
-            </figure>
-          </div>
-        </div>
-        
-        <div class="col-lg-6">
-          <div class="contact-us-form">
-            <!-- Section Title -->
-            <div class="section-title">
-              <h3 class="wow fadeInUp">contact&nbsp;us</h3>
-              <h2 class="text-anime-style-2">
-                We would love to <span>hear from you</span>
-              </h2>
-              <p class="wow fadeInUp" data-wow-delay="0.2s">
-                Get in touch with us directly or schedule a consultation with one of our designers.
-              </p>
-            </div>
-            
-            <!-- Contact Details First -->
-            <div class="contact-info-box text-left" style="margin-bottom: 40px;">
-              <div class="row">
-                
-                <div class="col-lg-12">
-                  <!-- Phone -->
-                  <div class="contact-info-item wow fadeInUp d-flex align-items-start" style="margin-bottom: 20px;">
-                    <div class="icon-box me-3">
-                      <i class="fa-solid fa-phone"></i>
-                    </div>
-                    <div class="contact-info-content">
-                      <h3>phone</h3>
-                      <p><a href="tel:01217929167">0121 792 9167</a></p>
-                    </div>
-                  </div>
-                </div>
-                
-                <div class="col-lg-12">
-                  <!-- Email -->
-                  <div class="contact-info-item wow fadeInUp d-flex align-items-start" data-wow-delay="0.1s" style="margin-bottom: 20px;">
-                    <div class="icon-box me-3">
-                      <i class="fa-solid fa-envelope"></i>
-                    </div>
-                    <div class="contact-info-content">
-                      <h3>email</h3>
-                      <p><a href="mailto:info@bordodesign.com">info@bordodesign.com</a></p>
-                    </div>
-                  </div>
-                </div>
-                
-                <div class="col-lg-12">
-                  <!-- Address -->
-                  <div class="contact-info-item wow fadeInUp d-flex align-items-start" data-wow-delay="0.2s" style="margin-bottom: 20px;">
-                    <div class="icon-box me-3">
-                      <i class="fa-solid fa-house"></i>
-                    </div>
-                    <div class="contact-info-content">
-                      <h3>address</h3>
-                      <p>30-34&nbsp;Rookery&nbsp;Rd, Handsworth, Birmingham&nbsp;B21&nbsp;9NB</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <!-- Calendly Container Second -->
-            <div class="calendly-container">
-              <div class="calendly-inline-widget" data-url="https://calendly.com/bordo-design?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=621310"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+  <!-- Animation Sequence -->
+  <div class="animation-container" id="animationContainer">
+    <div class="horizontal-line"></div>
+    <div class="x-symbol"></div>
+    <div class="center-divider"></div>
+    <div class="brand-left">BORDO</div>
+    <div class="brand-right">MERLINSGROUP</div>
   </div>
 
-  <!-- Google Map Section -->
-  <div class="google-map">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <!-- Section Title -->
-          <div class="section-title text-left">
-            <h3 class="wow fadeInUp">Our contact</h3>
-            <h2 class="text-anime-style-2">Get in touch with us</h2>
-            <p class="wow fadeInUp" data-wow-delay="0.2s">
-              Ready to re-imagine your space? Call us, email us, or hit the contact button and one of our architects will arrange a free design consultation.
-            </p>
-          </div>
-        </div>
-
-        <div class="col-lg-12">
-          <!-- Google Map iframe with lazy loading -->
-          <iframe
-            width="100%"
-            height="450"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            src="https://maps.google.com/maps?q=30-34%20Rookery%20Rd%2C%20Handsworth%2C%20Birmingham%20B21%209NB&z=15&output=embed">
-          </iframe>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-12">
-          <!-- Contact Info Box -->
-          <div class="contact-info-box text-left">
-            <div class="row">
-              
-              <div class="col-lg-12">
-                <!-- Phone -->
-                <div class="contact-info-item wow fadeInUp d-flex align-items-start">
-                  <div class="icon-box me-3">
-                    <i class="fa-solid fa-phone"></i>
-                  </div>
-                  <div class="contact-info-content">
-                    <h3>phone</h3>
-                    <p><a href="tel:01217929167">0121 792 9167</a></p>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="col-lg-12">
-                <!-- Email -->
-                <div class="contact-info-item wow fadeInUp d-flex align-items-start" data-wow-delay="0.1s">
-                  <div class="icon-box me-3">
-                    <i class="fa-solid fa-envelope"></i>
-                  </div>
-                  <div class="contact-info-content">
-                    <h3>email</h3>
-                    <p><a href="mailto:info@bordodesign.com">info@bordodesign.com</a></p>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="col-lg-12">
-                <!-- Schedule Appointment -->
-                <div class="contact-info-item wow fadeInUp d-flex align-items-start" data-wow-delay="0.2s">
-                  <div class="icon-box me-3">
-                    <i class="fa-regular fa-calendar"></i>
-                  </div>
-                  <div class="contact-info-content">
-                    <h3>schedule appointment</h3>
-                    <p><a href="https://calendly.com/bordo-design" target="_blank">Book a consultation</a></p>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="col-lg-12">
-                <!-- Address -->
-                <div class="contact-info-item wow fadeInUp d-flex align-items-start" data-wow-delay="0.3s">
-                  <div class="icon-box me-3">
-                    <i class="fa-solid fa-house"></i>
-                  </div>
-                  <div class="contact-info-content">
-                    <h3>headquarter</h3>
-                    <p>30-34&nbsp;Rookery&nbsp;Rd, Handsworth, Birmingham&nbsp;B21&nbsp;9NB</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+  <!-- Final Split Screen -->
+  <div class="split-container" id="splitContainer">
+    <!-- Exploding Images -->
+    <div class="falling-image" id="leftImage">
+      <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200&h=1600&fit=crop" alt="Marketing">
     </div>
+    <div class="falling-image" id="rightImage">
+      <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=1600&fit=crop" alt="AI & Analytics">
+    </div>
+
+    <a href="#services-section" class="split-side left" style="text-decoration: none; display: flex; align-items: center; justify-content: center;" id="leftSide" data-tab="ai-automation">
+      <div class="split-brand">
+        <div class="split-brand-description">Artificial Intelligence</div>
+        <div>BORDO</div>
+      </div>
+    </a>
+
+    <a href="#services-section" class="split-side right" style="text-decoration: none; display: flex; align-items: center; justify-content: center;" id="rightSide" data-tab="branding-marketing">
+      <div class="split-brand">
+        <div class="split-brand-description">Apps, Automation & Marketing</div>
+        <div>MERLINSGROUP</div>
+      </div>
+    </a>
+
+    <div class="center-x" id="centerX">×</div>
   </div>
 
-  <div class="our-faqs">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-7">
-          <!-- Our Faq Content -->
-          <div class="our-faqs-content">
-            <!-- Section Title -->
-            <div class="section-title">
-              <h3 class="wow fadeInUp">asked questions</h3>
-              <h2 class="text-anime-style-2">Have your any question look <span>here now</span></h2>
-            </div>
+  <!-- Services Section -->
+  <div class="services-section" id="services-section">
 
-            <!-- FAQ Accordion -->
-            <div class="faq-accordion" id="accordion">
-              <!-- FAQ Item 1 -->
-              <div class="accordion-item wow fadeInUp">
-                <h2 class="accordion-header" id="heading1">
-                  <button class="accordion-button" type="button" 
-                          data-bs-toggle="collapse" data-bs-target="#collapse1"
-                          aria-expanded="true" aria-controls="collapse1">
-                    <span>1.</span>
-                    Which sustainable materials do you recommend for an eco-friendly build?
-                  </button>
-                </h2>
-                <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="heading1" data-bs-parent="#accordion">
-                  <div class="accordion-body">
-                    <p>
-                      We prioritise FSC-certified timber, low-VOC paints, recycled
-                      steel / aluminium, and natural insulation such as cork or hemp.
-                      These options reduce embodied carbon while still delivering a
-                      high-quality finish.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- FAQ Item 2 -->
-              <div class="accordion-item wow fadeInUp" data-wow-delay="0.2s">
-                <h2 class="accordion-header" id="heading2">
-                  <button class="accordion-button collapsed" type="button"
-                          data-bs-toggle="collapse" data-bs-target="#collapse2"
-                          aria-expanded="false" aria-controls="collapse2">
-                    <span>2.</span>
-                    How do you keep a project on budget without compromising design?
-                  </button>
-                </h2>
-                <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2" data-bs-parent="#accordion">
-                  <div class="accordion-body">
-                    <p>
-                      Before we begin, we create a detailed cost plan and value-engineering
-                      matrix. During construction we track spend weekly, negotiate bulk
-                      rates with suppliers, and sign-off all variations with you first,
-                      so there are no surprises.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- FAQ Item 3 -->
-              <div class="accordion-item wow fadeInUp" data-wow-delay="0.4s">
-                <h2 class="accordion-header" id="heading3">
-                  <button class="accordion-button collapsed" type="button"
-                          data-bs-toggle="collapse" data-bs-target="#collapse3"
-                          aria-expanded="false" aria-controls="collapse3">
-                    <span>3.</span>
-                    What's the difference between architectural planning and interior styling?
-                  </button>
-                </h2>
-                <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3" data-bs-parent="#accordion">
-                  <div class="accordion-body">
-                    <p>
-                      Architectural planning covers the building envelope – structure,
-                      layout, services, and statutory approvals. Interior styling comes
-                      later and focuses on finishes, furnishings, lighting and décor.
-                      Our studio offers both, ensuring a seamless hand-off between the two.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- FAQ Item 4 -->
-              <div class="accordion-item wow fadeInUp" data-wow-delay="0.6s">
-                <h2 class="accordion-header" id="heading4">
-                  <button class="accordion-button collapsed" type="button"
-                          data-bs-toggle="collapse" data-bs-target="#collapse4"
-                          aria-expanded="false" aria-controls="collapse4">
-                    <span>4.</span>
-                    Can you work with listed or historic buildings, and what approvals are required?
-                  </button>
-                </h2>
-                <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4" data-bs-parent="#accordion">
-                  <div class="accordion-body">
-                    <p>
-                      Yes. We regularly liaise with conservation officers to obtain Listed
-                      Building Consent and, where needed, Planning Permission. Our approach
-                      preserves original fabric while discreetly integrating modern
-                      services and accessibility upgrades.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-5">
-          <!-- Our Faq Image -->
-          <div class="our-faqs-image">
-            <figure class="image-anime reveal">
-              <img src="images/question.png" alt="FAQ Illustration" loading="lazy">
-            </figure>
-          </div>
-        </div>
-      </div>
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tab-button active" data-tab="ai-automation"><span class="full-text">AI & Automation</span><span class="short-text">AI</span></button>
+      <button class="tab-button" data-tab="branding-marketing"><span class="full-text">Branding & Marketing</span><span class="short-text">Marketing</span></button>
     </div>
-  </div>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="row">
-        <!-- INFORMATION -->
-        <div class="col-lg-3 col-md-6 mb-4">
-          <h4>INFORMATION</h4>
+    <!-- AI & Automation Tab -->
+    <div class="tab-content active" id="ai-automation-content">
+      <div class="section-header">
+        <h1>Artificial Intelligence & Automation</h1>
+        <p>Powered by BORDO - Transforming businesses through cutting-edge AI solutions and intelligent automation</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>AI Strategy & Consulting</h3>
+          <p>Strategic guidance to integrate AI into your business operations effectively.</p>
           <ul>
-            <li><a href="about.html">About Our Company</a></li>
-            <li><a href="careers.html">Careers at Company</a></li>
-            <li><a href="projects.html">Our Latest Projects</a></li>
+            <li>AI Readiness Assessment</li>
+            <li>Custom AI Roadmap Development</li>
+            <li>Technology Stack Selection</li>
+            <li>ROI Analysis & Projections</li>
           </ul>
         </div>
 
-        <!-- CONTACT US -->
-        <div class="col-lg-6 col-md-6 mb-4">
-          <h4>CONTACT US</h4>
-          <ul class="contact-list">
-            <li>
-              <i class="fas fa-phone"></i>
-              <a href="tel:01217929167">0121 792 9167</a>
-            </li>
-            <li>
-              <i class="fas fa-envelope"></i>
-              <a href="mailto:info@bordodesign.com">info@bordodesign.com</a>
-            </li>
-            <li>
-              <i class="fas fa-calendar-alt"></i>
-              <a href="https://calendly.com/bordo-design" target="_blank">Schedule a Consultation</a>
-            </li>
-            <li>
-              <i class="fas fa-map-marker-alt"></i>
-              30-34 Rookery Road, Birmingham, B21 9NB
-            </li>
+        <div class="service-card">
+          <h3>Machine Learning Solutions</h3>
+          <p>Build predictive models and intelligent systems tailored to your needs.</p>
+          <ul>
+            <li>Predictive Analytics</li>
+            <li>Natural Language Processing</li>
+            <li>Computer Vision Applications</li>
+            <li>Custom ML Model Development</li>
           </ul>
         </div>
 
-        <!-- LOGO -->
-        <div class="col-lg-3 col-md-6 mb-4 text-center text-md-end">
-          <img src="images/logologo.png" alt="Bordo Logo" class="footer-logo">
+        <div class="service-card">
+          <h3>Process Automation</h3>
+          <p>Automate repetitive tasks and streamline workflows for maximum efficiency.</p>
+          <ul>
+            <li>Robotic Process Automation (RPA)</li>
+            <li>Workflow Optimization</li>
+            <li>Data Pipeline Automation</li>
+            <li>Integration Solutions</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <h3>AI-Powered Analytics</h3>
+          <p>Transform data into actionable insights with advanced AI analytics.</p>
+          <ul>
+            <li>Business Intelligence Dashboards</li>
+            <li>Real-time Data Processing</li>
+            <li>Pattern Recognition & Anomaly Detection</li>
+            <li>Forecasting & Trend Analysis</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <h3>Chatbots & Virtual Assistants</h3>
+          <p>Enhance customer experience with intelligent conversational AI.</p>
+          <ul>
+            <li>Custom Chatbot Development</li>
+            <li>Voice Assistant Integration</li>
+            <li>24/7 Customer Support Automation</li>
+            <li>Multi-language Support</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <h3>AI Implementation & Support</h3>
+          <p>End-to-end implementation and ongoing support for your AI initiatives.</p>
+          <ul>
+            <li>Model Training & Deployment</li>
+            <li>Performance Monitoring</li>
+            <li>Continuous Optimization</li>
+            <li>Technical Support & Maintenance</li>
+          </ul>
         </div>
       </div>
 
-      <!-- COPYRIGHT -->
-      <div class="row mt-4">
-        <div class="col-12 text-center">
-          <p style="margin-bottom: 0;">© Bordo Design Ltd</p>
+      <!-- Benefits Section -->
+      <div style="max-width: 1200px; margin: 80px auto; padding: 0 20px;">
+        <h2 style="font-size: 42px; font-weight: 700; color: #671c19; text-align: center; margin-bottom: 60px;">Why Choose AI & Automation?</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+
+          <div style="background: linear-gradient(135deg, #faf8f5 0%, #f5f0ea 100%); padding: 35px 30px; border-radius: 15px; text-align: center; transition: transform 0.3s; border: 3px solid transparent;">
+            <div style="font-size: 48px; margin-bottom: 20px;">⚡</div>
+            <h3 style="font-size: 24px; font-weight: 600; color: #671c19; margin-bottom: 15px;">Boost Efficiency</h3>
+            <p style="color: #666; line-height: 1.7; font-size: 15px;">Automate tasks & work 24/7</p>
+          </div>
+
+          <div style="background: linear-gradient(135deg, #faf8f5 0%, #f5f0ea 100%); padding: 35px 30px; border-radius: 15px; text-align: center; transition: transform 0.3s; border: 3px solid transparent;">
+            <div style="font-size: 48px; margin-bottom: 20px;">💰</div>
+            <h3 style="font-size: 24px; font-weight: 600; color: #671c19; margin-bottom: 15px;">Cut Costs</h3>
+            <p style="color: #666; line-height: 1.7; font-size: 15px;">Save up to 40% on operations</p>
+          </div>
+
+          <div style="background: linear-gradient(135deg, #faf8f5 0%, #f5f0ea 100%); padding: 35px 30px; border-radius: 15px; text-align: center; transition: transform 0.3s; border: 3px solid transparent;">
+            <div style="font-size: 48px; margin-bottom: 20px;">📈</div>
+            <h3 style="font-size: 24px; font-weight: 600; color: #671c19; margin-bottom: 15px;">Smarter Decisions</h3>
+            <p style="color: #666; line-height: 1.7; font-size: 15px;">Data-driven insights instantly</p>
+          </div>
+
+          <div style="background: linear-gradient(135deg, #faf8f5 0%, #f5f0ea 100%); padding: 35px 30px; border-radius: 15px; text-align: center; transition: transform 0.3s; border: 3px solid transparent;">
+            <div style="font-size: 48px; margin-bottom: 20px;">⭐</div>
+            <h3 style="font-size: 24px; font-weight: 600; color: #671c19; margin-bottom: 15px;">Happy Customers</h3>
+            <p style="color: #666; line-height: 1.7; font-size: 15px;">Personalized experiences at scale</p>
+          </div>
+
         </div>
+      </div>
+
+      <!-- Industries Section -->
+      <div style="max-width: 1200px; margin: 80px auto; padding: 50px 40px; background: #fff8f0; border-radius: 20px;">
+        <h2 style="font-size: 42px; font-weight: 700; color: #671c19; text-align: center; margin-bottom: 50px;">Industries We Serve</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;">
+
+          <div style="padding: 25px; background: white; border-radius: 12px; box-shadow: 0 3px 15px rgba(103,28,25,0.08); transition: all 0.3s;">
+            <h3 style="font-size: 20px; font-weight: 600; color: #671c19; margin-bottom: 10px; border-bottom: 2px solid #faf8f5; padding-bottom: 10px;">🏥 Healthcare</h3>
+            <p style="color: #666; line-height: 1.6; font-size: 14px;">Patient management, diagnostics & automation</p>
+          </div>
+
+          <div style="padding: 25px; background: white; border-radius: 12px; box-shadow: 0 3px 15px rgba(103,28,25,0.08); transition: all 0.3s;">
+            <h3 style="font-size: 20px; font-weight: 600; color: #671c19; margin-bottom: 10px; border-bottom: 2px solid #faf8f5; padding-bottom: 10px;">🛒 Retail</h3>
+            <p style="color: #666; line-height: 1.6; font-size: 14px;">Smart recommendations & inventory optimization</p>
+          </div>
+
+          <div style="padding: 25px; background: white; border-radius: 12px; box-shadow: 0 3px 15px rgba(103,28,25,0.08); transition: all 0.3s;">
+            <h3 style="font-size: 20px; font-weight: 600; color: #671c19; margin-bottom: 10px; border-bottom: 2px solid #faf8f5; padding-bottom: 10px;">🏭 Manufacturing</h3>
+            <p style="color: #666; line-height: 1.6; font-size: 14px;">Quality control & predictive maintenance</p>
+          </div>
+
+          <div style="padding: 25px; background: white; border-radius: 12px; box-shadow: 0 3px 15px rgba(103,28,25,0.08); transition: all 0.3s;">
+            <h3 style="font-size: 20px; font-weight: 600; color: #671c19; margin-bottom: 10px; border-bottom: 2px solid #faf8f5; padding-bottom: 10px;">💳 Finance</h3>
+            <p style="color: #666; line-height: 1.6; font-size: 14px;">Fraud detection & risk assessment</p>
+          </div>
+
+          <div style="padding: 25px; background: white; border-radius: 12px; box-shadow: 0 3px 15px rgba(103,28,25,0.08); transition: all 0.3s;">
+            <h3 style="font-size: 20px; font-weight: 600; color: #671c19; margin-bottom: 10px; border-bottom: 2px solid #faf8f5; padding-bottom: 10px;">🏠 Real Estate</h3>
+            <p style="color: #666; line-height: 1.6; font-size: 14px;">Property valuation & lead qualification</p>
+          </div>
+
+          <div style="padding: 25px; background: white; border-radius: 12px; box-shadow: 0 3px 15px rgba(103,28,25,0.08); transition: all 0.3s;">
+            <h3 style="font-size: 20px; font-weight: 600; color: #671c19; margin-bottom: 10px; border-bottom: 2px solid #faf8f5; padding-bottom: 10px;">⚖️ Legal</h3>
+            <p style="color: #666; line-height: 1.6; font-size: 14px;">Contract analysis & document automation</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- CTA Section -->
+      <div style="max-width: 1000px; margin: 80px auto; text-align: center; padding: 60px 40px; background: linear-gradient(135deg, #671c19 0%, #8B4513 100%); border-radius: 20px; color: white;">
+        <h2 style="font-size: 40px; font-weight: 600; margin-bottom: 20px;">Ready to Transform Your Business with AI?</h2>
+        <p style="font-size: 18px; margin-bottom: 30px; opacity: 0.9;">Let's discuss how BORDO can help you leverage AI and automation to achieve your business goals.</p>
+        <a href="contact.html" style="display: inline-block; padding: 18px 40px; background: white; color: #671c19; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 18px; transition: all 0.3s; box-shadow: 0 5px 20px rgba(0,0,0,0.2);">Schedule a Free Consultation</a>
+      </div>
+    </div>
+
+    <!-- Branding & Marketing Tab -->
+    <div class="tab-content" id="branding-marketing-content">
+      <div class="section-header">
+        <h1>Branding & Marketing</h1>
+        <p>Powered by MerlinsGroup - Creating compelling brand experiences and data-driven marketing strategies</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>Brand Identity & Design</h3>
+          <p>Craft a unique brand identity that resonates with your audience.</p>
+          <ul>
+            <li>Logo Design & Brand Guidelines</li>
+            <li>Visual Identity Systems</li>
+            <li>Brand Messaging & Positioning</li>
+            <li>Brand Architecture</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <h3>Digital Marketing</h3>
+          <p>Comprehensive digital marketing strategies to grow your online presence.</p>
+          <ul>
+            <li>SEO & Content Marketing</li>
+            <li>Social Media Management</li>
+            <li>PPC & Paid Advertising</li>
+            <li>Email Marketing Campaigns</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <h3>Web & App Development</h3>
+          <p>Beautiful, functional websites and mobile applications that convert.</p>
+          <ul>
+            <li>Custom Website Development</li>
+            <li>Mobile App Design & Development</li>
+            <li>E-commerce Solutions</li>
+            <li>UI/UX Design</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <h3>Content Creation</h3>
+          <p>Engaging content that tells your story and connects with customers.</p>
+          <ul>
+            <li>Copywriting & Content Strategy</li>
+            <li>Video Production & Photography</li>
+            <li>Graphic Design & Illustration</li>
+            <li>Podcast & Audio Production</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <h3>Marketing Automation</h3>
+          <p>Streamline your marketing efforts with intelligent automation tools.</p>
+          <ul>
+            <li>CRM Implementation & Integration</li>
+            <li>Lead Nurturing Workflows</li>
+            <li>Marketing Analytics & Reporting</li>
+            <li>Personalization Engines</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <h3>Growth Strategy</h3>
+          <p>Strategic planning and execution to scale your business growth.</p>
+          <ul>
+            <li>Market Research & Analysis</li>
+            <li>Customer Journey Mapping</li>
+            <li>Conversion Rate Optimization</li>
+            <li>Performance Tracking & KPIs</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Benefits Section -->
+      <div style="max-width: 1200px; margin: 80px auto; padding: 0 20px;">
+        <h2 style="font-size: 42px; font-weight: 700; color: #671c19; text-align: center; margin-bottom: 60px;">Why Invest in Marketing?</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+
+          <div style="background: linear-gradient(135deg, #faf8f5 0%, #f5f0ea 100%); padding: 35px 30px; border-radius: 15px; text-align: center; transition: transform 0.3s; border: 3px solid transparent;">
+            <div style="font-size: 48px; margin-bottom: 20px;">🎯</div>
+            <h3 style="font-size: 24px; font-weight: 600; color: #671c19; margin-bottom: 15px;">Stand Out</h3>
+            <p style="color: #666; line-height: 1.7; font-size: 15px;">Build memorable brand recognition</p>
+          </div>
+
+          <div style="background: linear-gradient(135deg, #faf8f5 0%, #f5f0ea 100%); padding: 35px 30px; border-radius: 15px; text-align: center; transition: transform 0.3s; border: 3px solid transparent;">
+            <div style="font-size: 48px; margin-bottom: 20px;">📈</div>
+            <h3 style="font-size: 24px; font-weight: 600; color: #671c19; margin-bottom: 15px;">Grow Revenue</h3>
+            <p style="color: #666; line-height: 1.7; font-size: 15px;">Predictable & scalable growth</p>
+          </div>
+
+          <div style="background: linear-gradient(135deg, #faf8f5 0%, #f5f0ea 100%); padding: 35px 30px; border-radius: 15px; text-align: center; transition: transform 0.3s; border: 3px solid transparent;">
+            <div style="font-size: 48px; margin-bottom: 20px;">💬</div>
+            <h3 style="font-size: 24px; font-weight: 600; color: #671c19; margin-bottom: 15px;">Tell Your Story</h3>
+            <p style="color: #666; line-height: 1.7; font-size: 15px;">Connect with your audience</p>
+          </div>
+
+          <div style="background: linear-gradient(135deg, #faf8f5 0%, #f5f0ea 100%); padding: 35px 30px; border-radius: 15px; text-align: center; transition: transform 0.3s; border: 3px solid transparent;">
+            <div style="font-size: 48px; margin-bottom: 20px;">🚀</div>
+            <h3 style="font-size: 24px; font-weight: 600; color: #671c19; margin-bottom: 15px;">Stay Ahead</h3>
+            <p style="color: #666; line-height: 1.7; font-size: 15px;">Outpace your competition</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Business Types Section -->
+      <div style="max-width: 1200px; margin: 80px auto; padding: 50px 40px; background: #fff8f0; border-radius: 20px;">
+        <h2 style="font-size: 42px; font-weight: 700; color: #671c19; text-align: center; margin-bottom: 50px;">Perfect For Your Business</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;">
+
+          <div style="padding: 25px; background: white; border-radius: 12px; box-shadow: 0 3px 15px rgba(103,28,25,0.08); transition: all 0.3s;">
+            <h3 style="font-size: 20px; font-weight: 600; color: #671c19; margin-bottom: 10px; border-bottom: 2px solid #faf8f5; padding-bottom: 10px;">🚀 Startups</h3>
+            <p style="color: #666; line-height: 1.6; font-size: 14px;">Brand launch & growth strategies</p>
+          </div>
+
+          <div style="padding: 25px; background: white; border-radius: 12px; box-shadow: 0 3px 15px rgba(103,28,25,0.08); transition: all 0.3s;">
+            <h3 style="font-size: 20px; font-weight: 600; color: #671c19; margin-bottom: 10px; border-bottom: 2px solid #faf8f5; padding-bottom: 10px;">🛍️ E-commerce</h3>
+            <p style="color: #666; line-height: 1.6; font-size: 14px;">Conversion optimization & automation</p>
+          </div>
+
+          <div style="padding: 25px; background: white; border-radius: 12px; box-shadow: 0 3px 15px rgba(103,28,25,0.08); transition: all 0.3s;">
+            <h3 style="font-size: 20px; font-weight: 600; color: #671c19; margin-bottom: 10px; border-bottom: 2px solid #faf8f5; padding-bottom: 10px;">💼 B2B Services</h3>
+            <p style="color: #666; line-height: 1.6; font-size: 14px;">Lead generation & thought leadership</p>
+          </div>
+
+          <div style="padding: 25px; background: white; border-radius: 12px; box-shadow: 0 3px 15px rgba(103,28,25,0.08); transition: all 0.3s;">
+            <h3 style="font-size: 20px; font-weight: 600; color: #671c19; margin-bottom: 10px; border-bottom: 2px solid #faf8f5; padding-bottom: 10px;">📍 Local Business</h3>
+            <p style="color: #666; line-height: 1.6; font-size: 14px;">Local SEO & reputation management</p>
+          </div>
+
+          <div style="padding: 25px; background: white; border-radius: 12px; box-shadow: 0 3px 15px rgba(103,28,25,0.08); transition: all 0.3s;">
+            <h3 style="font-size: 20px; font-weight: 600; color: #671c19; margin-bottom: 10px; border-bottom: 2px solid #faf8f5; padding-bottom: 10px;">💻 SaaS</h3>
+            <p style="color: #666; line-height: 1.6; font-size: 14px;">Product-led growth & onboarding</p>
+          </div>
+
+          <div style="padding: 25px; background: white; border-radius: 12px; box-shadow: 0 3px 15px rgba(103,28,25,0.08); transition: all 0.3s;">
+            <h3 style="font-size: 20px; font-weight: 600; color: #671c19; margin-bottom: 10px; border-bottom: 2px solid #faf8f5; padding-bottom: 10px;">⚡ Professional Services</h3>
+            <p style="color: #666; line-height: 1.6; font-size: 14px;">Authority building & client acquisition</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- CTA Section -->
+      <div style="max-width: 1000px; margin: 80px auto; text-align: center; padding: 60px 40px; background: linear-gradient(135deg, #671c19 0%, #8B4513 100%); border-radius: 20px; color: white;">
+        <h2 style="font-size: 40px; font-weight: 600; margin-bottom: 20px;">Ready to Elevate Your Brand?</h2>
+        <p style="font-size: 18px; margin-bottom: 30px; opacity: 0.9;">Let's create a marketing strategy that drives real results for your business with MerlinsGroup.</p>
+        <a href="contact.html" style="display: inline-block; padding: 18px 40px; background: white; color: #671c19; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 18px; transition: all 0.3s; box-shadow: 0 5px 20px rgba(0,0,0,0.2);">Get Your Free Strategy Session</a>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // After animation completes, fade out animation and show split screen
+    setTimeout(() => {
+      const animationContainer = document.getElementById('animationContainer');
+      const splitContainer = document.getElementById('splitContainer');
+
+      animationContainer.style.transition = 'opacity 1s ease-out';
+      animationContainer.style.opacity = '0';
+
+      setTimeout(() => {
+        animationContainer.style.display = 'none';
+        splitContainer.classList.add('active');
+      }, 1000);
+    }, 3200);
+
+    // Move X symbol and images with hover
+    const leftSide = document.getElementById('leftSide');
+    const rightSide = document.getElementById('rightSide');
+    const centerX = document.getElementById('centerX');
+    const leftImage = document.getElementById('leftImage');
+    const rightImage = document.getElementById('rightImage');
+
+    // Check if device is touch-enabled
+    const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+
+    // Hover effects for desktop only
+    if (!isTouchDevice) {
+      leftSide.addEventListener('mouseenter', () => {
+        const shiftAmount = window.innerWidth * 0.05; // 5% of viewport width
+        centerX.style.transform = `translate(-50%, -50%) translateX(${shiftAmount}px)`;
+        leftImage.style.width = `${45 + 5}vw`;
+        leftImage.style.left = '0';
+        rightImage.style.width = `${45 - 5}vw`;
+        rightImage.style.left = `${55}%`;
+      });
+
+      leftSide.addEventListener('mouseleave', () => {
+        centerX.style.transform = 'translate(-50%, -50%)';
+        leftImage.style.width = '50vw';
+        leftImage.style.left = '0';
+        rightImage.style.width = '50vw';
+        rightImage.style.left = '50%';
+      });
+
+      rightSide.addEventListener('mouseenter', () => {
+        const shiftAmount = window.innerWidth * 0.05; // 5% of viewport width
+        centerX.style.transform = `translate(-50%, -50%) translateX(-${shiftAmount}px)`;
+        leftImage.style.width = `${45 - 5}vw`;
+        leftImage.style.left = '0';
+        rightImage.style.width = `${45 + 5}vw`;
+        rightImage.style.left = `${45}%`;
+      });
+
+      rightSide.addEventListener('mouseleave', () => {
+        centerX.style.transform = 'translate(-50%, -50%)';
+        leftImage.style.width = '50vw';
+        leftImage.style.left = '0';
+        rightImage.style.width = '50vw';
+        rightImage.style.left = '50%';
+      });
+    }
+
+    // Handle side clicks to scroll and switch tabs
+    leftSide.addEventListener('click', (e) => {
+      e.preventDefault();
+      expandAndShowServices('ai-automation');
+    });
+
+    rightSide.addEventListener('click', (e) => {
+      e.preventDefault();
+      expandAndShowServices('branding-marketing');
+    });
+
+    function expandAndShowServices(tabName) {
+      // Enable body scrolling
+      document.body.classList.add('expanded');
+
+      // Show services section
+      const servicesSection = document.getElementById('services-section');
+      servicesSection.classList.add('visible');
+
+      // Switch to the selected tab
+      switchToTab(tabName);
+
+      // Scroll to top
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+
+    // Tab switching functionality
+    const tabButtons = document.querySelectorAll('.tab-button');
+
+    function switchToTab(tabName) {
+      // Remove active class from all buttons and contents
+      tabButtons.forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+
+      // Add active class to selected tab
+      const selectedButton = document.querySelector(`[data-tab="${tabName}"]`);
+      const selectedContent = document.getElementById(`${tabName}-content`);
+
+      if (selectedButton && selectedContent) {
+        selectedButton.classList.add('active');
+        selectedContent.classList.add('active');
+      }
+    }
+
+    // Add click event to tab buttons
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const tabName = button.getAttribute('data-tab');
+        switchToTab(tabName);
+      });
+    });
+
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const closeMenu = document.getElementById('closeMenu');
+
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.add('active');
+    });
+
+    closeMenu.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+    });
+
+    // Dropdown menu control
+    const dropdowns = document.querySelectorAll('.dropdown');
+
+    dropdowns.forEach(dropdown => {
+      const dropdownMenu = dropdown.querySelector('.dropdown-menu');
+
+      dropdown.addEventListener('mouseenter', () => {
+        dropdownMenu.classList.add('show');
+      });
+
+      dropdown.addEventListener('mouseleave', () => {
+        dropdownMenu.classList.remove('show');
+      });
+    });
+  </script>
+
+  <!-- Footer Start -->
+  <style>
+    .footer {
+      background-color: #ffffff;
+      color: #2d1810;
+      padding: 0;
+      position: relative;
+    }
+
+    .footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 5%;
+      right: 5%;
+      height: 3px;
+      background-color: #671c19;
+    }
+
+    .footer-inner {
+      padding: 60px 5% 30px;
+    }
+
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      max-width: 1400px;
+      margin: 0 auto;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+
+    .footer-column {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .footer-column h3 {
+      color: #671c19;
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 12px;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .footer-column ul li a {
+      color: #2d1810;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-column ul li a:hover {
+      color: #671c19;
+    }
+
+    .footer-column ul.contact li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .footer-logo {
+      flex: 0 0 auto;
+      text-align: center;
+    }
+
+    .footer-logo img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background-color: white;
+      padding: 20px;
+      object-fit: contain;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 50px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(45, 24, 16, 0.1);
+      font-size: 14px;
+      color: #8b7355;
+    }
+
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        gap: 40px;
+      }
+
+      .footer-logo {
+        order: -1;
+      }
+    }
+  </style>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-container">
+      <div class="footer-column">
+        <h3>INFORMATION</h3>
+        <ul>
+          <li><a href="#">About Our Company</a></li>
+          <li><a href="#">Careers at Company</a></li>
+          <li><a href="#">Our Latest Projects</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3>CONTACT US</h3>
+        <ul class="contact">
+          <li>📞 0121 792 9167</li>
+          <li>✉️ <a href="mailto:info@bordodesign.com">info@bordodesign.com</a></li>
+          <li>📅 <a href="#">Schedule a Consultation</a></li>
+          <li>📍 30-34 Rookery Road, Birmingham, B21 9NB</li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3>FOLLOW US</h3>
+        <ul class="social-links">
+          <li><a href="#" target="_blank">LinkedIn</a></li>
+          <li><a href="#" target="_blank">Instagram</a></li>
+          <li><a href="#" target="_blank">Facebook</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-logo">
+        <img src="logologo.png" alt="Bordo Design Logo">
+      </div>
+    </div>
+
+      <div class="footer-bottom">
+        © Bordo Design Ltd
       </div>
     </div>
   </footer>
+  <!-- Footer End -->
 
-  <!-- Essential JS - Optimized loading -->
-  <script src="js/bootstrap.min.js" defer></script>
-  <script src="js/all.min.js" defer></script>
-  <script src="js/wow.min.js" defer></script>
-  <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-  
-  <!-- Optimized inline JavaScript -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Check if this is a conversion visit (for Google Ads tracking)
-      const urlParams = new URLSearchParams(window.location.search);
-      if (urlParams.get('conversion') === 'scheduled') {
-        console.log('Conversion parameter detected - firing conversion tracking');
-        
-        // Fire Google Ads conversion immediately
-        if (typeof gtag !== 'undefined') {
-          gtag('event', 'conversion', {
-            'send_to': 'AW-XXXXXXXXX/XXXXXXXXXXXXXX', // REPLACE with your actual conversion ID/label
-            'value': 50.0,
-            'currency': 'GBP',
-            'transaction_id': Date.now().toString()
-          });
-          
-          // Also track in Google Analytics
-          gtag('event', 'appointment_confirmed', {
-            'event_category': 'conversions',
-            'event_label': 'consultation_scheduled',
-            'value': 50
-          });
-          
-          console.log('Google Ads conversion fired for scheduled appointment');
-        }
-      }
-      
-      // Preloader
-      const preloader = document.querySelector('.preloader');
-      window.addEventListener('load', function() {
-        preloader.style.display = 'none';
-      });
-      
-      // Elements
-      const header = document.querySelector('.main-header');
-      const menuToggle = document.getElementById('menuToggle');
-      const mobileMenu = document.getElementById('mobileMenu');
-      const closeMenu = document.getElementById('closeMenu');
-      
-      // Show/hide mobile menu toggle based on screen size
-      function adjustForScreenSize() {
-        if (window.innerWidth <= 991) {
-          menuToggle.style.display = 'block';
-          document.getElementById('mainNav').style.display = 'none';
-        } else {
-          menuToggle.style.display = 'none';
-          document.getElementById('mainNav').style.display = 'flex';
-          mobileMenu.style.transform = 'translateY(-100%)';
-        }
-      }
-      
-      // Initialize
-      adjustForScreenSize();
-
-      // Dropdown functionality for desktop navigation
-      const dropdowns = document.querySelectorAll('.dropdown');
-      dropdowns.forEach(dropdown => {
-        const toggle = dropdown.querySelector('.dropdown-toggle');
-        const menu = dropdown.querySelector('.dropdown-menu');
-
-        if (menu && toggle) {
-          // Show dropdown on hover
-          dropdown.addEventListener('mouseenter', function() {
-            menu.style.display = 'block';
-          });
-
-          dropdown.addEventListener('mouseleave', function() {
-            menu.style.display = 'none';
-          });
-
-          // Also handle click for mobile/touch
-          toggle.addEventListener('click', function(e) {
-            e.preventDefault();
-            if (menu.style.display === 'block') {
-              menu.style.display = 'none';
-            } else {
-              // Close other dropdowns
-              document.querySelectorAll('.dropdown-menu').forEach(otherMenu => {
-                if (otherMenu !== menu) {
-                  otherMenu.style.display = 'none';
-                }
-              });
-              menu.style.display = 'block';
-            }
-          });
-        }
-      });
-
-      // Close dropdowns when clicking outside
-      document.addEventListener('click', function(e) {
-        if (!e.target.closest('.dropdown')) {
-          document.querySelectorAll('.dropdown-menu').forEach(menu => {
-            menu.style.display = 'none';
-          });
-        }
-      });
-
-      // Toggle mobile menu
-      menuToggle.addEventListener('click', function() {
-        mobileMenu.style.transform = 'translateY(0)';
-        document.body.style.overflow = 'hidden'; // Prevent scrolling while menu is open
-      });
-      
-      closeMenu.addEventListener('click', function() {
-        mobileMenu.style.transform = 'translateY(-100%)';
-        document.body.style.overflow = '';
-      });
-      
-      // Handle window resize
-      window.addEventListener('resize', adjustForScreenSize);
-      
-      // Throttled scroll handler for better performance
-      let lastScrollPosition = 0;
-      let ticking = false;
-      
-      function checkScroll() {
-        if (window.scrollY > 60) {
-          header.classList.add('scrolled');
-        } else {
-          header.classList.remove('scrolled');
-        }
-        ticking = false;
-      }
-      
-      window.addEventListener('scroll', function() {
-        lastScrollPosition = window.scrollY;
-        if (!ticking) {
-          window.requestAnimationFrame(function() {
-            checkScroll();
-            ticking = false;
-          });
-          ticking = true;
-        }
-      });
-      
-      // Check on page load
-      checkScroll();
-      
-      // Initialize WOW.js animations if available
-      if (typeof WOW === 'function') {
-        new WOW().init();
-      }
-      
-      // Bootstrap components initialization
-      const accordionItems = document.querySelectorAll('.accordion-button');
-      accordionItems.forEach(item => {
-        item.addEventListener('click', function() {
-          const target = document.querySelector(this.getAttribute('data-bs-target'));
-          if (target) {
-            if (target.classList.contains('show')) {
-              target.classList.remove('show');
-              this.classList.add('collapsed');
-              this.setAttribute('aria-expanded', 'false');
-            } else {
-              // Close all other accordions
-              document.querySelectorAll('.accordion-collapse.show').forEach(el => {
-                if (el.id !== target.id) {
-                  el.classList.remove('show');
-                  document.querySelector(`[aria-controls="${el.id}"]`).classList.add('collapsed');
-                  document.querySelector(`[aria-controls="${el.id}"]`).setAttribute('aria-expanded', 'false');
-                }
-              });
-              
-              target.classList.add('show');
-              this.classList.remove('collapsed');
-              this.setAttribute('aria-expanded', 'true');
-            }
-          }
-        });
-      });
-    });
-  </script>
-  
-  <!-- Calendly Conversion Tracking -->
-  <script>
-    // Listen for Calendly booking confirmations
-    window.addEventListener('message', function(e) {
-      // Verify the message is from Calendly
-      if (e.origin === "https://calendly.com" && e.data.event) {
-        console.log('Calendly event received:', e.data.event);
-        
-        // Check if it's a successful booking
-        if (e.data.event === 'calendly.event_scheduled') {
-          console.log('Appointment successfully scheduled!');
-          
-          // Option 1: Fire conversion directly
-          if (typeof gtag !== 'undefined') {
-            gtag('event', 'conversion', {
-              'send_to': 'AW-XXXXXXXXX/XXXXXXXXXXXXXX', // REPLACE with your actual conversion ID/label
-              'value': 50.0,
-              'currency': 'GBP',
-              'transaction_id': Date.now().toString()
-            });
-            
-            // Also track in Google Analytics for better insights
-            gtag('event', 'appointment_scheduled', {
-              'event_category': 'engagement',
-              'event_label': 'consultation_booking',
-              'value': 50
-            });
-            
-            console.log('Google Ads conversion tracked!');
-          }
-          
-          // Option 2: Redirect to the same page with conversion parameter
-          // This ensures Google Ads can track the conversion through the URL
-          window.location.href = 'https://www.bordodesign.com/contact?conversion=scheduled';
-          
-          // Show a nice success message
-          const successMessage = document.createElement('div');
-          successMessage.style.cssText = `
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: #4CAF50;
-            color: white;
-            padding: 20px 30px;
-            border-radius: 5px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            z-index: 9999;
-            animation: slideIn 0.3s ease-out;
-          `;
-          successMessage.innerHTML = `
-            <strong>✓ Booking Confirmed!</strong><br>
-            Check your email for confirmation details.
-          `;
-          document.body.appendChild(successMessage);
-          
-          // Remove message after 5 seconds
-          setTimeout(() => {
-            successMessage.style.animation = 'slideOut 0.3s ease-in';
-            setTimeout(() => successMessage.remove(), 300);
-          }, 5000);
-        }
-      }
-    });
-    
-    // Add animation styles for success message
-    if (!document.getElementById('calendly-animations')) {
-      const style = document.createElement('style');
-      style.id = 'calendly-animations';
-      style.textContent = `
-        @keyframes slideIn {
-          from { transform: translateX(100%); opacity: 0; }
-          to { transform: translateX(0); opacity: 1; }
-        }
-        @keyframes slideOut {
-          from { transform: translateX(0); opacity: 1; }
-          to { transform: translateX(100%); opacity: 0; }
-        }
-      `;
-      document.head.appendChild(style);
-    }
-  </script>
-  
-  <!-- Calendly Conversion Tracking -->
-  <script>
-    // Listen for Calendly booking confirmations
-    window.addEventListener('message', function(e) {
-      // Verify the message is from Calendly
-      if (e.origin === "https://calendly.com" && e.data.event) {
-        console.log('Calendly event received:', e.data.event);
-        
-        // Check if it's a successful booking
-        if (e.data.event === 'calendly.event_scheduled') {
-          console.log('Appointment successfully scheduled!');
-          
-          // Fire Google Ads conversion
-          // IMPORTANT: Replace 'AW-XXXXXXXXX/XXXXXXXXXXXXXX' with your actual conversion ID and label
-          if (typeof gtag !== 'undefined') {
-            gtag('event', 'conversion', {
-              'send_to': 'AW-XXXXXXXXX/XXXXXXXXXXXXXX', // <-- REPLACE THIS
-              'value': 50.0,
-              'currency': 'GBP',
-              'transaction_id': '' // Let Google generate this
-            });
-            
-            // Also track in Google Analytics for better insights
-            gtag('event', 'appointment_scheduled', {
-              'event_category': 'engagement',
-              'event_label': 'consultation_booking',
-              'value': 50
-            });
-            
-            console.log('Google Ads conversion tracked!');
-          }
-          
-          // Optional: Show a nice success message instead of alert
-          // You can customize this or remove it entirely
-          const successMessage = document.createElement('div');
-          successMessage.style.cssText = `
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: #4CAF50;
-            color: white;
-            padding: 20px 30px;
-            border-radius: 5px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            z-index: 9999;
-            animation: slideIn 0.3s ease-out;
-          `;
-          successMessage.innerHTML = `
-            <strong>✓ Booking Confirmed!</strong><br>
-            Check your email for confirmation details.
-          `;
-          document.body.appendChild(successMessage);
-          
-          // Remove message after 5 seconds
-          setTimeout(() => {
-            successMessage.style.animation = 'slideOut 0.3s ease-in';
-            setTimeout(() => successMessage.remove(), 300);
-          }, 5000);
-        }
-      }
-    });
-    
-    // Add animation styles for success message
-    const style = document.createElement('style');
-    style.textContent = `
-      @keyframes slideIn {
-        from { transform: translateX(100%); opacity: 0; }
-        to { transform: translateX(0); opacity: 1; }
-      }
-      @keyframes slideOut {
-        from { transform: translateX(0); opacity: 1; }
-        to { transform: translateX(100%); opacity: 0; }
-      }
-    `;
-    document.head.appendChild(style);
-  </script>
-
-  <!-- Load navbar component -->
-  <script src="js/navbar-loader.js"></script>
 </body>
 </html>
